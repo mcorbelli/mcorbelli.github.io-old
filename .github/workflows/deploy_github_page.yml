@@ -1,8 +1,10 @@
 name: deploy-github-page
+
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,4 +17,4 @@ jobs:
       - run: git config user.email github-actions@github.com
       - run: git --work-tree build/web add --all
       - run: git commit -m "Automatic deployment by Github-Actions"
-      - run: git push origin HEAD:GH_PAGES --force
+      - run: git push origin HEAD:gh-pages --force
