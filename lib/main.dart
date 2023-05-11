@@ -10,7 +10,7 @@ class Portfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portfolio Web',
+      title: "Corbelli Mattia - Portfolio",
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0XFF000115),
       ),
