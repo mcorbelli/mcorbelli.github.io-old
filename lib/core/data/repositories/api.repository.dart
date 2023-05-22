@@ -21,7 +21,7 @@ class ApiRepository {
   Future<void> updateVisits() async {
     try {
       await _dio.post(UrlConst.updateVisits);
-    } on DioError catch (error, stacktrace) {
+    } on DioError catch (error) {
       switch (error.type) {
         case DioErrorType.connectionTimeout:
         case DioErrorType.receiveTimeout:
@@ -32,7 +32,7 @@ class ApiRepository {
         default:
           throw const RestException('Errore in fase di risposta');
       }
-    } catch (error, stacktrace) {
+    } catch (error) {
       throw const RestException('Errore durante la chiamata');
     }
   }

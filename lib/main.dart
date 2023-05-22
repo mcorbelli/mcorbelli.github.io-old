@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'dart:developer' as developer;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_web/core/utils/observer.bloc.dart';
 import 'package:url_strategy/url_strategy.dart' as strategy;
@@ -14,14 +11,9 @@ void main() {
     FlutterError.dumpErrorToConsole(details);
   };
 
-  runZonedGuarded(() {
-    WidgetsFlutterBinding.ensureInitialized();
-    strategy.setPathUrlStrategy();
-    Bloc.observer = AppBlocObserver();
-    runApp(const Portfolio());
-  }, (error, stack) {
-    developer.log('Something wrong!', error: error, stackTrace: stack);
-  });
+  strategy.setPathUrlStrategy();
+  Bloc.observer = AppBlocObserver();
+  runApp(const Portfolio());
 }
 
 class Portfolio extends StatefulWidget {

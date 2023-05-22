@@ -52,7 +52,7 @@ flutter_native_splash:
   # image_ios: assets/splash-ios.png
   # image_dark_ios: assets/splash-invert-ios.png
   image_web: assets/loading-dark.gif
-  # image_dark_web: assets/splash-invert-web.gif
+  image_dark_web: assets/loading-dark.gif
   # background_image_android: "assets/background-android.png"
   # background_image_dark_android: "assets/dark-background-android.png"
   # background_image_ios: "assets/background-ios.png"
