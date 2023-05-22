@@ -1,105 +1,65 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_strategy/url_strategy.dart';
+import 'dart:developer' as developer;
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_web/core/utils/observer.bloc.dart';
+import 'package:url_strategy/url_strategy.dart' as strategy;
+
+import 'package:portfolio_web/core/data/repositories/api.repository.dart';
+import 'package:portfolio_web/core/utils/route_manager.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
-  runApp(const Portfolio());
+  FlutterError.onError = (details) {
+    FlutterError.dumpErrorToConsole(details);
+  };
+
+  runZonedGuarded(() {
+    WidgetsFlutterBinding.ensureInitialized();
+    strategy.setPathUrlStrategy();
+    Bloc.observer = AppBlocObserver();
+    runApp(const Portfolio());
+  }, (error, stack) {
+    developer.log('Something wrong!', error: error, stackTrace: stack);
+  });
 }
 
-class Portfolio extends StatelessWidget {
+class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Corbelli Mattia - Portfolio",
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0XFF000115),
-      ),
-      home: const PortfolioPage(),
-    );
-  }
+  State<Portfolio> createState() => _PortfolioState();
 }
 
-class PortfolioPage extends StatelessWidget {
-  const PortfolioPage({super.key});
+class _PortfolioState extends State<Portfolio> {
+  late RouteManager _routeManager;
+  late ApiRepository _apiRepository;
+
+  @override
+  void initState() {
+    _routeManager = RouteManager();
+    _apiRepository = ApiRepository();
+    // _apiRepository.updateVisits();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned(
-            right: 10.0,
-            bottom: 10.0,
-            child: AppVersion(),
-          ),
-          OwnerInfo(),
-        ],
-      ),
-    );
-  }
-}
-
-class AppVersion extends StatelessWidget {
-  const AppVersion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<PackageInfo>(
-      future: PackageInfo.fromPlatform(),
-      builder: (_, snapshot) {
-        String versionLabel = 'Loading ...';
-
-        if (snapshot.hasError) {
-          versionLabel = 'Something went wrong :(';
-        } else if (snapshot.hasData) {
-          versionLabel = 'v${snapshot.data!.version}';
-        }
-
-        return Text(
-          versionLabel,
-          style: const TextStyle(
-            fontSize: 10.0,
-            color: Colors.white,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class OwnerInfo extends StatelessWidget {
-  const OwnerInfo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'PORTFOLIO',
-          style: TextStyle(
-            fontSize: 48.0,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          height: 16.0,
-        ),
-        Text(
-          'Corbelli Mattia',
-          style: TextStyle(
-            fontSize: 24.0,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<ApiRepository>.value(
+          value: _apiRepository,
         ),
       ],
+      child: MaterialApp.router(
+        title: 'Corbelli Mattia - Portfolio',
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color(0XFF000115),
+        ),
+        routeInformationParser: _routeManager.infoParser,
+        routerDelegate: _routeManager.routerDelegate,
+        routeInformationProvider: _routeManager.infoProvider,
+      ),
     );
   }
 }
