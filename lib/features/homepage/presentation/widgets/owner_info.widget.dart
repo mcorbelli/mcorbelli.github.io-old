@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:portfolio_web/core/styles/text.theme.dart';
+
 class OwnerInfo extends StatelessWidget {
   const OwnerInfo({super.key});
 
@@ -8,25 +10,8 @@ class OwnerInfo extends StatelessWidget {
     return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          'PORTFOLIO',
-          style: TextStyle(
-            fontSize: 48.0,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          height: 16.0,
-        ),
-        Text(
-          'Corbelli Mattia',
-          style: TextStyle(
-            fontSize: 24.0,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        DisplayLarge('portfolio'),
+        DisplaySmall('developed_in'),
       ],
     );
   }

@@ -1,19 +1,29 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_web/core/utils/observer.bloc.dart';
 import 'package:url_strategy/url_strategy.dart' as strategy;
 
-import 'package:portfolio_web/core/data/repositories/api.repository.dart';
+import 'package:portfolio_web/core/styles/portfolio.theme.dart';
+import 'package:portfolio_web/core/utils/observer.bloc.dart';
+import 'package:portfolio_web/core/data/repositories/remote.repository.dart';
 import 'package:portfolio_web/core/utils/route_manager.dart';
+import 'package:portfolio_web/core/data/locales.enum.dart';
 
-void main() {
+Future<void> main() async {
   FlutterError.onError = (details) {
     FlutterError.dumpErrorToConsole(details);
   };
 
+  await EasyLocalization.ensureInitialized();
   strategy.setPathUrlStrategy();
   Bloc.observer = AppBlocObserver();
-  runApp(const Portfolio());
+
+  runApp(EasyLocalization(
+    supportedLocales: Locales.available,
+    fallbackLocale: Locales.fallback,
+    path: 'assets/localization',
+    child: const Portfolio(),
+  ));
 }
 
 class Portfolio extends StatefulWidget {
@@ -25,12 +35,12 @@ class Portfolio extends StatefulWidget {
 
 class _PortfolioState extends State<Portfolio> {
   late RouteManager _routeManager;
-  late ApiRepository _apiRepository;
+  late RemoteRepository _apiRepository;
 
   @override
   void initState() {
     _routeManager = RouteManager();
-    _apiRepository = ApiRepository();
+    _apiRepository = RemoteRepository();
     // _apiRepository.updateVisits();
     super.initState();
   }
@@ -39,18 +49,20 @@ class _PortfolioState extends State<Portfolio> {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<ApiRepository>.value(
+        RepositoryProvider<RemoteRepository>.value(
           value: _apiRepository,
         ),
       ],
       child: MaterialApp.router(
         title: 'Corbelli Mattia - Portfolio',
-        theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0XFF000115),
-        ),
+        theme: PortfolioTheme.light,
+        darkTheme: PortfolioTheme.dark,
         routeInformationParser: _routeManager.infoParser,
         routerDelegate: _routeManager.routerDelegate,
         routeInformationProvider: _routeManager.infoProvider,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
       ),
     );
   }

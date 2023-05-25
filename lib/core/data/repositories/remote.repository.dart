@@ -6,10 +6,10 @@ import 'package:portfolio_web/core/data/models/exceptions/backend.exception.dart
 import 'package:portfolio_web/core/data/models/exceptions/rest.exception.dart';
 import 'package:portfolio_web/core/data/models/exceptions/timeout.exception.dart';
 
-class ApiRepository {
+class RemoteRepository {
   late Dio _dio;
 
-  ApiRepository() {
+  RemoteRepository() {
     _dio = Dio(BaseOptions(
       baseUrl: UrlConst.domainName,
     ))

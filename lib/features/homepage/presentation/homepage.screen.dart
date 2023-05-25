@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
+import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/features/homepage/presentation/widgets/app_version.widget.dart';
 import 'package:portfolio_web/features/homepage/presentation/widgets/owner_info.widget.dart';
 
@@ -24,6 +25,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      appBar: CustomAppBar(
+        title: 'Corbelli Mattia',
+      ),
       body: Stack(
         fit: StackFit.expand,
         children: [
