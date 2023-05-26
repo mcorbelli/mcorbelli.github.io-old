@@ -55,11 +55,13 @@ class ThemeAction {
     required this.mode,
     required this.tooltip,
     required this.icon,
+    this.color,
   });
 
   final ThemeMode mode;
   final String tooltip;
   final IconData icon;
+  final Color? color;
 }
 
 final themes = <ThemeAction>[
@@ -72,11 +74,13 @@ final themes = <ThemeAction>[
     mode: ThemeMode.light,
     tooltip: tr('help_light_theme'),
     icon: Icons.light_mode,
+    color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     mode: ThemeMode.dark,
     tooltip: tr('help_dark_theme'),
     icon: Icons.dark_mode,
+    color: const Color(0XFF3271C2),
   ),
 ];
 
@@ -104,7 +108,11 @@ class _ThemeSelectorState extends State<_ThemeSelector> {
               },
               tooltip: e.tooltip,
               icon: Icon(e.icon),
-              isSelected: isActive,
+              color: (() {
+                if (isActive == true) {
+                  return e.color;
+                }
+              }()),
             );
           }).toList(),
         );
