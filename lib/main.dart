@@ -67,7 +67,7 @@ class _PortfolioState extends State<Portfolio> {
                 title: 'Corbelli Mattia - Portfolio',
                 theme: PortfolioTheme.lightTheme,
                 darkTheme: PortfolioTheme.darkTheme,
-                themeMode: state.mode,
+                themeMode: state.themeMode,
                 routeInformationParser: _routeManager.infoParser,
                 routerDelegate: _routeManager.routerDelegate,
                 routeInformationProvider: _routeManager.infoProvider,

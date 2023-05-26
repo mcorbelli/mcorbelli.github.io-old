@@ -64,12 +64,7 @@ class ThemeAction {
   final Color? color;
 }
 
-final themes = <ThemeAction>[
-  ThemeAction(
-    mode: ThemeMode.system,
-    tooltip: tr('help_system_theme'),
-    icon: Icons.computer,
-  ),
+final themes = [
   ThemeAction(
     mode: ThemeMode.light,
     tooltip: tr('help_light_theme'),
@@ -94,34 +89,56 @@ class _ThemeSelector extends StatefulWidget {
 class _ThemeSelectorState extends State<_ThemeSelector> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeBloc, ThemeState>(
-      builder: (context, state) {
-        return Row(
-          children: themes.map((e) {
-            final isActive = (e.mode == state.mode);
-
+    return Row(
+      children: [
+        BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
             return IconButton(
               onPressed: () {
-                if (isActive == false) {
-                  _onThemeSelected(e.mode);
-                }
+                _onSwitchSystemMode();
               },
-              tooltip: e.tooltip,
-              icon: Icon(e.icon),
+              tooltip: tr('help_system_theme'),
+              icon: const Icon(Icons.computer),
               color: (() {
-                if (isActive == true) {
-                  return e.color;
+                if (state.followSystem == true) {
+                  return Colors.green;
                 }
+                return Colors.red;
               }()),
             );
-          }).toList(),
-        );
-      },
+          },
+        ),
+        BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
+            return Row(
+              children: themes.map((e) {
+                return IconButton(
+                  onPressed: () {
+                    _onThemeSelected(e.mode);
+                  },
+                  tooltip: e.tooltip,
+                  icon: Icon(e.icon),
+                  color: (() {
+                    if (e.mode == state.themeMode) {
+                      return e.color;
+                    }
+                  }()),
+                );
+              }).toList(),
+            );
+          },
+        )
+      ],
     );
+  }
+
+  void _onSwitchSystemMode() {
+    final bloc = context.read<ThemeBloc>();
+    bloc.add(const ThemeEvent.switchSystemMode());
   }
 
   void _onThemeSelected(ThemeMode mode) {
     final bloc = context.read<ThemeBloc>();
-    bloc.add(ThemeEvent.themeChange(mode));
+    bloc.add(ThemeEvent.manualThemeChange(mode));
   }
 }
