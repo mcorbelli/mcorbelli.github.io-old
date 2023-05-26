@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -11,10 +12,10 @@ class AppVersion extends StatelessWidget {
     return FutureBuilder<PackageInfo>(
       future: PackageInfo.fromPlatform(),
       builder: (_, snapshot) {
-        String versionLabel = 'Loading ...';
+        String versionLabel = tr('app_version_loading');
 
         if (snapshot.hasError) {
-          versionLabel = 'Something went wrong :(';
+          versionLabel = tr('app_version_error');
         } else if (snapshot.hasData) {
           versionLabel = 'V ${snapshot.data!.version}';
         }

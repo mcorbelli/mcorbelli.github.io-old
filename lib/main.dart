@@ -6,6 +6,7 @@ import 'package:url_strategy/url_strategy.dart' as strategy;
 import 'package:portfolio_web/core/styles/portfolio.theme.dart';
 import 'package:portfolio_web/core/utils/observer.bloc.dart';
 import 'package:portfolio_web/core/data/repositories/remote.repository.dart';
+import 'package:portfolio_web/core/presentation/bloc/theme_bloc/theme_bloc.dart';
 import 'package:portfolio_web/core/utils/route_manager.dart';
 import 'package:portfolio_web/core/data/locales.enum.dart';
 
@@ -53,16 +54,30 @@ class _PortfolioState extends State<Portfolio> {
           value: _apiRepository,
         ),
       ],
-      child: MaterialApp.router(
-        title: 'Corbelli Mattia - Portfolio',
-        theme: PortfolioTheme.light,
-        darkTheme: PortfolioTheme.dark,
-        routeInformationParser: _routeManager.infoParser,
-        routerDelegate: _routeManager.routerDelegate,
-        routeInformationProvider: _routeManager.infoProvider,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<ThemeBloc>(
+            create: (_) => ThemeBloc(),
+          )
+        ],
+        child: Builder(builder: (context) {
+          return BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                title: 'Corbelli Mattia - Portfolio',
+                theme: PortfolioTheme.lightTheme,
+                darkTheme: PortfolioTheme.darkTheme,
+                themeMode: state.mode,
+                routeInformationParser: _routeManager.infoParser,
+                routerDelegate: _routeManager.routerDelegate,
+                routeInformationProvider: _routeManager.infoProvider,
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+              );
+            },
+          );
+        }),
       ),
     );
   }

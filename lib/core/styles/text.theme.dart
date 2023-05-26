@@ -1,6 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DisplayLarge extends StatelessWidget {
   final String label;
@@ -16,10 +14,8 @@ class DisplayLarge extends StatelessWidget {
     final current = textTheme.displayLarge;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -38,10 +34,8 @@ class DisplayMedium extends StatelessWidget {
     final current = textTheme.displayMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -60,10 +54,8 @@ class DisplaySmall extends StatelessWidget {
     final current = textTheme.displaySmall;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -82,10 +74,8 @@ class HeadlineLarge extends StatelessWidget {
     final current = textTheme.headlineLarge;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -104,10 +94,8 @@ class HeadlineMedium extends StatelessWidget {
     final current = textTheme.headlineMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -126,10 +114,8 @@ class HeadlineSmall extends StatelessWidget {
     final current = textTheme.headlineSmall;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -148,7 +134,7 @@ class TitleLarge extends StatelessWidget {
     final current = textTheme.titleLarge;
 
     return Text(
-      tr(label),
+      label,
       style: current?.copyWith(
         color: Colors.white,
       ),
@@ -170,10 +156,8 @@ class TitleMedium extends StatelessWidget {
     final current = textTheme.titleMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -192,10 +176,8 @@ class TitleSmall extends StatelessWidget {
     final current = textTheme.titleSmall;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -214,10 +196,8 @@ class BodyLarge extends StatelessWidget {
     final current = textTheme.bodyLarge;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -236,10 +216,8 @@ class BodyMedium extends StatelessWidget {
     final current = textTheme.bodyMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -258,10 +236,8 @@ class BodySmall extends StatelessWidget {
     final current = textTheme.bodySmall;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -280,10 +256,8 @@ class LabelLarge extends StatelessWidget {
     final current = textTheme.labelLarge;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -302,10 +276,8 @@ class LabelMedium extends StatelessWidget {
     final current = textTheme.labelMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }
@@ -324,10 +296,8 @@ class LabelSmall extends StatelessWidget {
     final current = textTheme.labelMedium;
 
     return Text(
-      tr(label),
-      style: GoogleFonts.lato(
-        textStyle: current,
-      ),
+      label,
+      style: current,
     );
   }
 }

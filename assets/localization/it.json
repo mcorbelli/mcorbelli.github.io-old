@@ -1,4 +1,9 @@
 {
     "portfolio": "PORTFOLIO",
-    "developed_in": "Sviluppato in Flutter"
+    "developed_in": "Sviluppato in Flutter",
+    "help_light_theme": "Tema chiaro",
+    "help_dark_theme": "Tema scuro",
+    "help_system_theme": "Tema del dispositivo",
+    "app_version_loading": "Caricamento ...",
+    "app_version_error": "Qualcosa è andato storto :("
 }

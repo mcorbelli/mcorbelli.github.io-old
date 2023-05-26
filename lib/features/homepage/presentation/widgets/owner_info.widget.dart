@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:portfolio_web/core/styles/text.theme.dart';
@@ -7,11 +8,11 @@ class OwnerInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DisplayLarge('portfolio'),
-        DisplaySmall('developed_in'),
+        DisplayLarge(tr('portfolio')),
+        DisplaySmall(tr('developed_in')),
       ],
     );
   }

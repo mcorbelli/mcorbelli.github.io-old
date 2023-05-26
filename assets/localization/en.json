@@ -1,4 +1,9 @@
 {
     "portfolio": "PORTFOLIO",
-    "developed_in": "Developed in Flutter"
+    "developed_in": "Developed in Flutter",
+    "help_light_theme": "Dark theme",
+    "help_dark_theme": "Light theme",
+    "help_system_theme": "Device theme",
+    "app_version_loading": "Loading ...",
+    "app_version_error": "Something went wrong :("
 }

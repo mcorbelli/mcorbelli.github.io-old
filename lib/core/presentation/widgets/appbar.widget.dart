@@ -6,13 +6,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     required this.title,
     this.leading,
-    this.trailing = const [],
+    this.trailing,
     super.key,
   });
 
   final String title;
   final IconData? leading;
-  final List<IconButton> trailing;
+  final Widget? trailing;
 
   @override
   Size get preferredSize {
@@ -29,7 +29,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: Row(
         children: [
-          HeadlineSmall(title),
+          Expanded(
+            child: Row(
+              children: [
+                (() {
+                  if (leading != null) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                        right: 10.0,
+                      ),
+                      child: Icon(leading),
+                    );
+                  }
+                  return Container();
+                }()),
+                HeadlineSmall(title),
+              ],
+            ),
+          ),
+          (() {
+            if (trailing != null) {
+              return trailing!;
+            }
+            return Container();
+          }()),
         ],
       ),
     );

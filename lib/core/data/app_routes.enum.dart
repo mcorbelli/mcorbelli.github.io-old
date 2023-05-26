@@ -2,10 +2,6 @@ enum AppRoutes {
   homepage(
     routeName: 'homepage',
     routePath: '/',
-  ),
-  contacts(
-    routeName: 'contacts',
-    routePath: '/contacts',
   );
 
   const AppRoutes({
