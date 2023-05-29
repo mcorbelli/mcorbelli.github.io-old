@@ -21,6 +21,8 @@ class HomePageScreen extends Screen implements InitialScreen {
   Widget build(context, state) {
     return ScreenTypeLayout.builder(
       desktop: (_) => const _HomePageDesktop(),
+      tablet: (_) => const _HomePageDesktop(),
+      mobile: (_) => const _HomePageDesktop(),
     );
   }
 }
