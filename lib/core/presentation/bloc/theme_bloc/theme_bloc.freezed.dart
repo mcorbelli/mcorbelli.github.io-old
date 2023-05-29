@@ -18,21 +18,18 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ThemeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialSetup,
     required TResult Function(ThemeMode themeMode) manualThemeChange,
     required TResult Function() switchSystemMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialSetup,
     TResult? Function(ThemeMode themeMode)? manualThemeChange,
     TResult? Function()? switchSystemMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialSetup,
     TResult Function(ThemeMode themeMode)? manualThemeChange,
     TResult Function()? switchSystemMode,
     required TResult orElse(),
@@ -40,21 +37,18 @@ mixin _$ThemeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialSetup value) initialSetup,
     required TResult Function(_ManualThemeChange value) manualThemeChange,
     required TResult Function(_SwitchSystemMode value) switchSystemMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialSetup value)? initialSetup,
     TResult? Function(_ManualThemeChange value)? manualThemeChange,
     TResult? Function(_SwitchSystemMode value)? switchSystemMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialSetup value)? initialSetup,
     TResult Function(_ManualThemeChange value)? manualThemeChange,
     TResult Function(_SwitchSystemMode value)? switchSystemMode,
     required TResult orElse(),
@@ -78,114 +72,6 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialSetupCopyWith<$Res> {
-  factory _$$_InitialSetupCopyWith(
-          _$_InitialSetup value, $Res Function(_$_InitialSetup) then) =
-      __$$_InitialSetupCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialSetupCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$_InitialSetup>
-    implements _$$_InitialSetupCopyWith<$Res> {
-  __$$_InitialSetupCopyWithImpl(
-      _$_InitialSetup _value, $Res Function(_$_InitialSetup) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_InitialSetup implements _InitialSetup {
-  const _$_InitialSetup();
-
-  @override
-  String toString() {
-    return 'ThemeEvent.initialSetup()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_InitialSetup);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialSetup,
-    required TResult Function(ThemeMode themeMode) manualThemeChange,
-    required TResult Function() switchSystemMode,
-  }) {
-    return initialSetup();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialSetup,
-    TResult? Function(ThemeMode themeMode)? manualThemeChange,
-    TResult? Function()? switchSystemMode,
-  }) {
-    return initialSetup?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialSetup,
-    TResult Function(ThemeMode themeMode)? manualThemeChange,
-    TResult Function()? switchSystemMode,
-    required TResult orElse(),
-  }) {
-    if (initialSetup != null) {
-      return initialSetup();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitialSetup value) initialSetup,
-    required TResult Function(_ManualThemeChange value) manualThemeChange,
-    required TResult Function(_SwitchSystemMode value) switchSystemMode,
-  }) {
-    return initialSetup(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialSetup value)? initialSetup,
-    TResult? Function(_ManualThemeChange value)? manualThemeChange,
-    TResult? Function(_SwitchSystemMode value)? switchSystemMode,
-  }) {
-    return initialSetup?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialSetup value)? initialSetup,
-    TResult Function(_ManualThemeChange value)? manualThemeChange,
-    TResult Function(_SwitchSystemMode value)? switchSystemMode,
-    required TResult orElse(),
-  }) {
-    if (initialSetup != null) {
-      return initialSetup(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InitialSetup implements ThemeEvent {
-  const factory _InitialSetup() = _$_InitialSetup;
 }
 
 /// @nodoc
@@ -254,7 +140,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialSetup,
     required TResult Function(ThemeMode themeMode) manualThemeChange,
     required TResult Function() switchSystemMode,
   }) {
@@ -264,7 +149,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialSetup,
     TResult? Function(ThemeMode themeMode)? manualThemeChange,
     TResult? Function()? switchSystemMode,
   }) {
@@ -274,7 +158,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialSetup,
     TResult Function(ThemeMode themeMode)? manualThemeChange,
     TResult Function()? switchSystemMode,
     required TResult orElse(),
@@ -288,7 +171,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialSetup value) initialSetup,
     required TResult Function(_ManualThemeChange value) manualThemeChange,
     required TResult Function(_SwitchSystemMode value) switchSystemMode,
   }) {
@@ -298,7 +180,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialSetup value)? initialSetup,
     TResult? Function(_ManualThemeChange value)? manualThemeChange,
     TResult? Function(_SwitchSystemMode value)? switchSystemMode,
   }) {
@@ -308,7 +189,6 @@ class _$_ManualThemeChange implements _ManualThemeChange {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialSetup value)? initialSetup,
     TResult Function(_ManualThemeChange value)? manualThemeChange,
     TResult Function(_SwitchSystemMode value)? switchSystemMode,
     required TResult orElse(),
@@ -368,7 +248,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialSetup,
     required TResult Function(ThemeMode themeMode) manualThemeChange,
     required TResult Function() switchSystemMode,
   }) {
@@ -378,7 +257,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialSetup,
     TResult? Function(ThemeMode themeMode)? manualThemeChange,
     TResult? Function()? switchSystemMode,
   }) {
@@ -388,7 +266,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialSetup,
     TResult Function(ThemeMode themeMode)? manualThemeChange,
     TResult Function()? switchSystemMode,
     required TResult orElse(),
@@ -402,7 +279,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialSetup value) initialSetup,
     required TResult Function(_ManualThemeChange value) manualThemeChange,
     required TResult Function(_SwitchSystemMode value) switchSystemMode,
   }) {
@@ -412,7 +288,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialSetup value)? initialSetup,
     TResult? Function(_ManualThemeChange value)? manualThemeChange,
     TResult? Function(_SwitchSystemMode value)? switchSystemMode,
   }) {
@@ -422,7 +297,6 @@ class _$_SwitchSystemMode implements _SwitchSystemMode {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialSetup value)? initialSetup,
     TResult Function(_ManualThemeChange value)? manualThemeChange,
     TResult Function(_SwitchSystemMode value)? switchSystemMode,
     required TResult orElse(),
@@ -438,11 +312,16 @@ abstract class _SwitchSystemMode implements ThemeEvent {
   const factory _SwitchSystemMode() = _$_SwitchSystemMode;
 }
 
+ThemeState _$ThemeStateFromJson(Map<String, dynamic> json) {
+  return _ThemeState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$ThemeState {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
   bool get followSystem => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ThemeStateCopyWith<ThemeState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -525,10 +404,13 @@ class __$$_ThemeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ThemeState implements _ThemeState {
   const _$_ThemeState(
       {this.themeMode = ThemeMode.system, this.followSystem = true});
+
+  factory _$_ThemeState.fromJson(Map<String, dynamic> json) =>
+      _$$_ThemeStateFromJson(json);
 
   @override
   @JsonKey()
@@ -553,6 +435,7 @@ class _$_ThemeState implements _ThemeState {
                 other.followSystem == followSystem));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, themeMode, followSystem);
 
@@ -561,11 +444,21 @@ class _$_ThemeState implements _ThemeState {
   @pragma('vm:prefer-inline')
   _$$_ThemeStateCopyWith<_$_ThemeState> get copyWith =>
       __$$_ThemeStateCopyWithImpl<_$_ThemeState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ThemeStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ThemeState implements ThemeState {
   const factory _ThemeState(
       {final ThemeMode themeMode, final bool followSystem}) = _$_ThemeState;
+
+  factory _ThemeState.fromJson(Map<String, dynamic> json) =
+      _$_ThemeState.fromJson;
 
   @override
   ThemeMode get themeMode;

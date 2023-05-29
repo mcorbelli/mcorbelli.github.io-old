@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';
-part 'theme_bloc.freezed.dart';
 
-class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
+part 'theme_bloc.freezed.dart';
+part 'theme_bloc.g.dart';
+
+class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(const ThemeState()) {
-    on<_InitialSetup>(_onInitialSetup);
     on<_ManualThemeChange>(_onThemeChange);
     on<_SwitchSystemMode>(_onSwitchSystemMode);
-
-    add(const ThemeEvent.initialSetup());
-  }
-
-  void _onInitialSetup(
-    _InitialSetup event,
-    Emitter<ThemeState> emit,
-  ) {
-    emit(state.copyWith(
-      themeMode: _getCurrentThemeMode(),
-    ));
   }
 
   void _onSwitchSystemMode(
@@ -56,5 +46,15 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     }
 
     return ThemeMode.dark;
+  }
+
+  @override
+  ThemeState fromJson(Map<String, dynamic> json) {
+    return ThemeState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic> toJson(ThemeState state) {
+    return state.toJson();
   }
 }

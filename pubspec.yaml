@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^4.0.4
   badges: ^3.1.1
   responsive_builder: ^0.7.0
+  hydrated_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:

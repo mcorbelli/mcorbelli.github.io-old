@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:url_strategy/url_strategy.dart' as strategy;
 
 import 'package:portfolio_web/core/styles/portfolio.theme.dart';
@@ -16,8 +17,13 @@ Future<void> main() async {
   };
 
   await EasyLocalization.ensureInitialized();
+
   strategy.setPathUrlStrategy();
+
   Bloc.observer = AppBlocObserver();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: HydratedStorage.webStorageDirectory,
+  );
 
   runApp(EasyLocalization(
     supportedLocales: Locales.available,
