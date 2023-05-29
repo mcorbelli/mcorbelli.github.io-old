@@ -21,7 +21,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     Emitter<ThemeState> emit,
   ) {
     emit(state.copyWith(
-      themeMode: getCurrentThemeMode(),
+      themeMode: _getCurrentThemeMode(),
     ));
   }
 
@@ -29,17 +29,12 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     _SwitchSystemMode event,
     Emitter<ThemeState> emit,
   ) {
-    final followSystem = !state.followSystem;
-    var currentThemeMode = state.themeMode;
-
-    if (followSystem == true) {
-      currentThemeMode = getCurrentThemeMode();
+    if (state.followSystem == false) {
+      emit(state.copyWith(
+        themeMode: _getCurrentThemeMode(),
+        followSystem: !state.followSystem,
+      ));
     }
-
-    emit(state.copyWith(
-      themeMode: currentThemeMode,
-      followSystem: followSystem,
-    ));
   }
 
   void _onThemeChange(
@@ -52,7 +47,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     ));
   }
 
-  ThemeMode getCurrentThemeMode() {
+  ThemeMode _getCurrentThemeMode() {
     final instance = SchedulerBinding.instance;
     final platform = instance.platformDispatcher;
 
