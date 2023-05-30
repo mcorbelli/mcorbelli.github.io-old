@@ -44,7 +44,7 @@ class _ThemeSelectorState extends State<ThemeSelector> {
               tooltip: e.tooltip,
               icon: Icon(e.icon),
               color: (() {
-                if (e.themeMode == state.themeMode) {
+                if (e.themeMode == state.activeThemeMode) {
                   return e.color;
                 }
               }()),

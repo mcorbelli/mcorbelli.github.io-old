@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:portfolio_web/core/data/font_size.enum.dart';
@@ -18,6 +19,17 @@ class PortfolioTheme {
 
   static ThemeData get lightTheme => _light;
   static ThemeData get darkTheme => _dark;
+
+  static ThemeMode getCurrentThemeMode() {
+    final instance = SchedulerBinding.instance;
+    final platform = instance.platformDispatcher;
+
+    if (platform.platformBrightness == Brightness.light) {
+      return ThemeMode.light;
+    }
+
+    return ThemeMode.dark;
+  }
 
   static const _lightColorTheme = ColorScheme(
     brightness: Brightness.light,

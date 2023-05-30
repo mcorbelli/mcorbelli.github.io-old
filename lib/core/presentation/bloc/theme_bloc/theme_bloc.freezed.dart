@@ -405,9 +405,10 @@ class __$$_ThemeStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ThemeState implements _ThemeState {
+class _$_ThemeState extends _ThemeState {
   const _$_ThemeState(
-      {this.themeMode = ThemeMode.system, this.followSystem = true});
+      {this.themeMode = ThemeMode.system, this.followSystem = true})
+      : super._();
 
   factory _$_ThemeState.fromJson(Map<String, dynamic> json) =>
       _$$_ThemeStateFromJson(json);
@@ -453,9 +454,10 @@ class _$_ThemeState implements _ThemeState {
   }
 }
 
-abstract class _ThemeState implements ThemeState {
+abstract class _ThemeState extends ThemeState {
   const factory _ThemeState(
       {final ThemeMode themeMode, final bool followSystem}) = _$_ThemeState;
+  const _ThemeState._() : super._();
 
   factory _ThemeState.fromJson(Map<String, dynamic> json) =
       _$_ThemeState.fromJson;

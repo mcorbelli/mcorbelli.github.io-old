@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:portfolio_web/core/styles/portfolio.theme.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';
@@ -21,7 +21,7 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
   ) {
     if (state.followSystem == false) {
       emit(state.copyWith(
-        themeMode: _getCurrentThemeMode(),
+        themeMode: PortfolioTheme.getCurrentThemeMode(),
         followSystem: !state.followSystem,
       ));
     }
@@ -35,17 +35,6 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
       themeMode: event.themeMode,
       followSystem: false,
     ));
-  }
-
-  ThemeMode _getCurrentThemeMode() {
-    final instance = SchedulerBinding.instance;
-    final platform = instance.platformDispatcher;
-
-    if (platform.platformBrightness == Brightness.light) {
-      return ThemeMode.light;
-    }
-
-    return ThemeMode.dark;
   }
 
   @override
