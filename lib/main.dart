@@ -8,7 +8,7 @@ import 'package:portfolio_web/core/styles/portfolio.theme.dart';
 import 'package:portfolio_web/core/utils/observer.bloc.dart';
 import 'package:portfolio_web/core/data/repositories/remote.repository.dart';
 import 'package:portfolio_web/core/presentation/bloc/theme_bloc/theme_bloc.dart';
-import 'package:portfolio_web/core/utils/route_manager.dart';
+import 'package:portfolio_web/core/utils/manager.route.dart';
 import 'package:portfolio_web/core/data/locales.enum.dart';
 
 Future<void> main() async {
@@ -42,13 +42,10 @@ class Portfolio extends StatefulWidget {
 
 class _PortfolioState extends State<Portfolio> {
   late RouteManager _routeManager;
-  late RemoteRepository _apiRepository;
 
   @override
   void initState() {
     _routeManager = RouteManager();
-    _apiRepository = RemoteRepository();
-    // _apiRepository.updateVisits();
     super.initState();
   }
 
@@ -56,8 +53,8 @@ class _PortfolioState extends State<Portfolio> {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<RemoteRepository>.value(
-          value: _apiRepository,
+        RepositoryProvider<RemoteRepository>(
+          create: (_) => RemoteRepository(),
         ),
       ],
       child: MultiBlocProvider(
@@ -66,24 +63,24 @@ class _PortfolioState extends State<Portfolio> {
             create: (_) => ThemeBloc(),
           )
         ],
-        child: Builder(builder: (context) {
-          return BlocBuilder<ThemeBloc, ThemeState>(
-            builder: (context, state) {
-              return MaterialApp.router(
-                title: 'Corbelli Mattia - Portfolio',
-                theme: PortfolioTheme.lightTheme,
-                darkTheme: PortfolioTheme.darkTheme,
-                themeMode: state.themeMode,
-                routeInformationParser: _routeManager.infoParser,
-                routerDelegate: _routeManager.routerDelegate,
-                routeInformationProvider: _routeManager.infoProvider,
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-              );
-            },
-          );
-        }),
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
+            return MaterialApp.router(
+              onGenerateTitle: (_) {
+                return tr('portfolio.title');
+              },
+              theme: PortfolioTheme.lightTheme,
+              darkTheme: PortfolioTheme.darkTheme,
+              themeMode: state.themeMode,
+              routeInformationParser: _routeManager.infoParser,
+              routerDelegate: _routeManager.routerDelegate,
+              routeInformationProvider: _routeManager.infoProvider,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+            );
+          },
+        ),
       ),
     );
   }

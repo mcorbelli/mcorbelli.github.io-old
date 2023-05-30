@@ -9,12 +9,46 @@ class PortfolioTheme {
     brightness: Brightness.light,
     colorScheme: _lightColorTheme,
     textTheme: _lightTextTheme,
+    scaffoldBackgroundColor: _lightColorTheme.background,
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(
+          _lightColorTheme.primary,
+        ),
+        foregroundColor: MaterialStateProperty.all(
+          _lightColorTheme.onSurface,
+        ),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: 15.0,
+          ),
+        ),
+      ),
+    ),
   );
 
   static final ThemeData _dark = ThemeData(
     brightness: Brightness.dark,
     colorScheme: _darkColorTheme,
     textTheme: _darkTextTheme,
+    scaffoldBackgroundColor: _darkColorTheme.background,
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(
+          _darkColorTheme.primary,
+        ),
+        foregroundColor: MaterialStateProperty.all(
+          _darkColorTheme.onSurface,
+        ),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: 15.0,
+          ),
+        ),
+      ),
+    ),
   );
 
   static ThemeData get lightTheme => _light;
@@ -39,10 +73,10 @@ class PortfolioTheme {
     onSecondary: Color(0XFF3E3D3F),
     error: Color(0XFF8E372E),
     onError: Color(0XFFFFFFFF),
-    background: Color(0XFFEBEAEB),
-    onBackground: Color(0XFF3E3D3F),
-    surface: Color(0XFFFAF9FC),
-    onSurface: Color(0XFF3E3D3F),
+    background: Color(0XFFF0F2F5),
+    onBackground: Color(0XFF65676B),
+    surface: Color(0XFFFFFFFF),
+    onSurface: Color(0XFF65676B),
   );
 
   static const _darkColorTheme = ColorScheme(
@@ -53,10 +87,10 @@ class PortfolioTheme {
     onSecondary: Color(0XFFFFFFFF),
     error: Color(0XFF6C1928),
     onError: Color(0XFFFFFFFF),
-    background: Color(0XFF2C2D31),
-    onBackground: Color(0XFFFFFFFF),
-    surface: Color(0XFF222125),
-    onSurface: Color(0XFFFFFFFF),
+    background: Color(0XFF18191A),
+    onBackground: Color(0XFFB1B3B9),
+    surface: Color(0XFF242526),
+    onSurface: Color(0XFFB1B3B9),
   );
 
   static final _lightTextTheme = TextTheme(

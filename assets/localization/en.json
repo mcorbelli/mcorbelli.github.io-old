@@ -1,9 +1,30 @@
 {
-    "portfolio": "PORTFOLIO",
-    "developed_in": "Developed in Flutter",
-    "help_light_theme": "Dark theme",
-    "help_dark_theme": "Light theme",
-    "help_system_theme": "Device theme",
-    "app_version_loading": "Loading ...",
-    "app_version_error": "Something went wrong :("
+    "portfolio": {
+        "title": "Corbelli Mattia - Portfolio"
+    },
+    "homepage": {
+        "app_bar": {
+            "title": "Corbelli Mattia",
+            "theme_selector": {
+                "help_light_theme": "Light theme",
+                "help_dark_theme": "Dark theme"
+            }
+        },
+        "version": {
+            "version_loading": "Loading ...",
+            "version_error": "Something went wrong :("
+        }
+    },
+    "introduction": {
+        "title": "INTRODUCTION",
+        "btn_navigate": "Go to CONTACTS"
+    },
+    "contacts": {
+        "title": "CONTACTS",
+        "btn_navigate": "Go to HOME"
+    },
+    "not_found": {
+        "title": "NOT FOUND",
+        "btn_navigate": "Return to HOME"
+    }
 }

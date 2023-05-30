@@ -8,13 +8,13 @@ import 'package:portfolio_web/features/homepage/data/models/theme_action.model.d
 final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
-    tooltip: tr('help_light_theme'),
+    tooltip: tr('homepage.app_bar.theme_selector.help_light_theme'),
     icon: Icons.light_mode,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
-    tooltip: tr('help_dark_theme'),
+    tooltip: tr('homepage.app_bar.theme_selector.help_dark_theme'),
     icon: Icons.dark_mode,
     color: const Color(0XFF3271C2),
   ),

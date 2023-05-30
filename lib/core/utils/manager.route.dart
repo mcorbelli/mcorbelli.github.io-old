@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
-import 'package:portfolio_web/features/homepage/presentation/homepage.screen.dart';
+import 'package:portfolio_web/features/homepage/homepage.shell.dart';
+import 'package:portfolio_web/features/not_found/presentation/not_found.screen.dart';
 
 class RouteManager {
   late GoRouter _router;
@@ -9,7 +10,8 @@ class RouteManager {
   RouteManager() {
     _router = createGoRouter(
       screens: [
-        HomePageScreen(),
+        HomepageShell(),
+        NotFoundScreen(),
       ],
     );
   }
