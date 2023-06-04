@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,13 +10,13 @@ final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
     tooltip: tr('homepage.app_bar.theme_selector.help_light_theme'),
-    icon: Icons.light_mode,
+    icon: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
     tooltip: tr('homepage.app_bar.theme_selector.help_dark_theme'),
-    icon: Icons.dark_mode,
+    icon: EvaIcons.moon,
     color: const Color(0XFF3271C2),
   ),
 ];
@@ -37,6 +38,9 @@ class _ThemeSelectorState extends State<ThemeSelector> {
       builder: (context, state) {
         return Row(
           children: themes.map((e) {
+            final current = state.activeThemeMode;
+            final isActive = (e.themeMode == current);
+
             return IconButton(
               onPressed: () {
                 _onThemeSelected(e.themeMode);
@@ -44,7 +48,7 @@ class _ThemeSelectorState extends State<ThemeSelector> {
               tooltip: e.tooltip,
               icon: Icon(e.icon),
               color: (() {
-                if (e.themeMode == state.activeThemeMode) {
+                if (isActive) {
                   return e.color;
                 }
               }()),

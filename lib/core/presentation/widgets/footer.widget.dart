@@ -14,6 +14,8 @@ class CustomFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     Widget trailingWidget = Container();
     if (trailing != null) {
       trailingWidget = trailing!;
@@ -23,25 +25,20 @@ class CustomFooter extends StatelessWidget {
     if (socials != null) {
       socialWidget = Row(
         children: socials!.map((e) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              right: 10.0,
-            ),
-            child: IconButton(
-              icon: Icon(e.icon),
-              onPressed: e.openLink,
-              tooltip: e.tooltip,
-            ),
+          return IconButton(
+            icon: Icon(e.icon),
+            onPressed: e.openLink,
+            tooltip: e.tooltip,
           );
         }).toList(),
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 10.0,
+    return Container(
+      decoration: BoxDecoration(
+        color: colorScheme.background,
       ),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [
           Expanded(

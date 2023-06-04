@@ -8,7 +8,6 @@ import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/core/presentation/widgets/footer.widget.dart';
 import 'package:portfolio_web/features/homepage/views/contacts/presentation/contacts.screen.dart';
 import 'package:portfolio_web/features/homepage/views/introduction/presentation/introduction.screen.dart';
-import 'package:portfolio_web/features/homepage/widgets/app_version.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 
@@ -42,7 +41,6 @@ class __HomepageState extends State<_Homepage> {
     return Scaffold(
       appBar: CustomAppBar(
         title: tr('homepage.app_bar.title'),
-        trailing: const ThemeSelector(),
         onTitleTap: () {
           _navigateTo(AppRoutes.homepage);
         },
@@ -66,7 +64,7 @@ class __HomepageState extends State<_Homepage> {
             tooltip: tr('homepage.footer.socials.linkedin'),
           ),
         ],
-        trailing: const AppVersion(),
+        trailing: const ThemeSelector(),
       ),
     );
   }

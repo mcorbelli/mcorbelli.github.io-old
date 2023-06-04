@@ -23,6 +23,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     Widget leadingWidget = Container();
     if (leading != null) {
       leadingWidget = Padding(
@@ -50,10 +52,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     }
 
     return Container(
-      alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(10.0),
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
+      decoration: BoxDecoration(
+        color: colorScheme.background,
       ),
       child: Row(
         children: [
