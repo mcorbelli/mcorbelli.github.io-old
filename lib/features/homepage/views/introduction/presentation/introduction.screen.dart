@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
@@ -27,31 +27,17 @@ class IntroductionScreen extends Screen implements InitialScreen {
   }
 }
 
-class _IntroductionDesktop extends StatefulWidget {
+class _IntroductionDesktop extends StatelessWidget {
   const _IntroductionDesktop();
 
-  @override
-  State<_IntroductionDesktop> createState() => _IntroductionDesktopState();
-}
-
-class _IntroductionDesktopState extends State<_IntroductionDesktop> {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DisplayLarge(tr('introduction.title')),
-        OutlinedButton(
-          onPressed: () {
-            _navigateTo(AppRoutes.contacts);
-          },
-          child: Text(tr('introduction.btn_navigate')),
-        ),
+        DisplayMedium(tr('introduction.title')),
+        BodyLarge(tr('introduction.subtitle')),
       ],
     );
-  }
-
-  void _navigateTo(AppRoutes route) {
-    GoRouter.of(context).goNamed(route.routeName);
   }
 }

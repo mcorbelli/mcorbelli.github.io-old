@@ -7,6 +7,7 @@ import 'package:portfolio_web/core/data/font_size.enum.dart';
 class PortfolioTheme {
   static final ThemeData _light = ThemeData(
     brightness: Brightness.light,
+    useMaterial3: true,
     colorScheme: _lightColorTheme,
     textTheme: _lightTextTheme,
     scaffoldBackgroundColor: _lightColorTheme.background,
@@ -17,6 +18,9 @@ class PortfolioTheme {
         ),
         foregroundColor: MaterialStateProperty.all(
           _lightColorTheme.onSurface,
+        ),
+        backgroundColor: MaterialStateProperty.all(
+          _lightColorTheme.surface,
         ),
         padding: MaterialStateProperty.all(
           const EdgeInsets.symmetric(
@@ -30,6 +34,7 @@ class PortfolioTheme {
 
   static final ThemeData _dark = ThemeData(
     brightness: Brightness.dark,
+    useMaterial3: true,
     colorScheme: _darkColorTheme,
     textTheme: _darkTextTheme,
     scaffoldBackgroundColor: _darkColorTheme.background,
@@ -40,6 +45,9 @@ class PortfolioTheme {
         ),
         foregroundColor: MaterialStateProperty.all(
           _darkColorTheme.onSurface,
+        ),
+        backgroundColor: MaterialStateProperty.all(
+          _darkColorTheme.surface,
         ),
         padding: MaterialStateProperty.all(
           const EdgeInsets.symmetric(

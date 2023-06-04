@@ -27,31 +27,16 @@ class ContactsScreen extends Screen {
   }
 }
 
-class _ContactsDesktop extends StatefulWidget {
+class _ContactsDesktop extends StatelessWidget {
   const _ContactsDesktop();
 
-  @override
-  State<_ContactsDesktop> createState() => _ContactsDesktopState();
-}
-
-class _ContactsDesktopState extends State<_ContactsDesktop> {
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DisplayLarge(tr('contacts.title')),
-        OutlinedButton(
-          onPressed: () {
-            _navigateTo(AppRoutes.homepage);
-          },
-          child: Text(tr('contacts.btn_navigate')),
-        ),
+        DisplayMedium(tr('contacts.title')),
       ],
     );
-  }
-
-  void _navigateTo(AppRoutes route) {
-    GoRouter.of(context).goNamed(route.routeName);
   }
 }

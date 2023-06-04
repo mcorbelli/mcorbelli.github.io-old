@@ -12,15 +12,16 @@ class AppVersion extends StatelessWidget {
     return FutureBuilder<PackageInfo>(
       future: PackageInfo.fromPlatform(),
       builder: (_, snapshot) {
-        String versionLabel = tr('homepage.version.version_loading');
+        const prefix = 'homepage.footer.version';
+        String versionLabel = tr('$prefix.loading');
 
         if (snapshot.hasError) {
-          versionLabel = tr('homepage.version.version_error');
+          versionLabel = tr('$prefix.error');
         } else if (snapshot.hasData) {
           versionLabel = 'V ${snapshot.data!.version}';
         }
 
-        return LabelSmall(versionLabel);
+        return BodyMedium(versionLabel);
       },
     );
   }

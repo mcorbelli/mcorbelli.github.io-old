@@ -10,18 +10,24 @@
                 "help_dark_theme": "Dark theme"
             }
         },
-        "version": {
-            "version_loading": "Loading ...",
-            "version_error": "Something went wrong :("
+        "footer": {
+            "version": {
+                "loading": "Caricamento ...",
+                "error": "Qualcosa è andato storto :("
+            },
+            "socials": {
+                "github": "GitHub",
+                "linkedin": "LinkedIn",
+                "twitter": "twitter"
+            }
         }
     },
     "introduction": {
         "title": "INTRODUCTION",
-        "btn_navigate": "Go to CONTACTS"
+        "subtitle": "(Sooner or later)"
     },
     "contacts": {
-        "title": "CONTACTS",
-        "btn_navigate": "Go to HOME"
+        "title": "CONTACTS"
     },
     "not_found": {
         "title": "NOT FOUND",
