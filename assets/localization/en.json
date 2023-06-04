@@ -6,8 +6,12 @@
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
-                "help_light_theme": "Light theme",
-                "help_dark_theme": "Dark theme"
+                "help_light": "Light theme",
+                "help_dark": "Dark theme"
+            },
+            "navigations": {
+                "homepage": "HOMEPAGE",
+                "contacts": "CONTACTS"
             }
         },
         "footer": {
@@ -30,7 +34,6 @@
         "title": "CONTACTS"
     },
     "not_found": {
-        "title": "NOT FOUND",
-        "btn_navigate": "Return to HOME"
+        "title": "PAGE NOT FOUND"
     }
 }

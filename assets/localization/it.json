@@ -6,8 +6,12 @@
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
-                "help_light_theme": "Tema chiaro",
-                "help_dark_theme": "Tema scuro"
+                "help_light": "Tema chiaro",
+                "help_dark": "Tema scuro"
+            },
+            "navigations": {
+                "homepage": "HOMEPAGE",
+                "contacts": "CONTATTI"
             }
         },
         "footer": {
@@ -30,7 +34,6 @@
         "title": "CONTATTI"
     },
     "not_found": {
-        "title": "NON TROVATO",
-        "btn_navigate": "Torna alla HOME"
+        "title": "PAGINA NON TROVATA"
     }
 }

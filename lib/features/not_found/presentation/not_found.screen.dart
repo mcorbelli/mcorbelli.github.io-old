@@ -4,7 +4,6 @@ import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
-import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
 
@@ -42,7 +41,6 @@ class _NotFoundDesktopState extends State<_NotFoundDesktop> {
     return Scaffold(
       appBar: CustomAppBar(
         title: tr('homepage.app_bar.title'),
-        trailing: const ThemeSelector(),
         onTitleTap: () {
           _navigateTo(AppRoutes.homepage);
         },
@@ -51,13 +49,7 @@ class _NotFoundDesktopState extends State<_NotFoundDesktop> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            DisplayLarge(tr('not_found.title')),
-            OutlinedButton(
-              onPressed: () {
-                _navigateTo(AppRoutes.homepage);
-              },
-              child: Text(tr('not_found.btn_navigate')),
-            ),
+            DisplayMedium(tr('not_found.title')),
           ],
         ),
       ),
@@ -65,6 +57,6 @@ class _NotFoundDesktopState extends State<_NotFoundDesktop> {
   }
 
   void _navigateTo(AppRoutes route) {
-    GoRouter.of(context).replaceNamed(route.routeName);
+    context.pushNamed(route.routeName);
   }
 }
