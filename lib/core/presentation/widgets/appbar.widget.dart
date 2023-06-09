@@ -119,7 +119,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     final currentRoute = GoRouter.of(context).location;
 
     if (!route.routeName.contains(currentRoute)) {
-      context.pushNamed(route.routeName);
+      context.goNamed(route.routeName);
     }
   }
 }

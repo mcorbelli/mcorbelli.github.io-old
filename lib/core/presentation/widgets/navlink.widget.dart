@@ -40,7 +40,7 @@ class _NavLinkState extends State<NavLink> {
     final currentRoute = GoRouter.of(context).location;
 
     if (!route.routeName.contains(currentRoute)) {
-      context.pushNamed(route.routeName);
+      context.goNamed(route.routeName);
     }
   }
 }
