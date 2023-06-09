@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
@@ -39,11 +40,11 @@ class _NotFoundDesktopState extends State<_NotFoundDesktop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: tr('homepage.app_bar.title'),
-        onTitleTap: () {
-          _navigateTo(AppRoutes.homepage);
-        },
+      appBar: CustomAppBar.desktop(
+        navTitle: NavTitle(
+          route: AppRoutes.homepage,
+          label: tr('homepage.app_bar.title'),
+        ),
       ),
       body: Center(
         child: Column(
@@ -54,9 +55,5 @@ class _NotFoundDesktopState extends State<_NotFoundDesktop> {
         ),
       ),
     );
-  }
-
-  void _navigateTo(AppRoutes route) {
-    context.pushNamed(route.routeName);
   }
 }

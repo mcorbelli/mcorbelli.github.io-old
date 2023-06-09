@@ -4,24 +4,65 @@ import 'package:go_router_plus/go_router_plus.dart';
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
+import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    required this.title,
-    this.leading,
-    this.navigations,
-    this.onTitleTap,
-    super.key,
+  const CustomAppBar._({
+    required this.navTitle,
+    this.trailing,
   });
 
-  final String title;
-  final IconData? leading;
-  final List<NavItem>? navigations;
-  final VoidCallback? onTitleTap;
+  final NavTitle navTitle;
+  final Widget? trailing;
 
   @override
   Size get preferredSize {
     return const Size.fromHeight(kToolbarHeight);
+  }
+
+  factory CustomAppBar.desktop({
+    required NavTitle navTitle,
+    List<NavItem>? navItems,
+  }) {
+    List<Widget> navWidget = [];
+    if (navItems != null) {
+      navWidget = navItems.map((e) {
+        return Padding(
+          padding: const EdgeInsets.only(
+            left: 10.0,
+          ),
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {
+                // _navigateTo(e.route);
+              },
+              child: BodySmall(e.label),
+            ),
+          ),
+        );
+      }).toList();
+    }
+
+    return CustomAppBar._(
+      navTitle: navTitle,
+      trailing: Row(
+        children: navWidget,
+      ),
+    );
+  }
+
+  factory CustomAppBar.mobile({
+    required NavTitle navTitle,
+    VoidCallback? onMenuPressed,
+  }) {
+    return CustomAppBar._(
+      navTitle: navTitle,
+      trailing: IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed: onMenuPressed,
+      ),
+    );
   }
 
   @override
@@ -34,44 +75,29 @@ class _CustomAppBarState extends State<CustomAppBar> {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget leadingWidget = Container();
-    if (widget.leading != null) {
+    if (widget.navTitle.icon != null) {
       leadingWidget = Padding(
         padding: const EdgeInsets.only(
           right: 10.0,
         ),
-        child: Icon(widget.leading),
+        child: Icon(widget.navTitle.icon),
       );
     }
 
     Widget trailingWidgets = Container();
-    if (widget.navigations != null) {
-      trailingWidgets = Row(
-        children: widget.navigations!.map((e) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              left: 10.0,
-            ),
-            child: MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {
-                  _navigateTo(e.route);
-                },
-                child: Text(e.label),
-              ),
-            ),
-          );
-        }).toList(),
-      );
+    if (widget.trailing != null) {
+      trailingWidgets = widget.trailing!;
     }
 
-    Widget appBarTitle = HeadlineSmall(widget.title);
-    if (widget.onTitleTap != null) {
-      appBarTitle = MouseRegion(
+    Widget titleWidget = HeadlineSmall(widget.navTitle.label);
+    if (widget.navTitle.route != null) {
+      titleWidget = MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: widget.onTitleTap,
-          child: appBarTitle,
+          onTap: () {
+            _navigateTo(widget.navTitle.route!);
+          },
+          child: titleWidget,
         ),
       );
     }
@@ -87,7 +113,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             child: Row(
               children: [
                 leadingWidget,
-                appBarTitle,
+                titleWidget,
               ],
             ),
           ),

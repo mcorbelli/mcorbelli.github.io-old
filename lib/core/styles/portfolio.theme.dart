@@ -11,24 +11,8 @@ class PortfolioTheme {
     colorScheme: _lightColorTheme,
     textTheme: _lightTextTheme,
     scaffoldBackgroundColor: _lightColorTheme.background,
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(
-          _lightColorTheme.primary,
-        ),
-        foregroundColor: MaterialStateProperty.all(
-          _lightColorTheme.onSurface,
-        ),
-        backgroundColor: MaterialStateProperty.all(
-          _lightColorTheme.surface,
-        ),
-        padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(
-            vertical: 20.0,
-            horizontal: 15.0,
-          ),
-        ),
-      ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: _lightColorTheme.background,
     ),
   );
 
@@ -38,24 +22,8 @@ class PortfolioTheme {
     colorScheme: _darkColorTheme,
     textTheme: _darkTextTheme,
     scaffoldBackgroundColor: _darkColorTheme.background,
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(
-          _darkColorTheme.primary,
-        ),
-        foregroundColor: MaterialStateProperty.all(
-          _darkColorTheme.onSurface,
-        ),
-        backgroundColor: MaterialStateProperty.all(
-          _darkColorTheme.surface,
-        ),
-        padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(
-            vertical: 20.0,
-            horizontal: 15.0,
-          ),
-        ),
-      ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: _darkColorTheme.background,
     ),
   );
 
