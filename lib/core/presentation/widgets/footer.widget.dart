@@ -10,7 +10,7 @@ class CustomFooter extends StatelessWidget {
   });
 
   final Widget? trailing;
-  final List<SocialIcon>? socials;
+  final List<SocialIcon> socials;
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +21,15 @@ class CustomFooter extends StatelessWidget {
       trailingWidget = trailing!;
     }
 
-    Widget socialWidget = Container();
-    if (socials != null) {
-      socialWidget = Row(
-        children: socials!.map((e) {
-          return IconButton(
-            icon: Icon(e.icon),
-            onPressed: e.openLink,
-            tooltip: e.tooltip,
-          );
-        }).toList(),
-      );
-    }
+    Widget socialWidget = Row(
+      children: socials.map((e) {
+        return IconButton(
+          icon: Icon(e.icon),
+          onPressed: e.openLink,
+          tooltip: e.tooltip,
+        );
+      }).toList(),
+    );
 
     return Container(
       decoration: BoxDecoration(

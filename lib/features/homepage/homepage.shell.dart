@@ -1,7 +1,9 @@
+import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:portfolio_web/core/presentation/widgets/backdrop.widget.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
@@ -12,7 +14,6 @@ import 'package:portfolio_web/features/homepage/views/contacts/presentation/cont
 import 'package:portfolio_web/features/homepage/views/introduction/presentation/introduction.screen.dart';
 import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
-import 'package:portfolio_web/core/presentation/widgets/drawer.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 
 class HomepageShell extends ShellScreen {
@@ -100,18 +101,21 @@ class _HomepageMobile extends StatefulWidget {
 }
 
 class _HomepageMobileState extends State<_HomepageMobile> {
-  late GlobalKey<ScaffoldState> _scaffoldKey;
+  late GlobalKey<BackdropScaffoldState> _backdropKey;
 
   @override
   void initState() {
-    _scaffoldKey = GlobalKey();
+    _backdropKey = GlobalKey<BackdropScaffoldState>();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return BackdropScaffold(
+      key: _backdropKey,
+      stickyFrontLayer: true,
       appBar: CustomAppBar.mobile(
         navTitle: NavTitle(
           route: AppRoutes.homepage,
@@ -119,8 +123,7 @@ class _HomepageMobileState extends State<_HomepageMobile> {
         ),
         onMenuPressed: onMenuPressed,
       ),
-      endDrawer: CustomDrawer(
-        title: tr('homepage.drawer.title'),
+      backLayer: CustomBackdrop(
         navItems: [
           NavItem(
             route: AppRoutes.homepage,
@@ -131,14 +134,30 @@ class _HomepageMobileState extends State<_HomepageMobile> {
             label: tr('$navigationKey.contacts'),
           ),
         ],
+        socials: [
+          SocialIcon(
+            icon: EvaIcons.github,
+            url: 'https://github.com/',
+            tooltip: tr('$socialKey.github'),
+          ),
+          SocialIcon(
+            icon: EvaIcons.twitter,
+            url: 'https://twitter.com/',
+            tooltip: tr('$socialKey.twitter'),
+          ),
+          SocialIcon(
+            icon: EvaIcons.linkedin,
+            url: 'https://linkedin.com/',
+            tooltip: tr('$socialKey.linkedin'),
+          ),
+        ],
       ),
-      body: widget.child,
+      frontLayer: widget.child,
+      backLayerBackgroundColor: colorScheme.background,
     );
   }
 
   void onMenuPressed() {
-    if (_scaffoldKey.currentState != null) {
-      _scaffoldKey.currentState!.openEndDrawer();
-    }
+    _backdropKey.currentState?.fling();
   }
 }

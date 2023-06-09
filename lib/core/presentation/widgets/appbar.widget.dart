@@ -22,27 +22,24 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   factory CustomAppBar.desktop({
     required NavTitle navTitle,
-    List<NavItem>? navItems,
+    List<NavItem> navItems = const [],
   }) {
-    List<Widget> navWidget = [];
-    if (navItems != null) {
-      navWidget = navItems.map((e) {
-        return Padding(
-          padding: const EdgeInsets.only(
-            left: 10.0,
+    List<Widget> navWidget = navItems.map((e) {
+      return Padding(
+        padding: const EdgeInsets.only(
+          left: 10.0,
+        ),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              // _navigateTo(e.route);
+            },
+            child: BodySmall(e.label),
           ),
-          child: MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () {
-                // _navigateTo(e.route);
-              },
-              child: BodySmall(e.label),
-            ),
-          ),
-        );
-      }).toList();
-    }
+        ),
+      );
+    }).toList();
 
     return CustomAppBar._(
       navTitle: navTitle,
