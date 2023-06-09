@@ -112,10 +112,13 @@ class _HomepageMobileState extends State<_HomepageMobile> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final frontLayerScrim = colorScheme.surface.withOpacity(0.6);
 
     return BackdropScaffold(
       key: _backdropKey,
       stickyFrontLayer: true,
+      animationCurve: Curves.decelerate,
+      frontLayerScrim: frontLayerScrim,
       appBar: CustomAppBar.mobile(
         navTitle: NavTitle(
           route: AppRoutes.homepage,
