@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
 import 'package:portfolio_web/core/data/app_routes.enum.dart';
+import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
@@ -24,27 +25,20 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     required NavTitle navTitle,
     List<NavItem> navItems = const [],
   }) {
-    List<Widget> navWidget = navItems.map((e) {
-      return Padding(
-        padding: const EdgeInsets.only(
+    List<NavLink> navLinks = [];
+    for (var navItem in navItems) {
+      navLinks.add(NavLink(
+        navItem: navItem,
+        margin: const EdgeInsets.only(
           left: 10.0,
         ),
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () {
-              // _navigateTo(e.route);
-            },
-            child: BodySmall(e.label),
-          ),
-        ),
-      );
-    }).toList();
+      ));
+    }
 
     return CustomAppBar._(
       navTitle: navTitle,
       trailing: Row(
-        children: navWidget,
+        children: navLinks,
       ),
     );
   }
@@ -86,7 +80,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
       trailingWidgets = widget.trailing!;
     }
 
-    Widget titleWidget = HeadlineSmall(widget.navTitle.label);
+    String titleLabel = widget.navTitle.label;
+    Widget titleWidget = HeadlineSmall(titleLabel);
     if (widget.navTitle.route != null) {
       titleWidget = MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -122,6 +117,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   void _navigateTo(AppRoutes route) {
     final currentRoute = GoRouter.of(context).location;
+
     if (!route.routeName.contains(currentRoute)) {
       context.pushNamed(route.routeName);
     }

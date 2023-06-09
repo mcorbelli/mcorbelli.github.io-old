@@ -1,7 +1,7 @@
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
 
-import 'package:portfolio_web/core/styles/typograph.theme.dart';
+import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
 import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
@@ -43,22 +43,26 @@ class _BackdropNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: navItems.length,
-      itemBuilder: (_, index) {
-        return Container(
-          margin: const EdgeInsets.only(
-            bottom: 10.0,
-          ),
-          padding: const EdgeInsets.all(10.0),
-          decoration: BoxDecoration(
-            color: colorScheme.surface,
-            borderRadius: BorderRadius.circular(30.0),
-          ),
-          child: BodySmall(navItems[index].label),
-        );
-      },
+    List<Widget> navLinks = [];
+    for (var navItem in navItems) {
+      navLinks.add(Container(
+        padding: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.only(
+          bottom: 10.0,
+        ),
+        width: double.maxFinite,
+        decoration: BoxDecoration(
+          color: colorScheme.surface,
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: NavLink(
+          navItem: navItem,
+        ),
+      ));
+    }
+
+    return Column(
+      children: navLinks,
     );
   }
 }
