@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TimeoutException {
-  DioErrorType get typeError => throw _privateConstructorUsedError;
+  DioExceptionType get typeError => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TimeoutExceptionCopyWith<TimeoutException> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $TimeoutExceptionCopyWith<$Res> {
           TimeoutException value, $Res Function(TimeoutException) then) =
       _$TimeoutExceptionCopyWithImpl<$Res, TimeoutException>;
   @useResult
-  $Res call({DioErrorType typeError});
+  $Res call({DioExceptionType typeError});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$TimeoutExceptionCopyWithImpl<$Res, $Val extends TimeoutException>
       typeError: null == typeError
           ? _value.typeError
           : typeError // ignore: cast_nullable_to_non_nullable
-              as DioErrorType,
+              as DioExceptionType,
     ) as $Val);
   }
 }
@@ -64,7 +64,7 @@ abstract class _$$_TimeoutExceptionCopyWith<$Res>
       __$$_TimeoutExceptionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DioErrorType typeError});
+  $Res call({DioExceptionType typeError});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class __$$_TimeoutExceptionCopyWithImpl<$Res>
       null == typeError
           ? _value.typeError
           : typeError // ignore: cast_nullable_to_non_nullable
-              as DioErrorType,
+              as DioExceptionType,
     ));
   }
 }
@@ -95,7 +95,7 @@ class _$_TimeoutException implements _TimeoutException {
   const _$_TimeoutException(this.typeError);
 
   @override
-  final DioErrorType typeError;
+  final DioExceptionType typeError;
 
   @override
   String toString() {
@@ -122,11 +122,11 @@ class _$_TimeoutException implements _TimeoutException {
 }
 
 abstract class _TimeoutException implements TimeoutException {
-  const factory _TimeoutException(final DioErrorType typeError) =
+  const factory _TimeoutException(final DioExceptionType typeError) =
       _$_TimeoutException;
 
   @override
-  DioErrorType get typeError;
+  DioExceptionType get typeError;
   @override
   @JsonKey(ignore: true)
   _$$_TimeoutExceptionCopyWith<_$_TimeoutException> get copyWith =>

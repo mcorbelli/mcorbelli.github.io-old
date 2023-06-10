@@ -21,12 +21,12 @@ class RemoteRepository {
   Future<void> updateVisits() async {
     try {
       await _dio.post(UrlConst.updateVisits);
-    } on DioError catch (error) {
+    } on DioException catch (error) {
       switch (error.type) {
-        case DioErrorType.connectionTimeout:
-        case DioErrorType.receiveTimeout:
+        case DioExceptionType.connectionTimeout:
+        case DioExceptionType.receiveTimeout:
           throw TimeoutException(error.type);
-        case DioErrorType.badResponse:
+        case DioExceptionType.badResponse:
           final response = error.response?.data;
           throw BackendException.fromJson(response);
         default:

@@ -5,5 +5,5 @@ part 'timeout.exception.freezed.dart';
 
 @freezed
 class TimeoutException with _$TimeoutException implements Exception {
-  const factory TimeoutException(DioErrorType typeError) = _TimeoutException;
+  const factory TimeoutException(DioExceptionType typeError) = _TimeoutException;
 }
