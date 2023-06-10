@@ -22,12 +22,11 @@ jobs:
       - name: Build release
         run: flutter build web --release
 
-      - name: Remove old gh-pages branch
-        run: git push origin :gh-pages
-
       - name: Deploy with CNAME
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
           cname: corbellimattia.dev
+          full_commit_message: "Automatic deployment by Github-Actions"
+          force_orphan: true
