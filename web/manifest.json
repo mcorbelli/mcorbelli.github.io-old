@@ -4,9 +4,10 @@
     "description": "Portfolio di Corbelli Mattia",
     "display": "browser",
     "orientation": "portrait",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "prefer_related_applications": true,
+    "theme_color": {
+        "light": "#F0F2F5",
+        "dark": "#18191A"
+    },
     "scope": "/",
     "start_url": "/",
     "icons": [
