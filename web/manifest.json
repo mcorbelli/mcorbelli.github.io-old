@@ -2,12 +2,8 @@
     "name": "Corbelli Mattia - Portfolio",
     "short_name": "Corbelli Mattia",
     "description": "Portfolio di Corbelli Mattia",
-    "display": "browser",
     "orientation": "portrait",
-    "theme_color": {
-        "light": "#F0F2F5",
-        "dark": "#18191A"
-    },
+    "theme_color": "#F0F2F5",
     "scope": "/",
     "start_url": "/",
     "icons": [
