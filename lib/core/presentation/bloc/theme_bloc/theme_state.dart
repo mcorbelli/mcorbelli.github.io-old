@@ -12,7 +12,7 @@ class ThemeState with _$ThemeState {
   ThemeMode get activeThemeMode {
     var currentThemeMode = themeMode;
     if (themeMode == ThemeMode.system) {
-      currentThemeMode = PortfolioTheme.getCurrentThemeMode();
+      currentThemeMode = PortfolioTheme.getThemeMode();
     }
     return currentThemeMode;
   }

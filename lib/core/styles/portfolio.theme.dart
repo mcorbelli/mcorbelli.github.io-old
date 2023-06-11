@@ -30,7 +30,7 @@ class PortfolioTheme {
   static ThemeData get lightTheme => _light;
   static ThemeData get darkTheme => _dark;
 
-  static ThemeMode getCurrentThemeMode() {
+  static ThemeMode getThemeMode() {
     final instance = SchedulerBinding.instance;
     final platform = instance.platformDispatcher;
 

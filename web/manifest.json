@@ -3,6 +3,8 @@
     "short_name": "Corbelli Mattia",
     "description": "Portfolio di Corbelli Mattia",
     "orientation": "portrait",
+    "display": "browser",
+    "background_color": "#F6F7F8",
     "theme_color": "#F0F2F5",
     "scope": "/",
     "start_url": "/",

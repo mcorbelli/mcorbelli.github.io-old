@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:portfolio_web/core/styles/portfolio.theme.dart';
+import 'package:universal_html/html.dart' as html;
 
 part 'theme_event.dart';
 part 'theme_state.dart';
@@ -20,8 +21,12 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
     Emitter<ThemeState> emit,
   ) {
     if (state.followSystem == false) {
+      final currentThemeMode = PortfolioTheme.getThemeMode();
+
+      _setLocalStorageTheme(currentThemeMode);
+
       emit(state.copyWith(
-        themeMode: PortfolioTheme.getCurrentThemeMode(),
+        themeMode: currentThemeMode,
         followSystem: !state.followSystem,
       ));
     }
@@ -31,10 +36,16 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
     _ManualThemeChange event,
     Emitter<ThemeState> emit,
   ) {
+    _setLocalStorageTheme(event.themeMode);
+
     emit(state.copyWith(
       themeMode: event.themeMode,
       followSystem: false,
     ));
+  }
+
+  void _setLocalStorageTheme(ThemeMode themeMode) {
+    html.window.localStorage['portfolio_theme'] = themeMode.name;
   }
 
   @override

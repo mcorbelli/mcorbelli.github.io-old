@@ -1,129 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--
-      If you are serving your web app in a path other than the root, change the
-      href value below to reflect the base path you are serving from.
+    <head>
+        <base href="$FLUTTER_BASE_HREF" />
 
-      The path provided below has to start and end with a slash "/" in order for
-      it to work correctly.
+        <meta charset="UTF-8" />
+        <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+        <meta name="description" content="Portfolio di Corbelli Mattia" />
 
-      For more details:
-      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="portfolio_web" />
+        <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
 
-      This is a placeholder for base href that will be replaced by the value of
-      the `--base-href` argument provided to `flutter build`.
-    -->
-    <base href="$FLUTTER_BASE_HREF">
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+        <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
 
-    <meta charset="UTF-8">
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta name="description" content="Portfolio di Corbelli Mattia">
+        <link rel="icon" type="image/png" href="favicon.ico" />
 
-    <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="portfolio_web">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+        <title>Corbelli Mattia - Portfolio</title>
+        <link rel="manifest" href="manifest.json" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.ico">
+        <script>
+            var serviceWorkerVersion = null;
+        </script>
 
-    <title>Corbelli Mattia - Portfolio</title>
-    <link rel="manifest" href="manifest.json">
+        <script src="flutter.js" defer></script>
 
-    <script>
-      // The value below is injected by flutter build, do not touch.
-      var serviceWorkerVersion = null;
-    </script>
-    <!-- This script adds the flutter initialization JS code -->
-    <script src="flutter.js" defer></script>
-  
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-
-    <style id="splash-screen-style">
-      html {
-        height: 100%
-      }
-      body {
-        margin: 0;
-        min-height: 100%;
-        background-color: #F6F7F8;
-        background-size: 100% 100%;
-      }
-      .center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-      }
-      .contain {
-        display:block;
-        width:100%; height:100%;
-        object-fit: contain;
-      }
-      .stretch {
-        display:block;
-        width:100%; height:100%;
-      }
-      .cover {
-        display:block;
-        width:100%; height:100%;
-        object-fit: cover;
-      }
-      .bottom {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        -ms-transform: translate(-50%, 0);
-        transform: translate(-50%, 0);
-      }
-      .bottomLeft {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
-      .bottomRight {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #202020;
-        }
-      }
-    </style>
-    <script id="splash-screen-script">
-      function removeSplashFromWeb() {
-        document.getElementById("splash")?.remove();
-        document.getElementById("splash-branding")?.remove();
-        document.body.style.background = "transparent";
-      }
-    </script>
-  </head>
-  <body>
-    <picture id="splash">
-        <source srcset="splash/img/light-1x.gif 1x, splash/img/light-2x.gif 2x, splash/img/light-3x.gif 3x, splash/img/light-4x.gif 4x" media="(prefers-color-scheme: light)">
-        <source srcset="splash/img/dark-1x.gif 1x, splash/img/dark-2x.gif 2x, splash/img/dark-3x.gif 3x, splash/img/dark-4x.gif 4x" media="(prefers-color-scheme: dark)">
-        <img class="center" aria-hidden="true" src="splash/img/light-1x.gif" alt="">
-    </picture>
-    <script>
-      window.addEventListener('load', function(ev) {
-        // Download main.dart.js
-        _flutter.loader.loadEntrypoint({
-          serviceWorker: {
-            serviceWorkerVersion: serviceWorkerVersion,
-          },
-          onEntrypointLoaded: function(engineInitializer) {
-            engineInitializer.initializeEngine().then(function(appRunner) {
-              appRunner.runApp();
+        <!-- Include the external CSS file -->
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body onload="applyTheme()">
+        <picture id="splash">
+            <img class="center" aria-hidden="true" src="splash/img/light-1x.gif" alt="" />
+        </picture>
+        <script id="flutter-load-script">
+            window.addEventListener("load", function (ev) {
+                _flutter.loader.loadEntrypoint({
+                    serviceWorker: {
+                        serviceWorkerVersion: serviceWorkerVersion,
+                    },
+                    onEntrypointLoaded: function (engineInitializer) {
+                        engineInitializer.initializeEngine().then(function (appRunner) {
+                            appRunner.runApp();
+                        });
+                    },
+                });
             });
-          }
-        });
-      });
-    </script>
-  </body>
+        </script>
+        <script id="splash-screen-script">
+            window.addEventListener("load", function (ev) {
+                var theme = localStorage.getItem('portfolio_theme');
+                if (theme === 'dark') {
+                    document.body.style.backgroundColor = '#18191A';
+                    document.getElementById('splash').querySelector('img').src = 'splash/img/dark-1x.gif';
+                } else if (theme === 'light') {
+                    document.body.style.backgroundColor = '#F0F2F5';
+                    document.getElementById('splash').querySelector('img').src = 'splash/img/light-1x.gif';
+                }
+            });
+        </script>
+    </body>
 </html>
