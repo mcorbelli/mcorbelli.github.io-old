@@ -12,9 +12,6 @@
         <meta name="apple-mobile-web-app-title" content="portfolio_web" />
         <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
 
-        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-        <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
-
         <link rel="icon" type="image/png" href="favicon.ico" />
 
         <title>Corbelli Mattia - Portfolio</title>
@@ -30,9 +27,9 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body onload="applyTheme()">
-        <picture id="splash">
-            <img class="center" aria-hidden="true" src="splash/img/light-1x.gif" alt="" />
-        </picture>
+        <div id="splash">
+            <img class="center" aria-hidden="true" src="splash/img/loading-light.gif" alt="" />
+        </div>
         <script id="flutter-load-script">
             window.addEventListener("load", function (ev) {
                 _flutter.loader.loadEntrypoint({
@@ -50,12 +47,13 @@
         <script id="splash-screen-script">
             window.addEventListener("load", function (ev) {
                 var theme = localStorage.getItem('portfolio_theme');
+                var splash = document.getElementById('splash');
                 if (theme === 'dark') {
                     document.body.style.backgroundColor = '#18191A';
-                    document.getElementById('splash').querySelector('img').src = 'splash/img/dark-1x.gif';
+                    splash.querySelector('img').src = 'splash/img/loading-dark.gif';
                 } else if (theme === 'light') {
                     document.body.style.backgroundColor = '#F0F2F5';
-                    document.getElementById('splash').querySelector('img').src = 'splash/img/light-1x.gif';
+                    splash.querySelector('img').src = 'splash/img/loading-light.gif';
                 }
             });
         </script>
