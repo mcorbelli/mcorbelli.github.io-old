@@ -7,6 +7,7 @@ import 'package:url_strategy/url_strategy.dart' as strategy;
 import 'package:portfolio_web/core/styles/portfolio.theme.dart';
 import 'package:portfolio_web/core/utils/observer.bloc.dart';
 import 'package:portfolio_web/core/data/repositories/remote.repository.dart';
+import 'package:portfolio_web/core/data/repositories/storage.repository.dart';
 import 'package:portfolio_web/core/presentation/bloc/theme_bloc/theme_bloc.dart';
 import 'package:portfolio_web/core/utils/manager.route.dart';
 import 'package:portfolio_web/core/data/locales.enum.dart';
@@ -56,11 +57,16 @@ class _PortfolioState extends State<Portfolio> {
         RepositoryProvider<RemoteRepository>(
           create: (_) => RemoteRepository(),
         ),
+        RepositoryProvider<StorageRepository>(
+          create: (_) => StorageRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider<ThemeBloc>(
-            create: (_) => ThemeBloc(),
+            create: (context) => ThemeBloc(
+              RepositoryProvider.of<StorageRepository>(context),
+            ),
           )
         ],
         child: BlocBuilder<ThemeBloc, ThemeState>(

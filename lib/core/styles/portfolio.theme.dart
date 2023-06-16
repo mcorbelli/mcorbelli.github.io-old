@@ -43,9 +43,9 @@ class PortfolioTheme {
 
   static const _lightColorTheme = ColorScheme(
     brightness: Brightness.light,
-    primary: Color(0XFF2196F3),
+    primary: Color(0XFF083D77),
     onPrimary: Color(0XFF3E3D3F),
-    secondary: Color(0XFFFFC107),
+    secondary: Color(0XFFE3B505),
     onSecondary: Color(0XFF3E3D3F),
     error: Color(0XFF8E372E),
     onError: Color(0XFFFFFFFF),

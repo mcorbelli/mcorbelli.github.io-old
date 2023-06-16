@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+
+import 'package:portfolio_web/core/constants/storage.const.dart';
+import 'package:portfolio_web/core/data/repositories/storage.repository.dart';
 import 'package:portfolio_web/core/styles/portfolio.theme.dart';
-import 'package:universal_html/html.dart' as html;
 
 part 'theme_event.dart';
 part 'theme_state.dart';
@@ -11,7 +13,11 @@ part 'theme_bloc.freezed.dart';
 part 'theme_bloc.g.dart';
 
 class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(const ThemeState()) {
+  late final StorageRepository _storageRepo;
+
+  ThemeBloc(
+    this._storageRepo,
+  ) : super(const ThemeState()) {
     on<_ManualThemeChange>(_onThemeChange);
     on<_SwitchSystemMode>(_onSwitchSystemMode);
   }
@@ -45,7 +51,7 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
   }
 
   void _setLocalStorageTheme(ThemeMode themeMode) {
-    html.window.localStorage['portfolio_theme'] = themeMode.name;
+    _storageRepo.local.insert(StorageConst.theme, themeMode.name);
   }
 
   @override
