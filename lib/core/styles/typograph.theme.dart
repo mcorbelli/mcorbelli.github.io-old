@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DisplayLarge extends StatelessWidget {
-  final String label;
-
   const DisplayLarge(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.displayLarge;
+    final current = textTheme.displayLarge?.merge(style);
 
     return Text(
       label,
@@ -21,17 +23,19 @@ class DisplayLarge extends StatelessWidget {
 }
 
 class DisplayMedium extends StatelessWidget {
-  final String label;
-
   const DisplayMedium(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.displayMedium;
+    final current = textTheme.displayMedium?.merge(style);
 
     return Text(
       label,
@@ -41,17 +45,19 @@ class DisplayMedium extends StatelessWidget {
 }
 
 class DisplaySmall extends StatelessWidget {
-  final String label;
-
   const DisplaySmall(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.displaySmall;
+    final current = textTheme.displaySmall?.merge(style);
 
     return Text(
       label,
@@ -61,17 +67,19 @@ class DisplaySmall extends StatelessWidget {
 }
 
 class HeadlineLarge extends StatelessWidget {
-  final String label;
-
   const HeadlineLarge(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.headlineLarge;
+    final current = textTheme.headlineLarge?.merge(style);
 
     return Text(
       label,
@@ -81,17 +89,19 @@ class HeadlineLarge extends StatelessWidget {
 }
 
 class HeadlineMedium extends StatelessWidget {
-  final String label;
-
   const HeadlineMedium(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.headlineMedium;
+    final current = textTheme.headlineMedium?.merge(style);
 
     return Text(
       label,
@@ -101,17 +111,19 @@ class HeadlineMedium extends StatelessWidget {
 }
 
 class HeadlineSmall extends StatelessWidget {
-  final String label;
-
   const HeadlineSmall(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.headlineSmall;
+    final current = textTheme.headlineSmall?.merge(style);
 
     return Text(
       label,
@@ -121,17 +133,19 @@ class HeadlineSmall extends StatelessWidget {
 }
 
 class TitleLarge extends StatelessWidget {
-  final String label;
-
   const TitleLarge(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.titleLarge;
+    final current = textTheme.titleLarge?.merge(style);
 
     return Text(
       label,
@@ -143,17 +157,19 @@ class TitleLarge extends StatelessWidget {
 }
 
 class TitleMedium extends StatelessWidget {
-  final String label;
-
   const TitleMedium(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.titleMedium;
+    final current = textTheme.titleMedium?.merge(style);
 
     return Text(
       label,
@@ -163,17 +179,19 @@ class TitleMedium extends StatelessWidget {
 }
 
 class TitleSmall extends StatelessWidget {
-  final String label;
-
   const TitleSmall(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.titleSmall;
+    final current = textTheme.titleSmall?.merge(style);
 
     return Text(
       label,
@@ -183,17 +201,19 @@ class TitleSmall extends StatelessWidget {
 }
 
 class BodyLarge extends StatelessWidget {
-  final String label;
-
   const BodyLarge(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.bodyLarge;
+    final current = textTheme.bodyLarge?.merge(style);
 
     return Text(
       label,
@@ -203,17 +223,19 @@ class BodyLarge extends StatelessWidget {
 }
 
 class BodyMedium extends StatelessWidget {
-  final String label;
-
   const BodyMedium(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.bodyMedium;
+    final current = textTheme.bodyMedium?.merge(style);
 
     return Text(
       label,
@@ -223,17 +245,19 @@ class BodyMedium extends StatelessWidget {
 }
 
 class BodySmall extends StatelessWidget {
-  final String label;
-
   const BodySmall(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.bodySmall;
+    final current = textTheme.bodySmall?.merge(style);
 
     return Text(
       label,
@@ -243,17 +267,19 @@ class BodySmall extends StatelessWidget {
 }
 
 class LabelLarge extends StatelessWidget {
-  final String label;
-
   const LabelLarge(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.labelLarge;
+    final current = textTheme.labelLarge?.merge(style);
 
     return Text(
       label,
@@ -263,17 +289,19 @@ class LabelLarge extends StatelessWidget {
 }
 
 class LabelMedium extends StatelessWidget {
-  final String label;
-
   const LabelMedium(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.labelMedium;
+    final current = textTheme.labelMedium?.merge(style);
 
     return Text(
       label,
@@ -283,17 +311,19 @@ class LabelMedium extends StatelessWidget {
 }
 
 class LabelSmall extends StatelessWidget {
-  final String label;
-
   const LabelSmall(
     this.label, {
+    this.style,
     super.key,
   });
+
+  final String label;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final current = textTheme.labelMedium;
+    final current = textTheme.labelMedium?.merge(style);
 
     return Text(
       label,

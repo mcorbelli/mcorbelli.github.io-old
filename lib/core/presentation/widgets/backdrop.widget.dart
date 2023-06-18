@@ -21,56 +21,41 @@ class CustomBackdrop extends StatelessWidget {
     return BackdropNavigationBackLayer(
       itemPadding: const EdgeInsets.all(10.0),
       items: [
-        _BackdropNavigation(
-          navItems: navItems,
-        ),
-        _BackdropFooter(
-          socials: socials,
-        ),
+        _BackdropNavigation(navItems),
+        _BackdropFooter(socials),
       ],
     );
   }
 }
 
 class _BackdropNavigation extends StatelessWidget {
-  const _BackdropNavigation({
-    required this.navItems,
-  });
+  const _BackdropNavigation(this.navItems);
 
   final List<NavItem> navItems;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
-    List<Widget> navLinks = [];
-    for (var navItem in navItems) {
-      navLinks.add(Container(
-        padding: const EdgeInsets.all(10.0),
-        margin: const EdgeInsets.only(
-          bottom: 10.0,
-        ),
-        width: double.maxFinite,
-        decoration: BoxDecoration(
-          color: colorScheme.surface,
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        child: NavLink(
-          navItem: navItem,
-        ),
-      ));
-    }
-
-    return Column(
-      children: navLinks,
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 8 / 2,
+        crossAxisSpacing: 20,
+        mainAxisSpacing: 20,
+      ),
+      itemCount: navItems.length,
+      itemBuilder: (_, index) {
+        return NavLink.bubble(
+          navItem: navItems[index],
+        );
+      },
     );
   }
 }
 
 class _BackdropFooter extends StatelessWidget {
-  const _BackdropFooter({
-    this.socials = const [],
-  });
+  const _BackdropFooter(this.socials);
 
   final List<SocialIcon> socials;
 

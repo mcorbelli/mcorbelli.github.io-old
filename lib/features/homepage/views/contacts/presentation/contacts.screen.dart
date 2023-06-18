@@ -36,6 +36,7 @@ class _ContactsDesktop extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         DisplayMedium(tr('contacts.title')),
+        BodyLarge(tr('contacts.subtitle')),
       ],
     );
   }
