@@ -1,4 +1,3 @@
-import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
 
 import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
@@ -18,12 +17,20 @@ class CustomBackdrop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackdropNavigationBackLayer(
-      itemPadding: const EdgeInsets.all(10.0),
-      items: [
-        _BackdropNavigation(navItems),
-        _BackdropFooter(socials),
-      ],
+    return Container(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 10.0,
+            ),
+            child: _BackdropNavigation(navItems),
+          ),
+          _BackdropFooter(socials),
+        ],
+      ),
     );
   }
 }
@@ -72,7 +79,7 @@ class _BackdropFooter extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(00.0),
       child: Row(
         children: [
           Expanded(
