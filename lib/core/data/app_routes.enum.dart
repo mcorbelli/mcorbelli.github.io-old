@@ -7,6 +7,10 @@ enum AppRoutes {
     routeName: 'contacts',
     routePath: '/contacts',
   ),
+  tattoo(
+    routeName: 'tattoo',
+    routePath: '/tattoo',
+  ),
   notFound(
     routeName: 'not_found',
     routePath: '/not-found',
