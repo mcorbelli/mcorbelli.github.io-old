@@ -5,30 +5,31 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_web/core/data/font_size.enum.dart';
 
 class PortfolioTheme {
-  static final ThemeData _light = ThemeData(
-    brightness: Brightness.light,
-    useMaterial3: true,
-    colorScheme: _lightColorTheme,
-    textTheme: _lightTextTheme,
-    scaffoldBackgroundColor: _lightColorTheme.background,
-    drawerTheme: DrawerThemeData(
-      backgroundColor: _lightColorTheme.background,
-    ),
-  );
+  static final ThemeData _lightTheme = _buildThemeData(Brightness.light);
+  static final ThemeData _darkTheme = _buildThemeData(Brightness.dark);
 
-  static final ThemeData _dark = ThemeData(
-    brightness: Brightness.dark,
-    useMaterial3: true,
-    colorScheme: _darkColorTheme,
-    textTheme: _darkTextTheme,
-    scaffoldBackgroundColor: _darkColorTheme.background,
-    drawerTheme: DrawerThemeData(
-      backgroundColor: _darkColorTheme.background,
-    ),
-  );
+  static ThemeData get lightTheme => _lightTheme;
+  static ThemeData get darkTheme => _darkTheme;
 
-  static ThemeData get lightTheme => _light;
-  static ThemeData get darkTheme => _dark;
+  static ThemeData _buildThemeData(
+    Brightness brightness,
+  ) {
+    ColorScheme colorScheme = _lightColorScheme;
+    if (brightness == Brightness.dark) {
+      colorScheme = _darkColorScheme;
+    }
+
+    return ThemeData(
+      brightness: brightness,
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      textTheme: _textTheme,
+      scaffoldBackgroundColor: colorScheme.background,
+      drawerTheme: DrawerThemeData(
+        backgroundColor: colorScheme.background,
+      ),
+    );
+  }
 
   static ThemeMode getThemeMode() {
     final instance = SchedulerBinding.instance;
@@ -41,185 +42,102 @@ class PortfolioTheme {
     return ThemeMode.dark;
   }
 
-  static const _lightColorTheme = ColorScheme(
-    brightness: Brightness.light,
+  static final TextTheme _textTheme = TextTheme(
+    displayLarge: _buildTextStyle(
+      FontSize.displayLarge,
+      FontWeight.bold,
+    ),
+    displayMedium: _buildTextStyle(
+      FontSize.displayMedium,
+      FontWeight.bold,
+    ),
+    displaySmall: _buildTextStyle(
+      FontSize.displaySmall,
+      FontWeight.bold,
+    ),
+    headlineLarge: _buildTextStyle(
+      FontSize.headlineLarge,
+      FontWeight.bold,
+    ),
+    headlineMedium: _buildTextStyle(
+      FontSize.headlineMedium,
+      FontWeight.bold,
+    ),
+    headlineSmall: _buildTextStyle(
+      FontSize.headlineSmall,
+      FontWeight.bold,
+    ),
+    titleLarge: _buildTextStyle(
+      FontSize.titleLarge,
+      FontWeight.w500,
+    ),
+    titleMedium: _buildTextStyle(
+      FontSize.titleMedium,
+      FontWeight.w500,
+    ),
+    titleSmall: _buildTextStyle(
+      FontSize.titleSmall,
+      FontWeight.w500,
+    ),
+    bodyLarge: _buildTextStyle(
+      FontSize.bodyLarge,
+      FontWeight.normal,
+    ),
+    bodyMedium: _buildTextStyle(
+      FontSize.bodyMedium,
+      FontWeight.normal,
+    ),
+    bodySmall: _buildTextStyle(
+      FontSize.bodySmall,
+      FontWeight.normal,
+    ),
+    labelLarge: _buildTextStyle(
+      FontSize.labelLarge,
+      FontWeight.bold,
+    ),
+    labelMedium: _buildTextStyle(
+      FontSize.labelMedium,
+      FontWeight.bold,
+    ),
+    labelSmall: _buildTextStyle(
+      FontSize.labelSmall,
+      FontWeight.bold,
+    ),
+  );
+
+  static TextStyle _buildTextStyle(
+    FontSize fontSize,
+    FontWeight fontWeight,
+  ) {
+    return GoogleFonts.montserrat(
+      fontSize: fontSize.size,
+      fontWeight: fontWeight,
+    );
+  }
+
+  static const _lightColorScheme = ColorScheme.light(
     primary: Color(0XFF083D77),
     onPrimary: Color(0XFF3E3D3F),
     secondary: Color(0XFFE3B505),
     onSecondary: Color(0XFF3E3D3F),
     error: Color(0XFF8E372E),
     onError: Color(0XFFFFFFFF),
-    background: Color(0XFFF0F2F5),
-    onBackground: Color(0XFF65676B),
-    surface: Color(0XFFFFFFFF),
-    onSurface: Color(0XFF65676B),
+    background: Color(0xFFF0F2F5),
+    onBackground: Color(0xFF65676B),
+    surface: Color(0xFFFFFFFF),
+    onSurface: Color(0xFF65676B),
   );
 
-  static const _darkColorTheme = ColorScheme(
-    brightness: Brightness.dark,
+  static const _darkColorScheme = ColorScheme.dark(
     primary: Color(0XFFE0AB4B),
     onPrimary: Color(0XFFFFFFFF),
     secondary: Color(0XFF567660),
     onSecondary: Color(0XFFFFFFFF),
     error: Color(0XFF6C1928),
     onError: Color(0XFFFFFFFF),
-    background: Color(0XFF18191A),
-    onBackground: Color(0XFFB1B3B9),
-    surface: Color(0XFF242526),
-    onSurface: Color(0XFFB1B3B9),
-  );
-
-  static final _lightTextTheme = TextTheme(
-    displayLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.displayLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    displayMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.displayMedium.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    displaySmall: GoogleFonts.montserrat(
-      fontSize: FontSize.displaySmall.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    headlineLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    headlineMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineMedium.size,
-      fontWeight: FontWeight.bold,
-    ),
-    headlineSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineSmall.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    titleLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.titleLarge.size,
-      fontWeight: FontWeight.w500,
-      color: _lightColorTheme.onBackground,
-    ),
-    titleMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.titleMedium.size,
-      fontWeight: FontWeight.w500,
-      color: _lightColorTheme.onBackground,
-    ),
-    titleSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.titleSmall.size,
-      fontWeight: FontWeight.w500,
-      color: _lightColorTheme.onBackground,
-    ),
-    bodyLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.bodyLarge.size,
-      fontWeight: FontWeight.normal,
-      color: _lightColorTheme.onBackground,
-    ),
-    bodyMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.bodyMedium.size,
-      fontWeight: FontWeight.normal,
-      color: _lightColorTheme.onBackground,
-    ),
-    bodySmall: GoogleFonts.montserrat(
-      fontSize: FontSize.bodySmall.size,
-      fontWeight: FontWeight.normal,
-      color: _lightColorTheme.onBackground,
-    ),
-    labelLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.labelLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    labelMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.labelMedium.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-    labelSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.labelSmall.size,
-      fontWeight: FontWeight.bold,
-      color: _lightColorTheme.onBackground,
-    ),
-  );
-
-  static final _darkTextTheme = TextTheme(
-    displayLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.displayLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    displayMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.displayMedium.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    displaySmall: GoogleFonts.montserrat(
-      fontSize: FontSize.displaySmall.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    headlineLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    headlineMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineMedium.size,
-      fontWeight: FontWeight.bold,
-    ),
-    headlineSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.headlineSmall.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    titleLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.titleLarge.size,
-      fontWeight: FontWeight.w500,
-      color: _darkColorTheme.onBackground,
-    ),
-    titleMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.titleMedium.size,
-      fontWeight: FontWeight.w500,
-      color: _darkColorTheme.onBackground,
-    ),
-    titleSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.titleSmall.size,
-      fontWeight: FontWeight.w500,
-      color: _darkColorTheme.onBackground,
-    ),
-    bodyLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.bodyLarge.size,
-      fontWeight: FontWeight.normal,
-      color: _darkColorTheme.onBackground,
-    ),
-    bodyMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.bodyMedium.size,
-      fontWeight: FontWeight.normal,
-      color: _darkColorTheme.onBackground,
-    ),
-    bodySmall: GoogleFonts.montserrat(
-      fontSize: FontSize.bodySmall.size,
-      fontWeight: FontWeight.normal,
-      color: _darkColorTheme.onBackground,
-    ),
-    labelLarge: GoogleFonts.montserrat(
-      fontSize: FontSize.labelLarge.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    labelMedium: GoogleFonts.montserrat(
-      fontSize: FontSize.labelMedium.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
-    labelSmall: GoogleFonts.montserrat(
-      fontSize: FontSize.labelSmall.size,
-      fontWeight: FontWeight.bold,
-      color: _darkColorTheme.onBackground,
-    ),
+    background: Color(0xFF18191A),
+    onBackground: Color(0xFFB1B3B9),
+    surface: Color(0xFF242526),
+    onSurface: Color(0xFFB1B3B9),
   );
 }
