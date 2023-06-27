@@ -1,39 +1,28 @@
-import 'package:super_network_logger/super_network_logger.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:portfolio_web/core/constants/url.const.dart';
-import 'package:portfolio_web/core/data/models/exceptions/backend.exception.dart';
-import 'package:portfolio_web/core/data/models/exceptions/rest.exception.dart';
-import 'package:portfolio_web/core/data/models/exceptions/timeout.exception.dart';
+import 'package:portfolio_web/core/data/repositories/info.repository.dart';
+import 'package:portfolio_web/core/data/services/http_api.service.dart';
 
-class RemoteRepository {
-  late Dio _dio;
+class RemoteRepository extends HttpApiService {
+  late final InfoRepository _infoRepo;
 
-  RemoteRepository() {
-    _dio = Dio(BaseOptions(
-      baseUrl: UrlConst.domainName,
-    ))
-      ..interceptors.addAll([
-        SuperNetworkLogger(),
-      ]);
-  }
+  RemoteRepository(this._infoRepo);
 
   Future<void> updateVisits() async {
     try {
-      await _dio.post(UrlConst.updateVisits);
-    } on DioException catch (error) {
-      switch (error.type) {
-        case DioExceptionType.connectionTimeout:
-        case DioExceptionType.receiveTimeout:
-          throw TimeoutException(error.type);
-        case DioExceptionType.badResponse:
-          final response = error.response?.data;
-          throw BackendException.fromJson(response);
-        default:
-          throw const RestException('Errore in fase di risposta');
-      }
+      final browserInfo = await _infoRepo.getBrowserInfo();
+      final packageInfo = await _infoRepo.getPackageInfo();
+
+      await post(
+        UrlConst.updateVisits,
+        body: {
+          'browser': browserInfo.data,
+          'package': packageInfo.data,
+        },
+      );
     } catch (error) {
-      throw const RestException('Errore durante la chiamata');
+      debugPrint('Errore durante la chiamata: $error');
     }
   }
 }

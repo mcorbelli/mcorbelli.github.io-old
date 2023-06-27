@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:portfolio_web/core/data/font_size.enum.dart';
+import 'package:portfolio_web/core/data/enums/font_size.enum.dart';
 
 class PortfolioTheme {
   static final ThemeData _lightTheme = _buildThemeData(Brightness.light);

@@ -48,12 +48,17 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     required NavTitle navTitle,
     VoidCallback? onMenuPressed,
   }) {
-    return CustomAppBar._(
-      navTitle: navTitle,
-      trailing: IconButton(
+    Widget? menuButton;
+    if (onMenuPressed != null) {
+      menuButton = IconButton(
         icon: const Icon(Icons.menu),
         onPressed: onMenuPressed,
-      ),
+      );
+    }
+
+    return CustomAppBar._(
+      navTitle: navTitle,
+      trailing: menuButton,
     );
   }
 

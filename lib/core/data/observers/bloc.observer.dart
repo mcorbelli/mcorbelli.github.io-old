@@ -1,18 +1,31 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logzilla/logzilla.dart';
+import 'package:colorize/colorize.dart';
 
 /// BlocObserver is a abstract class for monitoring BloC instances behavior.
 /// This means we can track anytime an event is triggered or a state is emitted.
 /// And in the instance of Debugging the BloC, I believe this is incredible.
 
 class AppBlocObserver extends BlocObserver {
+  late Logzilla _logger;
+
+  AppBlocObserver() {
+    _logger = const Logzilla('AppBlocObserver');
+  }
+
   /// As the name suggests whenever an event is added to the Bloc this method is triggered.
   /// It is also a great spot to add logging/analytics at the individual Bloc level.
 
   @override
   void onEvent(Bloc bloc, Object? event) {
+    _logger.custom(
+      '<<<EVENT>>> $event',
+      msgStyles: [
+        Styles.CYAN,
+      ],
+    );
+
     super.onEvent(bloc, event);
-    debugPrint('\u001b[1;36m<<<EVENT>>> $event');
   }
 
   /// To track a bloc's error whenever it happens, just override the
@@ -21,8 +34,14 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    _logger.custom(
+      '<<<ERROR>>> $error',
+      msgStyles: [
+        Styles.RED,
+      ],
+    );
+
     super.onError(bloc, error, stackTrace);
-    debugPrint('\u001b[1;31m<<<ERROR>>> $error [$stackTrace]');
   }
 
   /// You must override the onChange method inside your bloc in order
@@ -35,8 +54,14 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onChange(BlocBase bloc, Change change) {
+    _logger.custom(
+      '<<<CHANGE>>> $change',
+      msgStyles: [
+        Styles.GREEN,
+      ],
+    );
+
     super.onChange(bloc, change);
-    debugPrint('\u001b[1;32m<<<CHANGE>>> $change');
   }
 
   /// If you want to observe a bloc whenever a new event is added and a new state is added,
@@ -48,7 +73,13 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
+    _logger.custom(
+      '<<<TRANSITION>>> $transition',
+      msgStyles: [
+        Styles.YELLOW,
+      ],
+    );
+
     super.onTransition(bloc, transition);
-    debugPrint('\u001b[1;33m<<<TRANSITION>>> $transition');
   }
 }

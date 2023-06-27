@@ -6,7 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:portfolio_web/core/presentation/widgets/backdrop.widget.dart';
-import 'package:portfolio_web/core/data/app_routes.enum.dart';
+import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/core/presentation/widgets/footer.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';

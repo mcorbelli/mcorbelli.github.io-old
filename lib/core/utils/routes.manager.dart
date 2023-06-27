@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
+import 'package:portfolio_web/core/data/observers/go_router.observer.dart';
 import 'package:portfolio_web/features/homepage/homepage.shell.dart';
 import 'package:portfolio_web/features/not_found/presentation/not_found.screen.dart';
 
@@ -12,6 +13,9 @@ class RouteManager {
       screens: [
         HomepageShell(),
         NotFoundScreen(),
+      ],
+      observers: [
+        GoRouterObserver(),
       ],
     );
   }

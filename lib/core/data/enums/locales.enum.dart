@@ -8,6 +8,10 @@ enum Locales {
 
   final Locale locale;
 
+  static String get translationsDirectory {
+    return 'assets/localization';
+  }
+
   static Locale get fallback {
     return Locales.english.locale;
   }

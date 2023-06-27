@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import 'package:portfolio_web/core/data/app_routes.enum.dart';
+import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 
 class IntroductionScreen extends Screen implements InitialScreen {

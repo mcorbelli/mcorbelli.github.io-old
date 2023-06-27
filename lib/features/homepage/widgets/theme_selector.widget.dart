@@ -6,18 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_web/core/presentation/bloc/theme_bloc/theme_bloc.dart';
 import 'package:portfolio_web/features/homepage/data/models/theme_action.model.dart';
 
-const themelKey = 'homepage.app_bar.theme_selector';
+const themeKey = 'homepage.app_bar.theme_selector';
 
 final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
-    tooltip: tr('$themelKey.help_light'),
+    tooltip: tr('$themeKey.help_light'),
     icon: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
-    tooltip: tr('$themelKey.help_dark'),
+    tooltip: tr('$themeKey.help_dark'),
     icon: EvaIcons.moon,
     color: const Color(0XFF3271C2),
   ),
