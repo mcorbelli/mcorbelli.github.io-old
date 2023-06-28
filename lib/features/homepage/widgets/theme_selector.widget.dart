@@ -38,27 +38,25 @@ class _ThemeSelectorState extends State<ThemeSelector> {
         return previous.themeMode != current.themeMode;
       },
       builder: (context, state) {
-        return Row(
-          children: themes.map((e) {
-            final current = state.activeThemeMode;
-            final isActive = (e.themeMode == current);
+        final action = _getNextAction(state.activeThemeMode);
 
-            return IconButton(
-              onPressed: () {
-                _onThemeSelected(e.themeMode);
-              },
-              tooltip: e.tooltip,
-              icon: Icon(e.icon),
-              color: (() {
-                if (isActive) {
-                  return e.color;
-                }
-              }()),
-            );
-          }).toList(),
+        return IconButton(
+          onPressed: () {
+            _onThemeSelected(action.themeMode);
+          },
+          tooltip: action.tooltip,
+          icon: Center(child: Icon(action.icon)),
+          color: action.color,
+          padding: const EdgeInsets.all(0.0),
         );
       },
     );
+  }
+
+  ThemeAction _getNextAction(ThemeMode current) {
+    return themes.firstWhere((element) {
+      return element.themeMode != current;
+    });
   }
 
   void _onThemeSelected(ThemeMode mode) {

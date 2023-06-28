@@ -28,6 +28,9 @@ class PortfolioTheme {
       drawerTheme: DrawerThemeData(
         backgroundColor: colorScheme.background,
       ),
+      dividerTheme: DividerThemeData(
+        color: colorScheme.onBackground,
+      ),
     );
   }
 

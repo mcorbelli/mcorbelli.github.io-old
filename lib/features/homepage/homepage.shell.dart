@@ -13,7 +13,7 @@ import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart'
 import 'package:portfolio_web/features/homepage/views/contacts/presentation/contacts.screen.dart';
 import 'package:portfolio_web/features/homepage/views/introduction/presentation/introduction.screen.dart';
 import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
-import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
+import 'package:portfolio_web/features/homepage/widgets/app_version.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 
 class HomepageShell extends ShellScreen {
@@ -85,7 +85,7 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
             tooltip: tr('$socialKey.linkedin'),
           ),
         ],
-        trailing: const ThemeSelector(),
+        trailing: const AppVersion(),
       ),
     );
   }

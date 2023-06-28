@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
@@ -5,6 +6,7 @@ import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
+import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar._({
@@ -39,7 +41,15 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     return CustomAppBar._(
       navTitle: navTitle,
       trailing: Row(
-        children: navLinks,
+        children: [
+          ...navLinks,
+          const VerticalDivider(
+            thickness: 1.0,
+            indent: 8.0,
+            endIndent: 8.0,
+          ),
+          const ThemeSelector(),
+        ],
       ),
     );
   }
@@ -51,8 +61,9 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     Widget? menuButton;
     if (onMenuPressed != null) {
       menuButton = IconButton(
-        icon: const Icon(Icons.menu),
+        icon: const Icon(EvaIcons.menu),
         onPressed: onMenuPressed,
+        padding: const EdgeInsets.all(0.0),
       );
     }
 

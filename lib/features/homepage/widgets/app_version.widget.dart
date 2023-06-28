@@ -28,7 +28,7 @@ class _AppVersionState extends State<AppVersion> {
           versionLabel = 'V ${snapshot.data!.version}';
         }
 
-        return BodyMedium(versionLabel);
+        return BodySmall(versionLabel);
       },
     );
   }
