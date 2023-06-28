@@ -16,9 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SocialIcon {
-  IconData get icon => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  String? get tooltip => throw _privateConstructorUsedError;
+  Socials get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SocialIconCopyWith<SocialIcon> get copyWith =>
@@ -31,7 +29,7 @@ abstract class $SocialIconCopyWith<$Res> {
           SocialIcon value, $Res Function(SocialIcon) then) =
       _$SocialIconCopyWithImpl<$Res, SocialIcon>;
   @useResult
-  $Res call({IconData icon, String url, String? tooltip});
+  $Res call({Socials type});
 }
 
 /// @nodoc
@@ -47,23 +45,13 @@ class _$SocialIconCopyWithImpl<$Res, $Val extends SocialIcon>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? icon = null,
-    Object? url = null,
-    Object? tooltip = freezed,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      tooltip: freezed == tooltip
-          ? _value.tooltip
-          : tooltip // ignore: cast_nullable_to_non_nullable
-              as String?,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as Socials,
     ) as $Val);
   }
 }
@@ -76,7 +64,7 @@ abstract class _$$_SocialIconCopyWith<$Res>
       __$$_SocialIconCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({IconData icon, String url, String? tooltip});
+  $Res call({Socials type});
 }
 
 /// @nodoc
@@ -90,23 +78,13 @@ class __$$_SocialIconCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? icon = null,
-    Object? url = null,
-    Object? tooltip = freezed,
+    Object? type = null,
   }) {
     return _then(_$_SocialIcon(
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      tooltip: freezed == tooltip
-          ? _value.tooltip
-          : tooltip // ignore: cast_nullable_to_non_nullable
-              as String?,
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as Socials,
     ));
   }
 }
@@ -114,19 +92,14 @@ class __$$_SocialIconCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SocialIcon extends _SocialIcon {
-  const _$_SocialIcon({required this.icon, required this.url, this.tooltip})
-      : super._();
+  const _$_SocialIcon(this.type) : super._();
 
   @override
-  final IconData icon;
-  @override
-  final String url;
-  @override
-  final String? tooltip;
+  final Socials type;
 
   @override
   String toString() {
-    return 'SocialIcon(icon: $icon, url: $url, tooltip: $tooltip)';
+    return 'SocialIcon(type: $type)';
   }
 
   @override
@@ -134,13 +107,11 @@ class _$_SocialIcon extends _SocialIcon {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SocialIcon &&
-            (identical(other.icon, icon) || other.icon == icon) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.tooltip, tooltip) || other.tooltip == tooltip));
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, icon, url, tooltip);
+  int get hashCode => Object.hash(runtimeType, type);
 
   @JsonKey(ignore: true)
   @override
@@ -150,18 +121,11 @@ class _$_SocialIcon extends _SocialIcon {
 }
 
 abstract class _SocialIcon extends SocialIcon {
-  const factory _SocialIcon(
-      {required final IconData icon,
-      required final String url,
-      final String? tooltip}) = _$_SocialIcon;
+  const factory _SocialIcon(final Socials type) = _$_SocialIcon;
   const _SocialIcon._() : super._();
 
   @override
-  IconData get icon;
-  @override
-  String get url;
-  @override
-  String? get tooltip;
+  Socials get type;
   @override
   @JsonKey(ignore: true)
   _$$_SocialIconCopyWith<_$_SocialIcon> get copyWith =>

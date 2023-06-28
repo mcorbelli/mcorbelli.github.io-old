@@ -71,9 +71,9 @@ class _BackdropFooter extends StatelessWidget {
     Widget socialWidget = Row(
       children: socials.map((e) {
         return IconButton(
-          icon: Icon(e.icon),
+          icon: Icon(e.type.icon),
           onPressed: e.openLink,
-          tooltip: e.tooltip,
+          tooltip: e.type.tooltip,
         );
       }).toList(),
     );

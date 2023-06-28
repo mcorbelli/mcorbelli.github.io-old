@@ -7,7 +7,12 @@ import 'package:portfolio_web/core/data/repositories/info.repository.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 
 class AppVersion extends StatefulWidget {
-  const AppVersion({super.key});
+  const AppVersion({
+    super.key,
+    this.margin = EdgeInsets.zero,
+  });
+
+  final EdgeInsets margin;
 
   @override
   State<AppVersion> createState() => _AppVersionState();
@@ -28,7 +33,10 @@ class _AppVersionState extends State<AppVersion> {
           versionLabel = 'V ${snapshot.data!.version}';
         }
 
-        return BodySmall(versionLabel);
+        return Padding(
+          padding: widget.margin,
+          child: BodySmall(versionLabel),
+        );
       },
     );
   }

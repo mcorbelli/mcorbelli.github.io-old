@@ -1,7 +1,6 @@
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -15,6 +14,7 @@ import 'package:portfolio_web/features/homepage/views/introduction/presentation/
 import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/app_version.widget.dart';
 import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
+import 'package:portfolio_web/core/data/enums/socials.enum.dart';
 
 class HomepageShell extends ShellScreen {
   @override
@@ -67,25 +67,17 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
         ],
       ),
       body: widget.child,
-      bottomNavigationBar: CustomFooter(
+      bottomNavigationBar: const CustomFooter(
         socials: [
-          SocialIcon(
-            icon: EvaIcons.github,
-            url: 'https://github.com/',
-            tooltip: tr('$socialKey.github'),
-          ),
-          SocialIcon(
-            icon: EvaIcons.twitter,
-            url: 'https://twitter.com/',
-            tooltip: tr('$socialKey.twitter'),
-          ),
-          SocialIcon(
-            icon: EvaIcons.linkedin,
-            url: 'https://linkedin.com/',
-            tooltip: tr('$socialKey.linkedin'),
-          ),
+          SocialIcon(Socials.github),
+          SocialIcon(Socials.twitter),
+          SocialIcon(Socials.linkedin),
         ],
-        leading: const AppVersion(),
+        leading: AppVersion(
+          margin: EdgeInsets.only(
+            left: 8.0,
+          ),
+        ),
       ),
     );
   }
@@ -137,22 +129,10 @@ class _HomepageMobileState extends State<_HomepageMobile> {
             label: tr('$navigationKey.contacts'),
           ),
         ],
-        socials: [
-          SocialIcon(
-            icon: EvaIcons.github,
-            url: 'https://github.com/',
-            tooltip: tr('$socialKey.github'),
-          ),
-          SocialIcon(
-            icon: EvaIcons.twitter,
-            url: 'https://twitter.com/',
-            tooltip: tr('$socialKey.twitter'),
-          ),
-          SocialIcon(
-            icon: EvaIcons.linkedin,
-            url: 'https://linkedin.com/',
-            tooltip: tr('$socialKey.linkedin'),
-          ),
+        socials: const [
+          SocialIcon(Socials.github),
+          SocialIcon(Socials.twitter),
+          SocialIcon(Socials.linkedin),
         ],
       ),
       frontLayer: widget.child,

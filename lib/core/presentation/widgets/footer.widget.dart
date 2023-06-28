@@ -16,17 +16,17 @@ class CustomFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    Widget trailingWidget = Container();
+    Widget leadingWidget = Container();
     if (leading != null) {
-      trailingWidget = leading!;
+      leadingWidget = leading!;
     }
 
     Widget socialWidget = Row(
       children: socials.map((e) {
         return IconButton(
-          icon: Icon(e.icon),
+          icon: Icon(e.type.icon),
           onPressed: e.openLink,
-          tooltip: e.tooltip,
+          tooltip: e.type.tooltip,
         );
       }).toList(),
     );
@@ -46,12 +46,7 @@ class CustomFooter extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 8.0,
-                ),
-                child: trailingWidget,
-              ),
+              leadingWidget,
               socialWidget,
             ],
           )

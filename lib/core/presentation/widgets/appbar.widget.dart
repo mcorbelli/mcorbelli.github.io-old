@@ -119,7 +119,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
             child: Row(
               children: [
                 leadingWidget,
-                titleWidget,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 8.0,
+                  ),
+                  child: titleWidget,
+                ),
               ],
             ),
           ),
