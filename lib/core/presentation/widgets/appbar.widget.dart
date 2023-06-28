@@ -44,7 +44,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
         children: [
           ...navLinks,
           const VerticalDivider(
-            thickness: 1.0,
             indent: 8.0,
             endIndent: 8.0,
           ),

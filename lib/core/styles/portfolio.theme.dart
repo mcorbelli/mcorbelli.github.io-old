@@ -30,6 +30,7 @@ class PortfolioTheme {
       ),
       dividerTheme: DividerThemeData(
         color: colorScheme.onBackground,
+        thickness: 0.4,
       ),
     );
   }

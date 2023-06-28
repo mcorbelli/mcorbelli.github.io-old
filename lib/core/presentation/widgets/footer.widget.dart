@@ -5,11 +5,11 @@ import 'package:portfolio_web/features/homepage/data/models/social_icon.model.da
 class CustomFooter extends StatelessWidget {
   const CustomFooter({
     super.key,
-    this.trailing,
+    this.leading,
     this.socials = const [],
   });
 
-  final Widget? trailing;
+  final Widget? leading;
   final List<SocialIcon> socials;
 
   @override
@@ -17,8 +17,8 @@ class CustomFooter extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget trailingWidget = Container();
-    if (trailing != null) {
-      trailingWidget = trailing!;
+    if (leading != null) {
+      trailingWidget = leading!;
     }
 
     Widget socialWidget = Row(
@@ -36,12 +36,25 @@ class CustomFooter extends StatelessWidget {
         color: colorScheme.background,
       ),
       padding: const EdgeInsets.all(10.0),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: socialWidget,
+          const Divider(
+            indent: 8.0,
+            endIndent: 8.0,
           ),
-          trailingWidget,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                ),
+                child: trailingWidget,
+              ),
+              socialWidget,
+            ],
+          )
         ],
       ),
     );

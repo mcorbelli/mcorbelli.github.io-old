@@ -85,7 +85,7 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
             tooltip: tr('$socialKey.linkedin'),
           ),
         ],
-        trailing: const AppVersion(),
+        leading: const AppVersion(),
       ),
     );
   }
