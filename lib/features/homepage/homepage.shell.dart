@@ -1,7 +1,6 @@
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:portfolio_web/core/presentation/widgets/backdrop.widget.dart';
@@ -34,9 +33,6 @@ class HomepageShell extends ShellScreen {
   }
 }
 
-const socialKey = 'homepage.footer.socials';
-const navigationKey = 'homepage.app_bar.navigations';
-
 class _HomepageDesktop extends StatefulWidget {
   const _HomepageDesktop(this.child);
 
@@ -51,19 +47,10 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        navTitle: NavTitle(
-          route: AppRoutes.homepage,
-          label: tr('homepage.app_bar.title'),
-        ),
-        navItems: [
-          NavItem(
-            route: AppRoutes.homepage,
-            label: tr('$navigationKey.homepage'),
-          ),
-          NavItem(
-            route: AppRoutes.contacts,
-            label: tr('$navigationKey.contacts'),
-          ),
+        navTitle: const NavTitle(AppRoutes.homepage),
+        navItems: const [
+          NavItem(AppRoutes.homepage),
+          NavItem(AppRoutes.contacts),
         ],
       ),
       body: widget.child,
@@ -112,24 +99,15 @@ class _HomepageMobileState extends State<_HomepageMobile> {
       animationCurve: Curves.decelerate,
       frontLayerScrim: frontLayerScrim,
       appBar: CustomAppBar.mobile(
-        navTitle: NavTitle(
-          route: AppRoutes.homepage,
-          label: tr('homepage.app_bar.title'),
-        ),
+        navTitle: const NavTitle(AppRoutes.homepage),
         onMenuPressed: onMenuPressed,
       ),
-      backLayer: CustomBackdrop(
+      backLayer: const CustomBackdrop(
         navItems: [
-          NavItem(
-            route: AppRoutes.homepage,
-            label: tr('$navigationKey.homepage'),
-          ),
-          NavItem(
-            route: AppRoutes.contacts,
-            label: tr('$navigationKey.contacts'),
-          ),
+          NavItem(AppRoutes.homepage),
+          NavItem(AppRoutes.contacts),
         ],
-        socials: const [
+        socials: [
           SocialIcon(Socials.github),
           SocialIcon(Socials.twitter),
           SocialIcon(Socials.linkedin),

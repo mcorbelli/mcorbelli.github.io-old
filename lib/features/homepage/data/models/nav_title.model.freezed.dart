@@ -16,9 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NavTitle {
-  String get label => throw _privateConstructorUsedError;
-  IconData? get icon => throw _privateConstructorUsedError;
-  AppRoutes? get route => throw _privateConstructorUsedError;
+  AppRoutes get route => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NavTitleCopyWith<NavTitle> get copyWith =>
@@ -30,7 +28,7 @@ abstract class $NavTitleCopyWith<$Res> {
   factory $NavTitleCopyWith(NavTitle value, $Res Function(NavTitle) then) =
       _$NavTitleCopyWithImpl<$Res, NavTitle>;
   @useResult
-  $Res call({String label, IconData? icon, AppRoutes? route});
+  $Res call({AppRoutes route});
 }
 
 /// @nodoc
@@ -46,23 +44,13 @@ class _$NavTitleCopyWithImpl<$Res, $Val extends NavTitle>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? label = null,
-    Object? icon = freezed,
-    Object? route = freezed,
+    Object? route = null,
   }) {
     return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData?,
-      route: freezed == route
+      route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
-              as AppRoutes?,
+              as AppRoutes,
     ) as $Val);
   }
 }
@@ -74,7 +62,7 @@ abstract class _$$_NavTitleCopyWith<$Res> implements $NavTitleCopyWith<$Res> {
       __$$_NavTitleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String label, IconData? icon, AppRoutes? route});
+  $Res call({AppRoutes route});
 }
 
 /// @nodoc
@@ -88,23 +76,13 @@ class __$$_NavTitleCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? label = null,
-    Object? icon = freezed,
-    Object? route = freezed,
+    Object? route = null,
   }) {
     return _then(_$_NavTitle(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as IconData?,
-      route: freezed == route
+      null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
-              as AppRoutes?,
+              as AppRoutes,
     ));
   }
 }
@@ -112,18 +90,14 @@ class __$$_NavTitleCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NavTitle implements _NavTitle {
-  const _$_NavTitle({required this.label, this.icon, this.route});
+  const _$_NavTitle(this.route);
 
   @override
-  final String label;
-  @override
-  final IconData? icon;
-  @override
-  final AppRoutes? route;
+  final AppRoutes route;
 
   @override
   String toString() {
-    return 'NavTitle(label: $label, icon: $icon, route: $route)';
+    return 'NavTitle(route: $route)';
   }
 
   @override
@@ -131,13 +105,11 @@ class _$_NavTitle implements _NavTitle {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NavTitle &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.icon, icon) || other.icon == icon) &&
             (identical(other.route, route) || other.route == route));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, label, icon, route);
+  int get hashCode => Object.hash(runtimeType, route);
 
   @JsonKey(ignore: true)
   @override
@@ -147,17 +119,10 @@ class _$_NavTitle implements _NavTitle {
 }
 
 abstract class _NavTitle implements NavTitle {
-  const factory _NavTitle(
-      {required final String label,
-      final IconData? icon,
-      final AppRoutes? route}) = _$_NavTitle;
+  const factory _NavTitle(final AppRoutes route) = _$_NavTitle;
 
   @override
-  String get label;
-  @override
-  IconData? get icon;
-  @override
-  AppRoutes? get route;
+  AppRoutes get route;
   @override
   @JsonKey(ignore: true)
   _$$_NavTitleCopyWith<_$_NavTitle> get copyWith =>

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
@@ -59,10 +60,9 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   }) {
     Widget? menuButton;
     if (onMenuPressed != null) {
-      menuButton = IconButton(
-        icon: const Icon(EvaIcons.menu),
-        onPressed: onMenuPressed,
-        padding: const EdgeInsets.all(0.0),
+      menuButton = GestureDetector(
+        onTap: onMenuPressed,
+        child: const Icon(EvaIcons.menu),
       );
     }
 
@@ -77,28 +77,36 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  bool _isCurrentRoute = false;
+
+  @override
+  void didChangeDependencies() {
+    _checkIfNavLinkIsActive();
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget leadingWidget = Container();
-    if (widget.navTitle.icon != null) {
+    /*if (widget.navTitle.icon != null) {
       leadingWidget = Padding(
         padding: const EdgeInsets.only(
           right: 10.0,
         ),
         child: Icon(widget.navTitle.icon),
       );
-    }
+    }*/
 
     Widget trailingWidgets = Container();
     if (widget.trailing != null) {
       trailingWidgets = widget.trailing!;
     }
 
-    String titleLabel = widget.navTitle.label;
+    String titleLabel = tr('homepage.app_bar.title');
     Widget titleWidget = HeadlineSmall(titleLabel);
-    if (widget.navTitle.route != null) {
+    if (!_isCurrentRoute) {
       titleWidget = MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -134,11 +142,21 @@ class _CustomAppBarState extends State<CustomAppBar> {
     );
   }
 
-  void _navigateToPage() {
+  void _checkIfNavLinkIsActive() {
     final currentRoute = GoRouter.of(context).location;
-    final routeInfo = widget.navTitle.route!;
+    final routePath = widget.navTitle.route.routePath;
 
-    if (routeInfo.routePath != currentRoute) {
+    final isActive = (routePath == currentRoute);
+
+    setState(() {
+      _isCurrentRoute = isActive;
+    });
+  }
+
+  void _navigateToPage() {
+    final routeInfo = widget.navTitle.route;
+
+    if (!_isCurrentRoute) {
       context.goNamed(routeInfo.routeName);
     }
   }

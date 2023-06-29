@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NavItem {
   AppRoutes get route => throw _privateConstructorUsedError;
-  String get label => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NavItemCopyWith<NavItem> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +27,7 @@ abstract class $NavItemCopyWith<$Res> {
   factory $NavItemCopyWith(NavItem value, $Res Function(NavItem) then) =
       _$NavItemCopyWithImpl<$Res, NavItem>;
   @useResult
-  $Res call({AppRoutes route, String label});
+  $Res call({AppRoutes route});
 }
 
 /// @nodoc
@@ -45,17 +44,12 @@ class _$NavItemCopyWithImpl<$Res, $Val extends NavItem>
   @override
   $Res call({
     Object? route = null,
-    Object? label = null,
   }) {
     return _then(_value.copyWith(
       route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
               as AppRoutes,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -67,7 +61,7 @@ abstract class _$$_NavItemCopyWith<$Res> implements $NavItemCopyWith<$Res> {
       __$$_NavItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AppRoutes route, String label});
+  $Res call({AppRoutes route});
 }
 
 /// @nodoc
@@ -81,17 +75,12 @@ class __$$_NavItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? route = null,
-    Object? label = null,
   }) {
     return _then(_$_NavItem(
-      route: null == route
+      null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
               as AppRoutes,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -99,16 +88,14 @@ class __$$_NavItemCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NavItem implements _NavItem {
-  const _$_NavItem({required this.route, required this.label});
+  const _$_NavItem(this.route);
 
   @override
   final AppRoutes route;
-  @override
-  final String label;
 
   @override
   String toString() {
-    return 'NavItem(route: $route, label: $label)';
+    return 'NavItem(route: $route)';
   }
 
   @override
@@ -116,12 +103,11 @@ class _$_NavItem implements _NavItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NavItem &&
-            (identical(other.route, route) || other.route == route) &&
-            (identical(other.label, label) || other.label == label));
+            (identical(other.route, route) || other.route == route));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, route, label);
+  int get hashCode => Object.hash(runtimeType, route);
 
   @JsonKey(ignore: true)
   @override
@@ -131,14 +117,10 @@ class _$_NavItem implements _NavItem {
 }
 
 abstract class _NavItem implements NavItem {
-  const factory _NavItem(
-      {required final AppRoutes route,
-      required final String label}) = _$_NavItem;
+  const factory _NavItem(final AppRoutes route) = _$_NavItem;
 
   @override
   AppRoutes get route;
-  @override
-  String get label;
   @override
   @JsonKey(ignore: true)
   _$$_NavItemCopyWith<_$_NavItem> get copyWith =>

@@ -35,10 +35,7 @@ class _NotFoundDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        navTitle: NavTitle(
-          route: AppRoutes.homepage,
-          label: tr('homepage.app_bar.title'),
-        ),
+        navTitle: const NavTitle(AppRoutes.homepage),
       ),
       body: Center(
         child: Column(
@@ -60,10 +57,7 @@ class _NotFoundMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.mobile(
-        navTitle: NavTitle(
-          route: AppRoutes.homepage,
-          label: tr('homepage.app_bar.title'),
-        ),
+        navTitle: const NavTitle(AppRoutes.homepage),
       ),
       body: Center(
         child: Column(

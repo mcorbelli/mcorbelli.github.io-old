@@ -2,23 +2,23 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
-const socialKey = 'homepage.footer.socials';
+const _socialKey = 'homepage.footer.socials';
 
 enum Socials {
   github(
     icon: EvaIcons.github,
     url: 'https://github.com/',
-    localeKey: '$socialKey.github',
+    localeKey: '$_socialKey.github',
   ),
   twitter(
     icon: EvaIcons.twitter,
     url: 'https://twitter.com/',
-    localeKey: '$socialKey.twitter',
+    localeKey: '$_socialKey.twitter',
   ),
   linkedin(
     icon: EvaIcons.linkedin,
     url: 'https://linkedin.com/',
-    localeKey: '$socialKey.linkedin',
+    localeKey: '$_socialKey.linkedin',
   );
 
   const Socials({

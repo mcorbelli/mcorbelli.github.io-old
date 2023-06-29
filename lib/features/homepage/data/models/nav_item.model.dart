@@ -6,8 +6,5 @@ part 'nav_item.model.freezed.dart';
 
 @freezed
 class NavItem with _$NavItem {
-  const factory NavItem({
-    required AppRoutes route,
-    required String label,
-  }) = _NavItem;
+  const factory NavItem(AppRoutes route) = _NavItem;
 }

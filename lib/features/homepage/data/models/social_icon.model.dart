@@ -9,9 +9,7 @@ part 'social_icon.model.freezed.dart';
 class SocialIcon with _$SocialIcon {
   const SocialIcon._();
 
-  const factory SocialIcon(
-    Socials type,
-  ) = _SocialIcon;
+  const factory SocialIcon(Socials type) = _SocialIcon;
 
   Uri get uri => Uri.parse(type.url);
 
