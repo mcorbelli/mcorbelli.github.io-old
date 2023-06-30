@@ -47,6 +47,7 @@ class _ThemeSelectorState extends State<ThemeSelector> {
           tooltip: action.tooltip,
           icon: Icon(action.icon),
           color: action.color,
+          padding: EdgeInsets.zero,
         );
       },
     );

@@ -27,6 +27,7 @@ class CustomFooter extends StatelessWidget {
           icon: Icon(e.icon),
           onPressed: e.openLink,
           tooltip: e.tooltip,
+          padding: EdgeInsets.zero,
         );
       }).toList(),
     );

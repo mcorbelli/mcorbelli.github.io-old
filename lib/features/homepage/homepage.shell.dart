@@ -62,6 +62,11 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
         children: [
           widget.child,
           const CustomFooter(
+            socials: [
+              Socials.github,
+              Socials.twitter,
+              Socials.linkedin,
+            ],
             leading: AppVersion(
               margin: EdgeInsets.only(
                 left: 8.0,
