@@ -9,10 +9,12 @@ class NavLink extends StatefulWidget {
   const NavLink._({
     required this.route,
     this.isBubbled = false,
+    this.onTap,
   });
 
   final AppRoutes route;
   final bool isBubbled;
+  final VoidCallback? onTap;
 
   factory NavLink.simple({
     required AppRoutes navItem,
@@ -24,10 +26,12 @@ class NavLink extends StatefulWidget {
 
   factory NavLink.bubble({
     required AppRoutes navItem,
+    VoidCallback? onNavLinkTap,
   }) {
     return NavLink._(
       route: navItem,
       isBubbled: true,
+      onTap: onNavLinkTap,
     );
   }
 
@@ -126,6 +130,10 @@ class _NavLinkState extends State<NavLink> {
 
     if (_isCurrentRoute == false) {
       context.goNamed(routeInfo.routeName);
+    }
+
+    if (widget.onTap != null && widget.isBubbled) {
+      widget.onTap!();
     }
   }
 }

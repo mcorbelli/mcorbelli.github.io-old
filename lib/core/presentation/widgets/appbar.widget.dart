@@ -12,11 +12,13 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     required this.title,
     this.redirect,
     this.trailing,
+    this.logoAssetPath,
   });
 
   final String title;
   final AppRoutes? redirect;
   final Widget? trailing;
+  final String? logoAssetPath;
 
   @override
   Size get preferredSize {
@@ -27,6 +29,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     required String title,
     AppRoutes? redirect,
     List<AppRoutes> navItems = const [],
+    String? logoAssetPath,
   }) {
     List<Widget> navLinks = [];
     for (var navItem in navItems) {
@@ -40,29 +43,42 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
       ));
     }
 
-    return CustomAppBar._(
-      title: title,
-      redirect: redirect,
-      trailing: Row(
+    Widget trailing = const ThemeSelector();
+    if (navLinks.isNotEmpty) {
+      trailing = Row(
         children: [
           ...navLinks,
           const VerticalDivider(),
           const ThemeSelector(),
         ],
-      ),
+      );
+    }
+
+    return CustomAppBar._(
+      title: title,
+      redirect: redirect,
+      trailing: trailing,
+      logoAssetPath: logoAssetPath,
     );
   }
 
   factory CustomAppBar.mobile({
     required String title,
     AppRoutes? redirect,
+    bool isMenuOpen = false,
     VoidCallback? onMenuPressed,
+    String? logoAssetPath,
   }) {
     Widget? menuButton;
     if (onMenuPressed != null) {
       menuButton = GestureDetector(
         onTap: onMenuPressed,
-        child: const Icon(EvaIcons.menu),
+        child: (() {
+          if (isMenuOpen) {
+            return const Icon(EvaIcons.close);
+          }
+          return const Icon(EvaIcons.menu);
+        }()),
       );
     }
 
@@ -70,6 +86,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
       title: title,
       redirect: redirect,
       trailing: menuButton,
+      logoAssetPath: logoAssetPath,
     );
   }
 
@@ -91,14 +108,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget leadingWidget = Container();
-    /*if (widget.navTitle.icon != null) {
+    if (widget.logoAssetPath != null) {
       leadingWidget = Padding(
         padding: const EdgeInsets.only(
           right: 10.0,
         ),
-        child: Icon(widget.navTitle.icon),
+        child: Image.network(widget.logoAssetPath!),
       );
-    }*/
+    }
 
     Widget trailingWidgets = Container();
     if (widget.trailing != null) {

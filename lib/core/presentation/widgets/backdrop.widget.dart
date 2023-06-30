@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/data/enums/socials.enum.dart';
 import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
+import 'package:portfolio_web/features/homepage/cubit/backdrop_cubit.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 
 class CustomBackdrop extends StatelessWidget {
@@ -35,11 +37,16 @@ class CustomBackdrop extends StatelessWidget {
   }
 }
 
-class _BackdropNavigation extends StatelessWidget {
+class _BackdropNavigation extends StatefulWidget {
   const _BackdropNavigation(this.navItems);
 
   final List<AppRoutes> navItems;
 
+  @override
+  State<_BackdropNavigation> createState() => _BackdropNavigationState();
+}
+
+class _BackdropNavigationState extends State<_BackdropNavigation> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -51,13 +58,18 @@ class _BackdropNavigation extends StatelessWidget {
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
-      itemCount: navItems.length,
+      itemCount: widget.navItems.length,
       itemBuilder: (_, index) {
         return NavLink.bubble(
-          navItem: navItems[index],
+          navItem: widget.navItems[index],
+          onNavLinkTap: onNavLinkTap,
         );
       },
     );
+  }
+
+  void onNavLinkTap() {
+    context.read<BackdropCubit>().hide();
   }
 }
 
