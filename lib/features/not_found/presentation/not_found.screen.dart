@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
@@ -35,7 +34,8 @@ class _NotFoundDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        navTitle: const NavTitle(AppRoutes.homepage),
+        title: tr('homepage.app_bar.title'),
+        redirect: AppRoutes.homepage,
       ),
       body: Center(
         child: Column(
@@ -57,7 +57,8 @@ class _NotFoundMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.mobile(
-        navTitle: const NavTitle(AppRoutes.homepage),
+        title: tr('homepage.app_bar.title'),
+        redirect: AppRoutes.homepage,
       ),
       body: Center(
         child: Column(

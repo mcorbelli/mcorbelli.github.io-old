@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const _socialKey = 'homepage.footer.socials';
 
@@ -36,5 +37,13 @@ enum Socials {
       return tr(localeKey!);
     }
     return null;
+  }
+
+  Uri get uri => Uri.parse(url);
+
+  void openLink() async {
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
   }
 }

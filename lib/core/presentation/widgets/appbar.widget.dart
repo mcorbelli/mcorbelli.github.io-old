@@ -1,21 +1,21 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
-import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
-import 'package:portfolio_web/features/homepage/data/models/nav_title.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar._({
-    required this.navTitle,
+    required this.title,
+    this.redirect,
     this.trailing,
   });
 
-  final NavTitle navTitle;
+  final String title;
+  final AppRoutes? redirect;
   final Widget? trailing;
 
   @override
@@ -24,8 +24,9 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   }
 
   factory CustomAppBar.desktop({
-    required NavTitle navTitle,
-    List<NavItem> navItems = const [],
+    required String title,
+    AppRoutes? redirect,
+    List<AppRoutes> navItems = const [],
   }) {
     List<Widget> navLinks = [];
     for (var navItem in navItems) {
@@ -40,14 +41,12 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     }
 
     return CustomAppBar._(
-      navTitle: navTitle,
+      title: title,
+      redirect: redirect,
       trailing: Row(
         children: [
           ...navLinks,
-          const VerticalDivider(
-            indent: 8.0,
-            endIndent: 8.0,
-          ),
+          const VerticalDivider(),
           const ThemeSelector(),
         ],
       ),
@@ -55,7 +54,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   }
 
   factory CustomAppBar.mobile({
-    required NavTitle navTitle,
+    required String title,
+    AppRoutes? redirect,
     VoidCallback? onMenuPressed,
   }) {
     Widget? menuButton;
@@ -67,7 +67,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     }
 
     return CustomAppBar._(
-      navTitle: navTitle,
+      title: title,
+      redirect: redirect,
       trailing: menuButton,
     );
   }
@@ -104,8 +105,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       trailingWidgets = widget.trailing!;
     }
 
-    String titleLabel = tr('homepage.app_bar.title');
-    Widget titleWidget = HeadlineSmall(titleLabel);
+    Widget titleWidget = HeadlineSmall(widget.title);
     if (!_isCurrentRoute) {
       titleWidget = MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -144,7 +144,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   void _checkIfNavLinkIsActive() {
     final currentRoute = GoRouter.of(context).location;
-    final routePath = widget.navTitle.route.routePath;
+    final routePath = widget.redirect?.routePath;
 
     final isActive = (routePath == currentRoute);
 
@@ -154,9 +154,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
   }
 
   void _navigateToPage() {
-    final routeInfo = widget.navTitle.route;
+    final routeInfo = widget.redirect;
 
-    if (!_isCurrentRoute) {
+    if ((routeInfo != null) && !_isCurrentRoute) {
       context.goNamed(routeInfo.routeName);
     }
   }

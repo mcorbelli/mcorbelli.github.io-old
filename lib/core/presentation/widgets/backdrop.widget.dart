@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
+import 'package:portfolio_web/core/data/enums/socials.enum.dart';
 import 'package:portfolio_web/core/presentation/widgets/navlink.widget.dart';
-import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
-import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
 import 'package:portfolio_web/features/homepage/widgets/theme_selector.widget.dart';
 
 class CustomBackdrop extends StatelessWidget {
@@ -12,8 +12,8 @@ class CustomBackdrop extends StatelessWidget {
     this.socials = const [],
   });
 
-  final List<NavItem> navItems;
-  final List<SocialIcon> socials;
+  final List<AppRoutes> navItems;
+  final List<Socials> socials;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class CustomBackdrop extends StatelessWidget {
 class _BackdropNavigation extends StatelessWidget {
   const _BackdropNavigation(this.navItems);
 
-  final List<NavItem> navItems;
+  final List<AppRoutes> navItems;
 
   @override
   Widget build(BuildContext context) {
@@ -64,16 +64,16 @@ class _BackdropNavigation extends StatelessWidget {
 class _BackdropFooter extends StatelessWidget {
   const _BackdropFooter(this.socials);
 
-  final List<SocialIcon> socials;
+  final List<Socials> socials;
 
   @override
   Widget build(BuildContext context) {
     Widget socialWidget = Row(
       children: socials.map((e) {
         return IconButton(
-          icon: Icon(e.type.icon),
+          icon: Icon(e.icon),
           onPressed: e.openLink,
-          tooltip: e.type.tooltip,
+          tooltip: e.tooltip,
         );
       }).toList(),
     );

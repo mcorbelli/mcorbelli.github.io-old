@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:portfolio_web/features/homepage/data/models/social_icon.model.dart';
+import 'package:portfolio_web/core/data/enums/socials.enum.dart';
 
 class CustomFooter extends StatelessWidget {
   const CustomFooter({
@@ -10,7 +10,7 @@ class CustomFooter extends StatelessWidget {
   });
 
   final Widget? leading;
-  final List<SocialIcon> socials;
+  final List<Socials> socials;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,9 @@ class CustomFooter extends StatelessWidget {
     Widget socialWidget = Row(
       children: socials.map((e) {
         return IconButton(
-          icon: Icon(e.type.icon),
+          icon: Icon(e.icon),
           onPressed: e.openLink,
-          tooltip: e.type.tooltip,
+          tooltip: e.tooltip,
         );
       }).toList(),
     );
@@ -39,10 +39,7 @@ class CustomFooter extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Divider(
-            indent: 8.0,
-            endIndent: 8.0,
-          ),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

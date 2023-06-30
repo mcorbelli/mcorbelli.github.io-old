@@ -2,31 +2,31 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
+import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
-import 'package:portfolio_web/features/homepage/data/models/nav_item.model.dart';
 
 class NavLink extends StatefulWidget {
   const NavLink._({
-    required this.navItem,
+    required this.route,
     this.isBubbled = false,
   });
 
-  final NavItem navItem;
+  final AppRoutes route;
   final bool isBubbled;
 
   factory NavLink.simple({
-    required NavItem navItem,
+    required AppRoutes navItem,
   }) {
     return NavLink._(
-      navItem: navItem,
+      route: navItem,
     );
   }
 
   factory NavLink.bubble({
-    required NavItem navItem,
+    required AppRoutes navItem,
   }) {
     return NavLink._(
-      navItem: navItem,
+      route: navItem,
       isBubbled: true,
     );
   }
@@ -50,7 +50,7 @@ class _NavLinkState extends State<NavLink> {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget navLink = BodySmall(
-      tr(widget.navItem.route.localeKey),
+      tr(widget.route.localeKey),
       style: (() {
         if (_isCurrentRoute) {
           return TextStyle(
@@ -106,7 +106,7 @@ class _NavLinkState extends State<NavLink> {
 
   void _checkIfNavLinkIsActive() {
     final currentRoute = GoRouter.of(context).location;
-    final routePath = widget.navItem.route.routePath;
+    final routePath = widget.route.routePath;
 
     final isActive = (routePath == currentRoute);
 
@@ -122,7 +122,7 @@ class _NavLinkState extends State<NavLink> {
   }
 
   void _navigateToPage() {
-    final routeInfo = widget.navItem.route;
+    final routeInfo = widget.route;
 
     if (_isCurrentRoute == false) {
       context.goNamed(routeInfo.routeName);
