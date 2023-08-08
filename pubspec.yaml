@@ -40,11 +40,7 @@ dependencies:
   backdrop: ^0.9.0
   universal_html: ^2.2.3
   colorize: ^3.0.0
-
-  package_info_plus:
-    git:
-      url: https://github.com/mcorbelli/plus_plugins.git
-      path: packages/package_info_plus/package_info_plus
+  package_info_plus: ^4.1.0
 
   logzilla:
     path: packages/logzilla
