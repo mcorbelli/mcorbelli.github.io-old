@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -21,7 +19,7 @@ class InfoRepository {
   }
 
   Future<PackageInfo> getPackageInfo() async {
-    if (_packageInfo.isUndefinedOrNull) {
+    if (_packageInfo == null) {
       await _initializePackageInfo();
     }
 

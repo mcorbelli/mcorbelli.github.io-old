@@ -8,17 +8,17 @@ const _socialKey = 'homepage.footer.socials';
 enum Socials {
   github(
     icon: EvaIcons.github,
-    url: 'https://github.com/',
+    url: 'https://github.com/mcorbelli',
     localeKey: '$_socialKey.github',
   ),
   twitter(
     icon: EvaIcons.twitter,
-    url: 'https://twitter.com/',
+    url: 'https://twitter.com/_marbelli_',
     localeKey: '$_socialKey.twitter',
   ),
   linkedin(
     icon: EvaIcons.linkedin,
-    url: 'https://linkedin.com/',
+    url: 'https://www.linkedin.com/in/corbellimattia/',
     localeKey: '$_socialKey.linkedin',
   );
 
