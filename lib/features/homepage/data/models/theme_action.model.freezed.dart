@@ -75,22 +75,22 @@ class _$ThemeActionCopyWithImpl<$Res, $Val extends ThemeAction>
 }
 
 /// @nodoc
-abstract class _$$_ThemeActionCopyWith<$Res>
+abstract class _$$ThemeActionImplCopyWith<$Res>
     implements $ThemeActionCopyWith<$Res> {
-  factory _$$_ThemeActionCopyWith(
-          _$_ThemeAction value, $Res Function(_$_ThemeAction) then) =
-      __$$_ThemeActionCopyWithImpl<$Res>;
+  factory _$$ThemeActionImplCopyWith(
+          _$ThemeActionImpl value, $Res Function(_$ThemeActionImpl) then) =
+      __$$ThemeActionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ThemeMode themeMode, String tooltip, IconData icon, Color? color});
 }
 
 /// @nodoc
-class __$$_ThemeActionCopyWithImpl<$Res>
-    extends _$ThemeActionCopyWithImpl<$Res, _$_ThemeAction>
-    implements _$$_ThemeActionCopyWith<$Res> {
-  __$$_ThemeActionCopyWithImpl(
-      _$_ThemeAction _value, $Res Function(_$_ThemeAction) _then)
+class __$$ThemeActionImplCopyWithImpl<$Res>
+    extends _$ThemeActionCopyWithImpl<$Res, _$ThemeActionImpl>
+    implements _$$ThemeActionImplCopyWith<$Res> {
+  __$$ThemeActionImplCopyWithImpl(
+      _$ThemeActionImpl _value, $Res Function(_$ThemeActionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_ThemeActionCopyWithImpl<$Res>
     Object? icon = null,
     Object? color = freezed,
   }) {
-    return _then(_$_ThemeAction(
+    return _then(_$ThemeActionImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_ThemeActionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ThemeAction implements _ThemeAction {
-  const _$_ThemeAction(
+class _$ThemeActionImpl implements _ThemeAction {
+  const _$ThemeActionImpl(
       {required this.themeMode,
       required this.tooltip,
       required this.icon,
@@ -149,7 +149,7 @@ class _$_ThemeAction implements _ThemeAction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThemeAction &&
+            other is _$ThemeActionImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode) &&
             (identical(other.tooltip, tooltip) || other.tooltip == tooltip) &&
@@ -163,8 +163,8 @@ class _$_ThemeAction implements _ThemeAction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThemeActionCopyWith<_$_ThemeAction> get copyWith =>
-      __$$_ThemeActionCopyWithImpl<_$_ThemeAction>(this, _$identity);
+  _$$ThemeActionImplCopyWith<_$ThemeActionImpl> get copyWith =>
+      __$$ThemeActionImplCopyWithImpl<_$ThemeActionImpl>(this, _$identity);
 }
 
 abstract class _ThemeAction implements ThemeAction {
@@ -172,7 +172,7 @@ abstract class _ThemeAction implements ThemeAction {
       {required final ThemeMode themeMode,
       required final String tooltip,
       required final IconData icon,
-      final Color? color}) = _$_ThemeAction;
+      final Color? color}) = _$ThemeActionImpl;
 
   @override
   ThemeMode get themeMode;
@@ -184,6 +184,6 @@ abstract class _ThemeAction implements ThemeAction {
   Color? get color;
   @override
   @JsonKey(ignore: true)
-  _$$_ThemeActionCopyWith<_$_ThemeAction> get copyWith =>
+  _$$ThemeActionImplCopyWith<_$ThemeActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

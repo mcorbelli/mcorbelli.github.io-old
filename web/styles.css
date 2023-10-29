@@ -1,15 +1,20 @@
+:root {
+    --background-light: #F0F2F5;
+    --background-dark: #18191A;
+}
+
 body {
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F0F2F5;
+    background-color: var(--background-light);
 }
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #18191A;
+        background-color: var(--background-dark);
     }
 }
 

@@ -57,22 +57,22 @@ class _$TimeoutExceptionCopyWithImpl<$Res, $Val extends TimeoutException>
 }
 
 /// @nodoc
-abstract class _$$_TimeoutExceptionCopyWith<$Res>
+abstract class _$$TimeoutExceptionImplCopyWith<$Res>
     implements $TimeoutExceptionCopyWith<$Res> {
-  factory _$$_TimeoutExceptionCopyWith(
-          _$_TimeoutException value, $Res Function(_$_TimeoutException) then) =
-      __$$_TimeoutExceptionCopyWithImpl<$Res>;
+  factory _$$TimeoutExceptionImplCopyWith(_$TimeoutExceptionImpl value,
+          $Res Function(_$TimeoutExceptionImpl) then) =
+      __$$TimeoutExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DioExceptionType typeError});
 }
 
 /// @nodoc
-class __$$_TimeoutExceptionCopyWithImpl<$Res>
-    extends _$TimeoutExceptionCopyWithImpl<$Res, _$_TimeoutException>
-    implements _$$_TimeoutExceptionCopyWith<$Res> {
-  __$$_TimeoutExceptionCopyWithImpl(
-      _$_TimeoutException _value, $Res Function(_$_TimeoutException) _then)
+class __$$TimeoutExceptionImplCopyWithImpl<$Res>
+    extends _$TimeoutExceptionCopyWithImpl<$Res, _$TimeoutExceptionImpl>
+    implements _$$TimeoutExceptionImplCopyWith<$Res> {
+  __$$TimeoutExceptionImplCopyWithImpl(_$TimeoutExceptionImpl _value,
+      $Res Function(_$TimeoutExceptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_TimeoutExceptionCopyWithImpl<$Res>
   $Res call({
     Object? typeError = null,
   }) {
-    return _then(_$_TimeoutException(
+    return _then(_$TimeoutExceptionImpl(
       null == typeError
           ? _value.typeError
           : typeError // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_TimeoutExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeoutException implements _TimeoutException {
-  const _$_TimeoutException(this.typeError);
+class _$TimeoutExceptionImpl implements _TimeoutException {
+  const _$TimeoutExceptionImpl(this.typeError);
 
   @override
   final DioExceptionType typeError;
@@ -106,7 +106,7 @@ class _$_TimeoutException implements _TimeoutException {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeoutException &&
+            other is _$TimeoutExceptionImpl &&
             (identical(other.typeError, typeError) ||
                 other.typeError == typeError));
   }
@@ -117,18 +117,19 @@ class _$_TimeoutException implements _TimeoutException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeoutExceptionCopyWith<_$_TimeoutException> get copyWith =>
-      __$$_TimeoutExceptionCopyWithImpl<_$_TimeoutException>(this, _$identity);
+  _$$TimeoutExceptionImplCopyWith<_$TimeoutExceptionImpl> get copyWith =>
+      __$$TimeoutExceptionImplCopyWithImpl<_$TimeoutExceptionImpl>(
+          this, _$identity);
 }
 
 abstract class _TimeoutException implements TimeoutException {
   const factory _TimeoutException(final DioExceptionType typeError) =
-      _$_TimeoutException;
+      _$TimeoutExceptionImpl;
 
   @override
   DioExceptionType get typeError;
   @override
   @JsonKey(ignore: true)
-  _$$_TimeoutExceptionCopyWith<_$_TimeoutException> get copyWith =>
+  _$$TimeoutExceptionImplCopyWith<_$TimeoutExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

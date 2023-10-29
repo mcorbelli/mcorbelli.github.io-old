@@ -68,22 +68,22 @@ class _$BackendExceptionCopyWithImpl<$Res, $Val extends BackendException>
 }
 
 /// @nodoc
-abstract class _$$_BackEndExceptionCopyWith<$Res>
+abstract class _$$BackEndExceptionImplCopyWith<$Res>
     implements $BackendExceptionCopyWith<$Res> {
-  factory _$$_BackEndExceptionCopyWith(
-          _$_BackEndException value, $Res Function(_$_BackEndException) then) =
-      __$$_BackEndExceptionCopyWithImpl<$Res>;
+  factory _$$BackEndExceptionImplCopyWith(_$BackEndExceptionImpl value,
+          $Res Function(_$BackEndExceptionImpl) then) =
+      __$$BackEndExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String error, String description});
 }
 
 /// @nodoc
-class __$$_BackEndExceptionCopyWithImpl<$Res>
-    extends _$BackendExceptionCopyWithImpl<$Res, _$_BackEndException>
-    implements _$$_BackEndExceptionCopyWith<$Res> {
-  __$$_BackEndExceptionCopyWithImpl(
-      _$_BackEndException _value, $Res Function(_$_BackEndException) _then)
+class __$$BackEndExceptionImplCopyWithImpl<$Res>
+    extends _$BackendExceptionCopyWithImpl<$Res, _$BackEndExceptionImpl>
+    implements _$$BackEndExceptionImplCopyWith<$Res> {
+  __$$BackEndExceptionImplCopyWithImpl(_$BackEndExceptionImpl _value,
+      $Res Function(_$BackEndExceptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_BackEndExceptionCopyWithImpl<$Res>
     Object? error = null,
     Object? description = null,
   }) {
-    return _then(_$_BackEndException(
+    return _then(_$BackEndExceptionImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,12 @@ class __$$_BackEndExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BackEndException implements _BackEndException {
-  const _$_BackEndException({required this.error, required this.description});
+class _$BackEndExceptionImpl implements _BackEndException {
+  const _$BackEndExceptionImpl(
+      {required this.error, required this.description});
 
-  factory _$_BackEndException.fromJson(Map<String, dynamic> json) =>
-      _$$_BackEndExceptionFromJson(json);
+  factory _$BackEndExceptionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BackEndExceptionImplFromJson(json);
 
   @override
   final String error;
@@ -127,7 +128,7 @@ class _$_BackEndException implements _BackEndException {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BackEndException &&
+            other is _$BackEndExceptionImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -140,12 +141,13 @@ class _$_BackEndException implements _BackEndException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BackEndExceptionCopyWith<_$_BackEndException> get copyWith =>
-      __$$_BackEndExceptionCopyWithImpl<_$_BackEndException>(this, _$identity);
+  _$$BackEndExceptionImplCopyWith<_$BackEndExceptionImpl> get copyWith =>
+      __$$BackEndExceptionImplCopyWithImpl<_$BackEndExceptionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BackEndExceptionToJson(
+    return _$$BackEndExceptionImplToJson(
       this,
     );
   }
@@ -154,10 +156,10 @@ class _$_BackEndException implements _BackEndException {
 abstract class _BackEndException implements BackendException {
   const factory _BackEndException(
       {required final String error,
-      required final String description}) = _$_BackEndException;
+      required final String description}) = _$BackEndExceptionImpl;
 
   factory _BackEndException.fromJson(Map<String, dynamic> json) =
-      _$_BackEndException.fromJson;
+      _$BackEndExceptionImpl.fromJson;
 
   @override
   String get error;
@@ -165,6 +167,6 @@ abstract class _BackEndException implements BackendException {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_BackEndExceptionCopyWith<_$_BackEndException> get copyWith =>
+  _$$BackEndExceptionImplCopyWith<_$BackEndExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

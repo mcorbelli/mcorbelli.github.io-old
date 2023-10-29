@@ -57,22 +57,22 @@ class _$BackdropStateCopyWithImpl<$Res, $Val extends BackdropState>
 }
 
 /// @nodoc
-abstract class _$$_BackdropStateCopyWith<$Res>
+abstract class _$$BackdropStateImplCopyWith<$Res>
     implements $BackdropStateCopyWith<$Res> {
-  factory _$$_BackdropStateCopyWith(
-          _$_BackdropState value, $Res Function(_$_BackdropState) then) =
-      __$$_BackdropStateCopyWithImpl<$Res>;
+  factory _$$BackdropStateImplCopyWith(
+          _$BackdropStateImpl value, $Res Function(_$BackdropStateImpl) then) =
+      __$$BackdropStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isRevealed});
 }
 
 /// @nodoc
-class __$$_BackdropStateCopyWithImpl<$Res>
-    extends _$BackdropStateCopyWithImpl<$Res, _$_BackdropState>
-    implements _$$_BackdropStateCopyWith<$Res> {
-  __$$_BackdropStateCopyWithImpl(
-      _$_BackdropState _value, $Res Function(_$_BackdropState) _then)
+class __$$BackdropStateImplCopyWithImpl<$Res>
+    extends _$BackdropStateCopyWithImpl<$Res, _$BackdropStateImpl>
+    implements _$$BackdropStateImplCopyWith<$Res> {
+  __$$BackdropStateImplCopyWithImpl(
+      _$BackdropStateImpl _value, $Res Function(_$BackdropStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_BackdropStateCopyWithImpl<$Res>
   $Res call({
     Object? isRevealed = null,
   }) {
-    return _then(_$_BackdropState(
+    return _then(_$BackdropStateImpl(
       isRevealed: null == isRevealed
           ? _value.isRevealed
           : isRevealed // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_BackdropStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BackdropState implements _BackdropState {
-  const _$_BackdropState({this.isRevealed = false});
+class _$BackdropStateImpl implements _BackdropState {
+  const _$BackdropStateImpl({this.isRevealed = false});
 
   @override
   @JsonKey()
@@ -107,7 +107,7 @@ class _$_BackdropState implements _BackdropState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BackdropState &&
+            other is _$BackdropStateImpl &&
             (identical(other.isRevealed, isRevealed) ||
                 other.isRevealed == isRevealed));
   }
@@ -118,17 +118,17 @@ class _$_BackdropState implements _BackdropState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BackdropStateCopyWith<_$_BackdropState> get copyWith =>
-      __$$_BackdropStateCopyWithImpl<_$_BackdropState>(this, _$identity);
+  _$$BackdropStateImplCopyWith<_$BackdropStateImpl> get copyWith =>
+      __$$BackdropStateImplCopyWithImpl<_$BackdropStateImpl>(this, _$identity);
 }
 
 abstract class _BackdropState implements BackdropState {
-  const factory _BackdropState({final bool isRevealed}) = _$_BackdropState;
+  const factory _BackdropState({final bool isRevealed}) = _$BackdropStateImpl;
 
   @override
   bool get isRevealed;
   @override
   @JsonKey(ignore: true)
-  _$$_BackdropStateCopyWith<_$_BackdropState> get copyWith =>
+  _$$BackdropStateImplCopyWith<_$BackdropStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

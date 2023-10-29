@@ -57,13 +57,13 @@ class _NavLinkState extends State<NavLink> {
       tr(widget.route.localeKey),
       style: (() {
         if (_isCurrentRoute) {
-          return TextStyle(
+          return const TextStyle(
             fontWeight: FontWeight.bold,
-            decoration: (() {
-              if (!widget.isBubbled) {
-                return TextDecoration.underline;
-              }
-            }()),
+            // decoration: (() {
+            //   if (!widget.isBubbled) {
+            //     return TextDecoration.underline;
+            //   }
+            // }()),
           );
         } else if (_isActive) {
           return const TextStyle(

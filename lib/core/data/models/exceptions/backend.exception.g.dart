@@ -6,13 +6,15 @@ part of 'backend.exception.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BackEndException _$$_BackEndExceptionFromJson(Map<String, dynamic> json) =>
-    _$_BackEndException(
+_$BackEndExceptionImpl _$$BackEndExceptionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$BackEndExceptionImpl(
       error: json['error'] as String,
       description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$_BackEndExceptionToJson(_$_BackEndException instance) =>
+Map<String, dynamic> _$$BackEndExceptionImplToJson(
+        _$BackEndExceptionImpl instance) =>
     <String, dynamic>{
       'error': instance.error,
       'description': instance.description,

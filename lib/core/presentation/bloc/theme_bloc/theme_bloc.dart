@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:portfolio_web/core/constants/storage.const.dart';
 import 'package:portfolio_web/core/data/repositories/storage.repository.dart';
-import 'package:portfolio_web/core/styles/portfolio.theme.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';
@@ -18,40 +18,27 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
   ThemeBloc(
     this._storageRepo,
   ) : super(const ThemeState()) {
-    on<_ManualThemeChange>(_onThemeChange);
-    on<_SwitchSystemMode>(_onSwitchSystemMode);
-  }
+    on<_ManualThemeChange>(_onManualThemeChange);
 
-  void _onSwitchSystemMode(
-    _SwitchSystemMode event,
-    Emitter<ThemeState> emit,
-  ) {
-    if (state.followSystem == false) {
-      final currentThemeMode = PortfolioTheme.getThemeMode();
-
-      _setLocalStorageTheme(currentThemeMode);
-
+    if (state.themeMode == ThemeMode.system) {
+      // ignore: invalid_use_of_visible_for_testing_member
       emit(state.copyWith(
-        themeMode: currentThemeMode,
-        followSystem: !state.followSystem,
+        themeMode: state.activeThemeMode,
       ));
     }
   }
 
-  void _onThemeChange(
+  void _onManualThemeChange(
     _ManualThemeChange event,
     Emitter<ThemeState> emit,
   ) {
-    _setLocalStorageTheme(event.themeMode);
+    ThemeMode currentThemeMode = event.themeMode;
+
+    _storageRepo.local.insert(StorageConst.theme, currentThemeMode.name);
 
     emit(state.copyWith(
-      themeMode: event.themeMode,
-      followSystem: false,
+      themeMode: currentThemeMode,
     ));
-  }
-
-  void _setLocalStorageTheme(ThemeMode themeMode) {
-    _storageRepo.local.insert(StorageConst.theme, themeMode.name);
   }
 
   @override

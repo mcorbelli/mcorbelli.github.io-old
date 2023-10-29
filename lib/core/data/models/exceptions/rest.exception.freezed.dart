@@ -57,22 +57,22 @@ class _$RestExceptionCopyWithImpl<$Res, $Val extends RestException>
 }
 
 /// @nodoc
-abstract class _$$_RestExceptionCopyWith<$Res>
+abstract class _$$RestExceptionImplCopyWith<$Res>
     implements $RestExceptionCopyWith<$Res> {
-  factory _$$_RestExceptionCopyWith(
-          _$_RestException value, $Res Function(_$_RestException) then) =
-      __$$_RestExceptionCopyWithImpl<$Res>;
+  factory _$$RestExceptionImplCopyWith(
+          _$RestExceptionImpl value, $Res Function(_$RestExceptionImpl) then) =
+      __$$RestExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_RestExceptionCopyWithImpl<$Res>
-    extends _$RestExceptionCopyWithImpl<$Res, _$_RestException>
-    implements _$$_RestExceptionCopyWith<$Res> {
-  __$$_RestExceptionCopyWithImpl(
-      _$_RestException _value, $Res Function(_$_RestException) _then)
+class __$$RestExceptionImplCopyWithImpl<$Res>
+    extends _$RestExceptionCopyWithImpl<$Res, _$RestExceptionImpl>
+    implements _$$RestExceptionImplCopyWith<$Res> {
+  __$$RestExceptionImplCopyWithImpl(
+      _$RestExceptionImpl _value, $Res Function(_$RestExceptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_RestExceptionCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_RestException(
+    return _then(_$RestExceptionImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_RestExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RestException implements _RestException {
-  const _$_RestException(this.message);
+class _$RestExceptionImpl implements _RestException {
+  const _$RestExceptionImpl(this.message);
 
   @override
   final String message;
@@ -106,7 +106,7 @@ class _$_RestException implements _RestException {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RestException &&
+            other is _$RestExceptionImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -116,17 +116,17 @@ class _$_RestException implements _RestException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RestExceptionCopyWith<_$_RestException> get copyWith =>
-      __$$_RestExceptionCopyWithImpl<_$_RestException>(this, _$identity);
+  _$$RestExceptionImplCopyWith<_$RestExceptionImpl> get copyWith =>
+      __$$RestExceptionImplCopyWithImpl<_$RestExceptionImpl>(this, _$identity);
 }
 
 abstract class _RestException implements RestException {
-  const factory _RestException(final String message) = _$_RestException;
+  const factory _RestException(final String message) = _$RestExceptionImpl;
 
   @override
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_RestExceptionCopyWith<_$_RestException> get copyWith =>
+  _$$RestExceptionImplCopyWith<_$RestExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

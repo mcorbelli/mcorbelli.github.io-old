@@ -6,14 +6,16 @@ class ThemeState with _$ThemeState {
 
   const factory ThemeState({
     @Default(ThemeMode.system) ThemeMode themeMode,
-    @Default(true) bool followSystem,
   }) = _ThemeState;
 
   ThemeMode get activeThemeMode {
-    var currentThemeMode = themeMode;
+    ThemeMode currentThemeMode = themeMode;
+
     if (themeMode == ThemeMode.system) {
-      currentThemeMode = PortfolioTheme.getThemeMode();
+      var brightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
+      currentThemeMode = (brightness == Brightness.dark) ? ThemeMode.dark : ThemeMode.light;
     }
+
     return currentThemeMode;
   }
 

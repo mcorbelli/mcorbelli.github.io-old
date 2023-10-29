@@ -22,13 +22,14 @@
         </script>
 
         <script src="flutter.js" defer></script>
+        <script src="splash-screen.js"></script>
 
         <!-- Include the external CSS file -->
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div id="splash">
-            <img class="center" aria-hidden="true" src="splash/img/loading-light.gif" alt="" />
+            <img class="center" aria-hidden="true" />
         </div>
         <script id="flutter-load-script">
             window.addEventListener("load", function (ev) {
@@ -42,19 +43,6 @@
                         });
                     },
                 });
-            });
-        </script>
-        <script id="splash-screen-script">
-            window.addEventListener("load", function (ev) {
-                var theme = localStorage.getItem('portfolio_theme');
-                var splash = document.getElementById('splash');
-                if (theme === 'dark') {
-                    document.body.style.backgroundColor = '#18191A';
-                    splash.querySelector('img').src = 'splash/img/loading-dark.gif';
-                } else if (theme === 'light') {
-                    document.body.style.backgroundColor = '#F0F2F5';
-                    splash.querySelector('img').src = 'splash/img/loading-light.gif';
-                }
             });
         </script>
     </body>

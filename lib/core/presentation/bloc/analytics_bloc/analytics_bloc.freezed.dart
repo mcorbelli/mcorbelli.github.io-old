@@ -69,25 +69,25 @@ class _$AnalyticsEventCopyWithImpl<$Res, $Val extends AnalyticsEvent>
 }
 
 /// @nodoc
-abstract class _$$_FirstPortfolioAccessCopyWith<$Res> {
-  factory _$$_FirstPortfolioAccessCopyWith(_$_FirstPortfolioAccess value,
-          $Res Function(_$_FirstPortfolioAccess) then) =
-      __$$_FirstPortfolioAccessCopyWithImpl<$Res>;
+abstract class _$$FirstPortfolioAccessImplCopyWith<$Res> {
+  factory _$$FirstPortfolioAccessImplCopyWith(_$FirstPortfolioAccessImpl value,
+          $Res Function(_$FirstPortfolioAccessImpl) then) =
+      __$$FirstPortfolioAccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FirstPortfolioAccessCopyWithImpl<$Res>
-    extends _$AnalyticsEventCopyWithImpl<$Res, _$_FirstPortfolioAccess>
-    implements _$$_FirstPortfolioAccessCopyWith<$Res> {
-  __$$_FirstPortfolioAccessCopyWithImpl(_$_FirstPortfolioAccess _value,
-      $Res Function(_$_FirstPortfolioAccess) _then)
+class __$$FirstPortfolioAccessImplCopyWithImpl<$Res>
+    extends _$AnalyticsEventCopyWithImpl<$Res, _$FirstPortfolioAccessImpl>
+    implements _$$FirstPortfolioAccessImplCopyWith<$Res> {
+  __$$FirstPortfolioAccessImplCopyWithImpl(_$FirstPortfolioAccessImpl _value,
+      $Res Function(_$FirstPortfolioAccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FirstPortfolioAccess implements _FirstPortfolioAccess {
-  const _$_FirstPortfolioAccess();
+class _$FirstPortfolioAccessImpl implements _FirstPortfolioAccess {
+  const _$FirstPortfolioAccessImpl();
 
   @override
   String toString() {
@@ -97,7 +97,8 @@ class _$_FirstPortfolioAccess implements _FirstPortfolioAccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FirstPortfolioAccess);
+        (other.runtimeType == runtimeType &&
+            other is _$FirstPortfolioAccessImpl);
   }
 
   @override
@@ -161,7 +162,7 @@ class _$_FirstPortfolioAccess implements _FirstPortfolioAccess {
 }
 
 abstract class _FirstPortfolioAccess implements AnalyticsEvent {
-  const factory _FirstPortfolioAccess() = _$_FirstPortfolioAccess;
+  const factory _FirstPortfolioAccess() = _$FirstPortfolioAccessImpl;
 }
 
 /// @nodoc
@@ -186,25 +187,25 @@ class _$AnalyticsStateCopyWithImpl<$Res, $Val extends AnalyticsState>
 }
 
 /// @nodoc
-abstract class _$$_AnalyticsStateCopyWith<$Res> {
-  factory _$$_AnalyticsStateCopyWith(
-          _$_AnalyticsState value, $Res Function(_$_AnalyticsState) then) =
-      __$$_AnalyticsStateCopyWithImpl<$Res>;
+abstract class _$$AnalyticsStateImplCopyWith<$Res> {
+  factory _$$AnalyticsStateImplCopyWith(_$AnalyticsStateImpl value,
+          $Res Function(_$AnalyticsStateImpl) then) =
+      __$$AnalyticsStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AnalyticsStateCopyWithImpl<$Res>
-    extends _$AnalyticsStateCopyWithImpl<$Res, _$_AnalyticsState>
-    implements _$$_AnalyticsStateCopyWith<$Res> {
-  __$$_AnalyticsStateCopyWithImpl(
-      _$_AnalyticsState _value, $Res Function(_$_AnalyticsState) _then)
+class __$$AnalyticsStateImplCopyWithImpl<$Res>
+    extends _$AnalyticsStateCopyWithImpl<$Res, _$AnalyticsStateImpl>
+    implements _$$AnalyticsStateImplCopyWith<$Res> {
+  __$$AnalyticsStateImplCopyWithImpl(
+      _$AnalyticsStateImpl _value, $Res Function(_$AnalyticsStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AnalyticsState implements _AnalyticsState {
-  const _$_AnalyticsState();
+class _$AnalyticsStateImpl implements _AnalyticsState {
+  const _$AnalyticsStateImpl();
 
   @override
   String toString() {
@@ -214,7 +215,7 @@ class _$_AnalyticsState implements _AnalyticsState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AnalyticsState);
+        (other.runtimeType == runtimeType && other is _$AnalyticsStateImpl);
   }
 
   @override
@@ -222,5 +223,5 @@ class _$_AnalyticsState implements _AnalyticsState {
 }
 
 abstract class _AnalyticsState implements AnalyticsState {
-  const factory _AnalyticsState() = _$_AnalyticsState;
+  const factory _AnalyticsState() = _$AnalyticsStateImpl;
 }
