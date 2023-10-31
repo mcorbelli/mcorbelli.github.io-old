@@ -6,8 +6,10 @@
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
+                "help_select": "Select theme",
                 "help_light": "Light theme",
-                "help_dark": "Dark theme"
+                "help_dark": "Dark theme",
+                "help_system": "System theme"
             },
             "navigations": {
                 "homepage": "HOMEPAGE",

@@ -8,7 +8,7 @@ class ThemeAction with _$ThemeAction {
   const factory ThemeAction({
     required ThemeMode themeMode,
     required String tooltip,
-    required IconData icon,
+    required IconData iconData,
     Color? color,
   }) = _ThemeAction;
 }

@@ -34,7 +34,11 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
   ) {
     ThemeMode currentThemeMode = event.themeMode;
 
-    _storageRepo.local.insert(StorageConst.theme, currentThemeMode.name);
+    if (currentThemeMode == ThemeMode.system) {
+      _storageRepo.local.remove(StorageConst.theme);
+    } else {
+      _storageRepo.local.insert(StorageConst.theme, currentThemeMode.name);
+    }
 
     emit(state.copyWith(
       themeMode: currentThemeMode,

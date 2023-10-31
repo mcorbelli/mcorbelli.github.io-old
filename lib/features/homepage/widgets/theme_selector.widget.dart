@@ -12,14 +12,19 @@ final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
     tooltip: tr('$themeKey.help_light'),
-    icon: EvaIcons.sun,
+    iconData: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
     tooltip: tr('$themeKey.help_dark'),
-    icon: EvaIcons.moon,
+    iconData: EvaIcons.moon,
     color: const Color(0XFF3271C2),
+  ),
+  ThemeAction(
+    themeMode: ThemeMode.system,
+    tooltip: tr('$themeKey.help_system'),
+    iconData: EvaIcons.hardDrive,
   ),
 ];
 
@@ -33,34 +38,83 @@ class ThemeSelector extends StatefulWidget {
 class _ThemeSelectorState extends State<ThemeSelector> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeBloc, ThemeState>(
-      buildWhen: (previous, current) {
-        return previous.themeMode != current.themeMode;
+    return PopupMenuButton<ThemeAction>(
+      onSelected: (value) {
+        _onThemeSelected(value.themeMode);
       },
-      builder: (context, state) {
-        final action = _getNextAction(state.activeThemeMode);
+      tooltip: tr('$themeKey.help_select'),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      constraints: const BoxConstraints.tightFor(),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+      ),
+      clipBehavior: Clip.antiAlias,
+      itemBuilder: (_) {
+        return themes.map((action) {
+          return PopupMenuItem<ThemeAction>(
+            value: action,
+            child: _SingleThemeItem(action),
+          );
+        }).toList();
+      },
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        buildWhen: (previous, current) {
+          return previous.themeMode != current.themeMode;
+        },
+        builder: (context, state) {
+          final action = themes.firstWhere((element) {
+            return element.themeMode == state.activeThemeMode;
+          });
 
-        return IconButton(
-          onPressed: () {
-            _onThemeSelected(action.themeMode);
-          },
-          tooltip: action.tooltip,
-          icon: Icon(action.icon),
-          color: action.color,
-          padding: EdgeInsets.zero,
-        );
-      },
+          return _SingleThemeItem(
+            action,
+            showTooltip: false,
+          );
+        },
+      ),
     );
-  }
-
-  ThemeAction _getNextAction(ThemeMode current) {
-    return themes.firstWhere((element) {
-      return element.themeMode != current;
-    });
   }
 
   void _onThemeSelected(ThemeMode mode) {
     final bloc = context.read<ThemeBloc>();
     bloc.add(ThemeEvent.manualThemeChange(mode));
+  }
+}
+
+class _SingleThemeItem extends StatelessWidget {
+  const _SingleThemeItem(
+    this.action, {
+    this.showTooltip = true,
+  });
+
+  final ThemeAction action;
+  final bool showTooltip;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
+    Widget widget = Center(
+      child: Icon(
+        action.iconData,
+        color: (() {
+          if (action.color == null) {
+            return colorScheme.onBackground;
+          }
+          return action.color;
+        }()),
+      ),
+    );
+
+    if (showTooltip) {
+      widget = Tooltip(
+        message: action.tooltip,
+        child: widget,
+      );
+    }
+
+    return widget;
   }
 }

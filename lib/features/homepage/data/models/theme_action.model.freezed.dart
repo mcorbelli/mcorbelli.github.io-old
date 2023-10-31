@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ThemeAction {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
   String get tooltip => throw _privateConstructorUsedError;
-  IconData get icon => throw _privateConstructorUsedError;
+  IconData get iconData => throw _privateConstructorUsedError;
   Color? get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +32,8 @@ abstract class $ThemeActionCopyWith<$Res> {
           ThemeAction value, $Res Function(ThemeAction) then) =
       _$ThemeActionCopyWithImpl<$Res, ThemeAction>;
   @useResult
-  $Res call({ThemeMode themeMode, String tooltip, IconData icon, Color? color});
+  $Res call(
+      {ThemeMode themeMode, String tooltip, IconData iconData, Color? color});
 }
 
 /// @nodoc
@@ -50,7 +51,7 @@ class _$ThemeActionCopyWithImpl<$Res, $Val extends ThemeAction>
   $Res call({
     Object? themeMode = null,
     Object? tooltip = null,
-    Object? icon = null,
+    Object? iconData = null,
     Object? color = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,9 +63,9 @@ class _$ThemeActionCopyWithImpl<$Res, $Val extends ThemeAction>
           ? _value.tooltip
           : tooltip // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
+      iconData: null == iconData
+          ? _value.iconData
+          : iconData // ignore: cast_nullable_to_non_nullable
               as IconData,
       color: freezed == color
           ? _value.color
@@ -82,7 +83,8 @@ abstract class _$$ThemeActionImplCopyWith<$Res>
       __$$ThemeActionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode themeMode, String tooltip, IconData icon, Color? color});
+  $Res call(
+      {ThemeMode themeMode, String tooltip, IconData iconData, Color? color});
 }
 
 /// @nodoc
@@ -98,7 +100,7 @@ class __$$ThemeActionImplCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
     Object? tooltip = null,
-    Object? icon = null,
+    Object? iconData = null,
     Object? color = freezed,
   }) {
     return _then(_$ThemeActionImpl(
@@ -110,9 +112,9 @@ class __$$ThemeActionImplCopyWithImpl<$Res>
           ? _value.tooltip
           : tooltip // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: null == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
+      iconData: null == iconData
+          ? _value.iconData
+          : iconData // ignore: cast_nullable_to_non_nullable
               as IconData,
       color: freezed == color
           ? _value.color
@@ -128,7 +130,7 @@ class _$ThemeActionImpl implements _ThemeAction {
   const _$ThemeActionImpl(
       {required this.themeMode,
       required this.tooltip,
-      required this.icon,
+      required this.iconData,
       this.color});
 
   @override
@@ -136,13 +138,13 @@ class _$ThemeActionImpl implements _ThemeAction {
   @override
   final String tooltip;
   @override
-  final IconData icon;
+  final IconData iconData;
   @override
   final Color? color;
 
   @override
   String toString() {
-    return 'ThemeAction(themeMode: $themeMode, tooltip: $tooltip, icon: $icon, color: $color)';
+    return 'ThemeAction(themeMode: $themeMode, tooltip: $tooltip, iconData: $iconData, color: $color)';
   }
 
   @override
@@ -153,12 +155,14 @@ class _$ThemeActionImpl implements _ThemeAction {
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode) &&
             (identical(other.tooltip, tooltip) || other.tooltip == tooltip) &&
-            (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.iconData, iconData) ||
+                other.iconData == iconData) &&
             (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, themeMode, tooltip, icon, color);
+  int get hashCode =>
+      Object.hash(runtimeType, themeMode, tooltip, iconData, color);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +175,7 @@ abstract class _ThemeAction implements ThemeAction {
   const factory _ThemeAction(
       {required final ThemeMode themeMode,
       required final String tooltip,
-      required final IconData icon,
+      required final IconData iconData,
       final Color? color}) = _$ThemeActionImpl;
 
   @override
@@ -179,7 +183,7 @@ abstract class _ThemeAction implements ThemeAction {
   @override
   String get tooltip;
   @override
-  IconData get icon;
+  IconData get iconData;
   @override
   Color? get color;
   @override
