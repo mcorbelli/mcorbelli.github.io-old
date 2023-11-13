@@ -38,41 +38,45 @@ class ThemeSelector extends StatefulWidget {
 class _ThemeSelectorState extends State<ThemeSelector> {
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton<ThemeAction>(
-      onSelected: (value) {
-        _onThemeSelected(value.themeMode);
-      },
-      tooltip: tr('$themeKey.help_select'),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0),
-      ),
-      constraints: const BoxConstraints.tightFor(),
+    return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 10.0,
       ),
-      clipBehavior: Clip.antiAlias,
-      itemBuilder: (_) {
-        return themes.map((action) {
-          return PopupMenuItem<ThemeAction>(
-            value: action,
-            child: _SingleThemeItem(action),
-          );
-        }).toList();
-      },
-      child: BlocBuilder<ThemeBloc, ThemeState>(
-        buildWhen: (previous, current) {
-          return previous.themeMode != current.themeMode;
+      child: PopupMenuButton<ThemeAction>(
+        onSelected: (value) {
+          _onThemeSelected(value.themeMode);
         },
-        builder: (context, state) {
-          final action = themes.firstWhere((element) {
-            return element.themeMode == state.activeThemeMode;
-          });
+        tooltip: tr('$themeKey.help_select'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        constraints: const BoxConstraints.tightFor(),
+        clipBehavior: Clip.antiAlias,
+        itemBuilder: (_) {
+          return themes.map((action) {
+            return PopupMenuItem<ThemeAction>(
+              value: action,
+              child: _SingleThemeItem(
+                themeAction: action,
+              ),
+            );
+          }).toList();
+        },
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          buildWhen: (previous, current) {
+            return previous.themeMode != current.themeMode;
+          },
+          builder: (context, state) {
+            final action = themes.firstWhere((element) {
+              return element.themeMode == state.activeThemeMode;
+            });
 
-          return _SingleThemeItem(
-            action,
-            showTooltip: false,
-          );
-        },
+            return _SingleThemeItem(
+              themeAction: action,
+              showTooltip: false,
+            );
+          },
+        ),
       ),
     );
   }
@@ -84,12 +88,12 @@ class _ThemeSelectorState extends State<ThemeSelector> {
 }
 
 class _SingleThemeItem extends StatelessWidget {
-  const _SingleThemeItem(
-    this.action, {
+  const _SingleThemeItem({
+    required this.themeAction,
     this.showTooltip = true,
   });
 
-  final ThemeAction action;
+  final ThemeAction themeAction;
   final bool showTooltip;
 
   @override
@@ -98,19 +102,19 @@ class _SingleThemeItem extends StatelessWidget {
 
     Widget widget = Center(
       child: Icon(
-        action.iconData,
+        themeAction.iconData,
         color: (() {
-          if (action.color == null) {
+          if (themeAction.color == null) {
             return colorScheme.onBackground;
           }
-          return action.color;
+          return themeAction.color;
         }()),
       ),
     );
 
     if (showTooltip) {
       widget = Tooltip(
-        message: action.tooltip,
+        message: themeAction.tooltip,
         child: widget,
       );
     }
