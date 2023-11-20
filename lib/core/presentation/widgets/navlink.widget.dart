@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 
@@ -54,7 +53,7 @@ class _NavLinkState extends State<NavLink> {
     final colorScheme = Theme.of(context).colorScheme;
 
     Widget navLink = BodySmall(
-      tr(widget.route.localeKey),
+      widget.route.title,
       style: (() {
         if (_isCurrentRoute) {
           return const TextStyle(

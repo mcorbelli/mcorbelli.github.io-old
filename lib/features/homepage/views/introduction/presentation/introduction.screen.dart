@@ -1,8 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'package:portfolio_web/core/localizations/translations.g.dart';
 import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 
@@ -35,8 +35,8 @@ class _IntroductionDesktop extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DisplayMedium(tr('introduction.title')),
-        BodyLarge(tr('introduction.subtitle')),
+        DisplayMedium(t.introduction.title),
+        BodyLarge(t.introduction.subtitle),
       ],
     );
   }

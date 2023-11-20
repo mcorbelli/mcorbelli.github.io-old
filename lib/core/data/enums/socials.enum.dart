@@ -1,7 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:portfolio_web/core/localizations/translations.g.dart';
 
 const _socialKey = 'homepage.footer.socials';
 
@@ -9,32 +10,32 @@ enum Socials {
   github(
     icon: EvaIcons.github,
     url: 'https://github.com/mcorbelli',
-    localeKey: '$_socialKey.github',
+    tooltipKey: '$_socialKey.github',
   ),
   twitter(
     icon: EvaIcons.twitter,
     url: 'https://twitter.com/_marbelli_',
-    localeKey: '$_socialKey.twitter',
+    tooltipKey: '$_socialKey.github',
   ),
   linkedin(
     icon: EvaIcons.linkedin,
     url: 'https://www.linkedin.com/in/corbellimattia/',
-    localeKey: '$_socialKey.linkedin',
+    tooltipKey: '$_socialKey.github',
   );
 
   const Socials({
     required this.icon,
     required this.url,
-    this.localeKey,
+    this.tooltipKey,
   });
 
   final IconData icon;
   final String url;
-  final String? localeKey;
+  final String? tooltipKey;
 
   String? get tooltip {
-    if (localeKey != null) {
-      return tr(localeKey!);
+    if (tooltipKey != null) {
+      return t[tooltipKey!];
     }
     return null;
   }

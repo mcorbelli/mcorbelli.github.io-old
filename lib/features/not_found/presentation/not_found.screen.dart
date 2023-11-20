@@ -1,8 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'package:portfolio_web/core/localizations/translations.g.dart';
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
 import 'package:portfolio_web/core/styles/typograph.theme.dart';
 import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
@@ -34,7 +34,7 @@ class _NotFoundDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: tr('homepage.app_bar.title'),
+        title: t.homepage.app_bar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
@@ -42,7 +42,7 @@ class _NotFoundDesktop extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const DisplayMedium('404'),
-            DisplaySmall(tr('not_found.title')),
+            DisplaySmall(t.not_found.title),
           ],
         ),
       ),
@@ -57,7 +57,7 @@ class _NotFoundMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.mobile(
-        title: tr('homepage.app_bar.title'),
+        title: t.homepage.app_bar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
@@ -65,7 +65,7 @@ class _NotFoundMobile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const DisplayMedium('404'),
-            DisplaySmall(tr('not_found.title')),
+            DisplaySmall(t.not_found.title),
           ],
         ),
       ),

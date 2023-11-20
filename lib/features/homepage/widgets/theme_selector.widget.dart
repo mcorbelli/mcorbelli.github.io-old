@@ -1,29 +1,27 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:portfolio_web/core/localizations/translations.g.dart';
 import 'package:portfolio_web/core/presentation/bloc/theme_bloc/theme_bloc.dart';
 import 'package:portfolio_web/features/homepage/data/models/theme_action.model.dart';
-
-const themeKey = 'homepage.app_bar.theme_selector';
 
 final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
-    tooltip: tr('$themeKey.help_light'),
+    tooltip: t['homepage.app_bar.theme_selector.light'],
     iconData: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
-    tooltip: tr('$themeKey.help_dark'),
+    tooltip: t['homepage.app_bar.theme_selector.dark'],
     iconData: EvaIcons.moon,
     color: const Color(0XFF3271C2),
   ),
   ThemeAction(
     themeMode: ThemeMode.system,
-    tooltip: tr('$themeKey.help_system'),
+    tooltip: t['homepage.app_bar.theme_selector.system'],
     iconData: EvaIcons.hardDrive,
   ),
 ];
@@ -46,7 +44,7 @@ class _ThemeSelectorState extends State<ThemeSelector> {
         onSelected: (value) {
           _onThemeSelected(value.themeMode);
         },
-        tooltip: tr('$themeKey.help_select'),
+        tooltip: t.homepage.app_bar.theme_selector.tooltip,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),

@@ -6,14 +6,15 @@
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
-                "help_select": "Select theme",
-                "help_light": "Light theme",
-                "help_dark": "Dark theme",
-                "help_system": "System theme"
+                "tooltip": "Select theme",
+                "light": "Light theme",
+                "dark": "Dark theme",
+                "system": "System theme"
             },
             "navigations": {
                 "homepage": "HOMEPAGE",
-                "contacts": "CONTACTS"
+                "contacts": "CONTACTS",
+                "not-found": "NOT FOUND"
             }
         },
         "footer": {
@@ -36,7 +37,7 @@
         "title": "CONTACTS",
         "subtitle": "(portfolio in development)"
     },
-    "not_found": {
+    "not-found": {
         "title": "PAGE NOT FOUND"
     }
 }

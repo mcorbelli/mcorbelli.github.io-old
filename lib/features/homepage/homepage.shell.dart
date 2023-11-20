@@ -1,10 +1,10 @@
 import 'package:backdrop/backdrop.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router_plus/go_router_plus.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'package:portfolio_web/core/localizations/translations.g.dart';
 import 'package:portfolio_web/core/presentation/widgets/backdrop.widget.dart';
 import 'package:portfolio_web/core/data/enums/app_routes.enum.dart';
 import 'package:portfolio_web/core/presentation/widgets/appbar.widget.dart';
@@ -50,7 +50,7 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: tr('homepage.app_bar.title'),
+        title: t.homepage.app_bar.title,
         redirect: AppRoutes.homepage,
         navItems: const [
           AppRoutes.homepage,
@@ -123,7 +123,7 @@ class _HomepageMobileState extends State<_HomepageMobile> {
     return BackdropScaffold(
       key: _backdropKey,
       appBar: CustomAppBar.mobile(
-        title: tr('homepage.app_bar.title'),
+        title: t.homepage.app_bar.title,
         redirect: AppRoutes.homepage,
         isMenuOpen: isRevealed,
         onMenuPressed: _onMenuPressed,

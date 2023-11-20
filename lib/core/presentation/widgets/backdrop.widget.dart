@@ -85,7 +85,7 @@ class _BackdropFooter extends StatelessWidget {
         return IconButton(
           icon: Icon(e.icon),
           onPressed: e.openLink,
-          tooltip: e.tooltip,
+          tooltip: e.tooltipKey,
           padding: EdgeInsets.zero,
         );
       }).toList(),

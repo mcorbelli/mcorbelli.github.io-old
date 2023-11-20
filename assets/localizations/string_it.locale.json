@@ -6,20 +6,21 @@
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
-                "help_select": "Seleziona il tema",
-                "help_light": "Tema chiaro",
-                "help_dark": "Tema scuro",
-                "help_system": "Tema dispositivo"
+                "tooltip": "Seleziona il tema",
+                "light": "Tema chiaro",
+                "dark": "Tema scuro",
+                "system": "Tema dispositivo"
             },
             "navigations": {
                 "homepage": "HOMEPAGE",
-                "contacts": "CONTATTI"
+                "contacts": "CONTATTI",
+                "not-found": "NON TROVATA"
             }
         },
         "footer": {
             "version": {
                 "loading": "Caricamento ...",
-                "_error": "Qualcosa è andato storto :("
+                "error": "Qualcosa è andato storto :("
             },
             "socials": {
                 "github": "GitHub",
@@ -36,7 +37,7 @@
         "title": "CONTATTI",
         "subtitle": "(portfolio in costruzione)"
     },
-    "not_found": {
+    "not-found": {
         "title": "PAGINA NON TROVATA"
     }
 }
