@@ -9,19 +9,19 @@ import 'package:portfolio_web/features/homepage/data/models/theme_action.model.d
 final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
-    tooltip: t['homepage.app_bar.theme_selector.light'],
+    tooltip: t.homepage.app_bar.theme_selector.light,
     iconData: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
-    tooltip: t['homepage.app_bar.theme_selector.dark'],
+    tooltip: t.homepage.app_bar.theme_selector.dark,
     iconData: EvaIcons.moon,
     color: const Color(0XFF3271C2),
   ),
   ThemeAction(
     themeMode: ThemeMode.system,
-    tooltip: t['homepage.app_bar.theme_selector.system'],
+    tooltip: t.homepage.app_bar.theme_selector.system,
     iconData: EvaIcons.hardDrive,
   ),
 ];
