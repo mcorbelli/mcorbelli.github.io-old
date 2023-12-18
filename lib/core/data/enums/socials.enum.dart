@@ -15,12 +15,12 @@ enum Socials {
   twitter(
     icon: EvaIcons.twitter,
     url: 'https://twitter.com/_marbelli_',
-    tooltipKey: '$_socialKey.github',
+    tooltipKey: '$_socialKey.twitter',
   ),
   linkedin(
     icon: EvaIcons.linkedin,
-    url: 'https://www.linkedin.com/in/corbellimattia/',
-    tooltipKey: '$_socialKey.github',
+    url: 'https://www.linkedin.com/in/corbellimattia',
+    tooltipKey: '$_socialKey.linkedin',
   );
 
   const Socials({
