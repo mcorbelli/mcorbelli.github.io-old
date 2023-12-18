@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/" />
+
+        <meta charset="UTF-8" />
+        <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+        <meta name="description" content="Portfolio di Corbelli Mattia" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="portfolio_web" />
+        <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+
+        <link rel="icon" type="image/png" href="favicon.ico" />
+
+        <title>Corbelli Mattia - Portfolio</title>
+        <link rel="manifest" href="manifest.json" />
+
+        <script>
+            const serviceWorkerVersion = "476789438";
+        </script>
+
+        <script src="flutter.js" defer></script>
+        <script src="splash-screen.js"></script>
+
+        <!-- Include the external CSS file -->
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="splash">
+            <img class="center" aria-hidden="true" />
+        </div>
+        <script id="flutter-load-script">
+            window.addEventListener("load", function (ev) {
+                _flutter.loader.loadEntrypoint({
+                    serviceWorker: {
+                        serviceWorkerVersion: serviceWorkerVersion,
+                    },
+                    onEntrypointLoaded: function (engineInitializer) {
+                        engineInitializer.initializeEngine().then(function (appRunner) {
+                            appRunner.runApp();
+                        });
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>

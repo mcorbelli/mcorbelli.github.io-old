@@ -1,0 +1,37 @@
+:root {
+    --background-light: #F0F2F5;
+    --background-dark: #18191A;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--background-dark);
+    }
+}
+
+#splash {
+    text-align: center;
+}
+
+#splash img,
+#splash p {
+    margin: 0 auto;
+}
+
+#splash img {
+    width: 50px;
+}
+
+#splash p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
