@@ -52,6 +52,7 @@ class _ContactsDesktopState extends State<_ContactsDesktop> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Column(
       children: [
@@ -132,26 +133,35 @@ class _ContactsDesktopState extends State<_ContactsDesktop> {
                 const SizedBox(
                   height: 20.0,
                 ),
-                FormBuilderCheckbox(
-                  name: 'privacy_policy',
-                  title: Text.rich(t.contacts.contactForm.privacyPolicy(
-                    tapHere: (text) => TextSpan(
-                      text: text,
-                      style: const TextStyle(
-                        color: Colors.blue,
+                Theme(
+                  data: ThemeData(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    colorScheme: colorScheme,
+                  ),
+                  child: FormBuilderCheckbox(
+                    name: 'privacy_policy',
+                    activeColor: colorScheme.primary,
+                    title: Text.rich(t.contacts.contactForm.privacyPolicy(
+                      tapHere: (text) => TextSpan(
+                        text: text,
+                        style: TextStyle(
+                          color: colorScheme.primary,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async {
+                            final url = Uri.parse(UrlConst.privacyPolicy);
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch $url');
+                            }
+                          },
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () async {
-                          final url = Uri.parse(UrlConst.privacyPolicy);
-                          if (!await launchUrl(url)) {
-                            throw Exception('Could not launch $url');
-                          }
-                        },
-                    ),
-                  )),
-                  validator: FormBuilderValidators.compose([
-                    FormBuilderValidators.required(),
-                  ]),
+                    )),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                    ]),
+                  ),
                 ),
                 const Divider(
                   height: 50.0,
