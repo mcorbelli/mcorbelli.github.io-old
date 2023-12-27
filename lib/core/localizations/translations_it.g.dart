@@ -30,11 +30,18 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	TextSpan myText({required InlineSpan name, required InlineSpanBuilder tapHere}) => TextSpan(children: [
+		const TextSpan(text: 'Benvenuto '),
+		name,
+		const TextSpan(text: '. Per favore, clicca '),
+		tapHere('here'),
+		const TextSpan(text: '!'),
+	]);
 	late final _TranslationsPortfolioIt portfolio = _TranslationsPortfolioIt._(_root);
-	late final _TranslationsUiComponentsIt ui_components = _TranslationsUiComponentsIt._(_root);
+	late final _TranslationsUiComponentsIt uiComponents = _TranslationsUiComponentsIt._(_root);
 	late final _TranslationsIntroductionIt introduction = _TranslationsIntroductionIt._(_root);
 	late final _TranslationsContactsIt contacts = _TranslationsContactsIt._(_root);
-	late final _TranslationsNotFoundIt not_found = _TranslationsNotFoundIt._(_root);
+	late final _TranslationsNotFoundIt notFound = _TranslationsNotFoundIt._(_root);
 }
 
 // Path: portfolio
@@ -47,14 +54,14 @@ class _TranslationsPortfolioIt {
 	String get title => 'Corbelli Mattia - Portfolio';
 }
 
-// Path: ui_components
+// Path: uiComponents
 class _TranslationsUiComponentsIt {
 	_TranslationsUiComponentsIt._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final _TranslationsUiComponentsAppBarIt app_bar = _TranslationsUiComponentsAppBarIt._(_root);
+	late final _TranslationsUiComponentsAppBarIt appBar = _TranslationsUiComponentsAppBarIt._(_root);
 	late final _TranslationsUiComponentsFooterIt footer = _TranslationsUiComponentsFooterIt._(_root);
 }
 
@@ -77,10 +84,10 @@ class _TranslationsContactsIt {
 
 	// Translations
 	String get title => 'CONTATTI';
-	late final _TranslationsContactsContactFormIt contact_form = _TranslationsContactsContactFormIt._(_root);
+	late final _TranslationsContactsContactFormIt contactForm = _TranslationsContactsContactFormIt._(_root);
 }
 
-// Path: not_found
+// Path: notFound
 class _TranslationsNotFoundIt {
 	_TranslationsNotFoundIt._(this._root);
 
@@ -90,7 +97,7 @@ class _TranslationsNotFoundIt {
 	String get title => 'PAGINA NON TROVATA';
 }
 
-// Path: ui_components.app_bar
+// Path: uiComponents.appBar
 class _TranslationsUiComponentsAppBarIt {
 	_TranslationsUiComponentsAppBarIt._(this._root);
 
@@ -98,11 +105,11 @@ class _TranslationsUiComponentsAppBarIt {
 
 	// Translations
 	String get title => 'Corbelli Mattia';
-	late final _TranslationsUiComponentsAppBarThemeSelectorIt theme_selector = _TranslationsUiComponentsAppBarThemeSelectorIt._(_root);
+	late final _TranslationsUiComponentsAppBarThemeSelectorIt themeSelector = _TranslationsUiComponentsAppBarThemeSelectorIt._(_root);
 	late final _TranslationsUiComponentsAppBarNavigationsIt navigations = _TranslationsUiComponentsAppBarNavigationsIt._(_root);
 }
 
-// Path: ui_components.footer
+// Path: uiComponents.footer
 class _TranslationsUiComponentsFooterIt {
 	_TranslationsUiComponentsFooterIt._(this._root);
 
@@ -113,21 +120,26 @@ class _TranslationsUiComponentsFooterIt {
 	late final _TranslationsUiComponentsFooterSocialsIt socials = _TranslationsUiComponentsFooterSocialsIt._(_root);
 }
 
-// Path: contacts.contact_form
+// Path: contacts.contactForm
 class _TranslationsContactsContactFormIt {
 	_TranslationsContactsContactFormIt._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get first_name => 'Nome';
-	String get last_name => 'Cognome';
-	String get email_address => 'Indirizzo email';
-	String get body_message => 'Corpo del messaggio';
-	String get send_req_button => 'INVIA RICHIESTA';
+	String get firstName => 'Nome';
+	String get lastName => 'Cognome';
+	String get emailAddress => 'Indirizzo email';
+	String get bodyMessage => 'Corpo del messaggio';
+	TextSpan privacyPolicy({required InlineSpanBuilder tapHere}) => TextSpan(children: [
+		const TextSpan(text: 'Acconsento al trattamento dei miei dati personali per finalità di contatto e confermo di aver letto e accettato l\''),
+		tapHere('Informativa sulla Privacy'),
+		const TextSpan(text: '. Comprendo che i miei dati saranno utilizzati esclusivamente per rispondere alla mia richiesta di ricontatto e che posso revocare il consenso in qualsiasi momento.'),
+	]);
+	String get sendReqButton => 'INVIA RICHIESTA';
 }
 
-// Path: ui_components.app_bar.theme_selector
+// Path: uiComponents.appBar.themeSelector
 class _TranslationsUiComponentsAppBarThemeSelectorIt {
 	_TranslationsUiComponentsAppBarThemeSelectorIt._(this._root);
 
@@ -140,7 +152,7 @@ class _TranslationsUiComponentsAppBarThemeSelectorIt {
 	String get system => 'Tema dispositivo';
 }
 
-// Path: ui_components.app_bar.navigations
+// Path: uiComponents.appBar.navigations
 class _TranslationsUiComponentsAppBarNavigationsIt {
 	_TranslationsUiComponentsAppBarNavigationsIt._(this._root);
 
@@ -149,21 +161,22 @@ class _TranslationsUiComponentsAppBarNavigationsIt {
 	// Translations
 	String get homepage => 'HOMEPAGE';
 	String get contacts => 'CONTATTI';
-	String get not_found => 'NON TROVATA';
+	String get notFound => 'NON TROVATA';
 }
 
-// Path: ui_components.footer.version
+// Path: uiComponents.footer.version
 class _TranslationsUiComponentsFooterVersionIt {
 	_TranslationsUiComponentsFooterVersionIt._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
+	String result({required Object value}) => 'V ${value}';
 	String get loading => 'Caricamento ...';
 	String get error => 'Qualcosa è andato storto :(';
 }
 
-// Path: ui_components.footer.socials
+// Path: uiComponents.footer.socials
 class _TranslationsUiComponentsFooterSocialsIt {
 	_TranslationsUiComponentsFooterSocialsIt._(this._root);
 

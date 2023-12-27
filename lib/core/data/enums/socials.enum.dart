@@ -1,25 +1,26 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/core/constants/url.const.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:portfolio_web/core/localizations/translations.g.dart';
 
-const _socialKey = 'ui_components.footer.socials';
+const _socialKey = 'uiComponents.footer.socials';
 
 enum Socials {
   github(
     icon: EvaIcons.github,
-    url: 'https://github.com/mcorbelli',
+    url: UrlConst.github,
     tooltipKey: '$_socialKey.github',
   ),
   twitter(
     icon: EvaIcons.twitter,
-    url: 'https://twitter.com/_marbelli_',
+    url: UrlConst.twitter,
     tooltipKey: '$_socialKey.twitter',
   ),
   linkedin(
     icon: EvaIcons.linkedin,
-    url: 'https://www.linkedin.com/in/corbellimattia',
+    url: UrlConst.linkedin,
     tooltipKey: '$_socialKey.linkedin',
   );
 

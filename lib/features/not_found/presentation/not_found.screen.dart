@@ -34,7 +34,7 @@ class _NotFoundDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: t.ui_components.app_bar.title,
+        title: t.uiComponents.appBar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
@@ -42,7 +42,7 @@ class _NotFoundDesktop extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const DisplayMedium('404'),
-            DisplaySmall(t.not_found.title),
+            DisplaySmall(t.notFound.title),
           ],
         ),
       ),
@@ -57,7 +57,7 @@ class _NotFoundMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.mobile(
-        title: t.ui_components.app_bar.title,
+        title: t.uiComponents.appBar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
@@ -65,7 +65,7 @@ class _NotFoundMobile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const DisplayMedium('404'),
-            DisplaySmall(t.not_found.title),
+            DisplaySmall(t.notFound.title),
           ],
         ),
       ),

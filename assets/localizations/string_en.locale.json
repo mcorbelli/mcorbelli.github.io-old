@@ -2,7 +2,7 @@
     "portfolio": {
         "title": "Corbelli Mattia - Portfolio"
     },
-    "ui-components": {
+    "ui_components": {
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
@@ -14,13 +14,14 @@
             "navigations": {
                 "homepage": "HOMEPAGE",
                 "contacts": "CONTACTS",
-                "not-found": "NOT FOUND"
+                "not_found": "NOT FOUND"
             }
         },
         "footer": {
             "version": {
-                "loading": "Caricamento ...",
-                "error": "Qualcosa è andato storto :("
+                "result": "V $value",
+                "loading": "Loading ...",
+                "error": "Something went wrong :("
             },
             "socials": {
                 "github": "GitHub",
@@ -35,15 +36,16 @@
     },
     "contacts": {
         "title": "CONTACTS",
-        "contact-form": {
-            "first-name": "First name",
-            "last-name": "Last name",
-            "email-address": "Email address",
-            "body-message": "body message",
-            "send-req-button": "SEND REQUEST"
+        "contact_form": {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "email_address": "Email address",
+            "body_message": "Body message",
+            "privacy_policy(rich)": "I consent to the processing of my personal data for contact purposes and confirm that I have read and accepted the ${tapHere(Privacy Policy)}. I understand that my information will only be used to respond to my request for a re-contact and that I can withdraw my consent at any time.",
+            "send_req_button": "SEND REQUEST"
         }
     },
-    "not-found": {
+    "not_found": {
         "title": "PAGE NOT FOUND"
     }
 }

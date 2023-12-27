@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:toastification/toastification.dart';
 import 'package:url_strategy/url_strategy.dart' as strategy;
 
 import 'package:portfolio_web/core/localizations/translations.g.dart';
@@ -66,7 +67,12 @@ class PortfolioBlocWrapper extends StatelessWidget {
             ),
           ),
         ],
-        child: const _PortfolioRouter(),
+        child: const ToastificationConfigProvider(
+          config: ToastificationConfig(
+            alignment: Alignment.topRight,
+          ),
+          child: _PortfolioRouter(),
+        ),
       ),
     );
   }

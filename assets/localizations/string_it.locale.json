@@ -1,8 +1,9 @@
 {
+    "my_text(rich)": "Benvenuto $name. Per favore, clicca ${tapHere(here)}!",
     "portfolio": {
         "title": "Corbelli Mattia - Portfolio"
     },
-    "ui-components": {
+    "ui_components": {
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
@@ -14,11 +15,12 @@
             "navigations": {
                 "homepage": "HOMEPAGE",
                 "contacts": "CONTATTI",
-                "not-found": "NON TROVATA"
+                "not_found": "NON TROVATA"
             }
         },
         "footer": {
             "version": {
+                "result": "V $value",
                 "loading": "Caricamento ...",
                 "error": "Qualcosa è andato storto :("
             },
@@ -35,15 +37,16 @@
     },
     "contacts": {
         "title": "CONTATTI",
-        "contact-form": {
-            "first-name": "Nome",
-            "last-name": "Cognome",
-            "email-address": "Indirizzo email",
-            "body-message": "Corpo del messaggio",
-            "send-req-button": "INVIA RICHIESTA"
+        "contact_form": {
+            "first_name": "Nome",
+            "last_name": "Cognome",
+            "email_address": "Indirizzo email",
+            "body_message": "Corpo del messaggio",
+            "privacy_policy(rich)": "Acconsento al trattamento dei miei dati personali per finalità di contatto e confermo di aver letto e accettato l'${tapHere(Informativa sulla Privacy)}. Comprendo che i miei dati saranno utilizzati esclusivamente per rispondere alla mia richiesta di ricontatto e che posso revocare il consenso in qualsiasi momento.",
+            "send_req_button": "INVIA RICHIESTA"
         }
     },
-    "not-found": {
+    "not_found": {
         "title": "PAGINA NON TROVATA"
     }
 }

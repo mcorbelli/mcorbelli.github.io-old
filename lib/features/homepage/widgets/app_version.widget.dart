@@ -24,12 +24,14 @@ class _AppVersionState extends State<AppVersion> {
     return FutureBuilder<PackageInfo>(
       future: _onPackageInfoFuture(),
       builder: (_, snapshot) {
-        String versionLabel = t.ui_components.footer.version.loading;
+        String versionLabel = t.uiComponents.footer.version.loading;
 
         if (snapshot.hasError) {
-          versionLabel = t.ui_components.footer.version.error;
+          versionLabel = t.uiComponents.footer.version.error;
         } else if (snapshot.hasData) {
-          versionLabel = 'V ${snapshot.data!.version}';
+          versionLabel = t.uiComponents.footer.version.result(
+              value: snapshot.data!.version,
+          );
         }
 
         return Padding(

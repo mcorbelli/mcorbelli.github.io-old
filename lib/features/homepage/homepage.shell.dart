@@ -50,30 +50,33 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: t.ui_components.app_bar.title,
+        title: t.uiComponents.appBar.title,
         redirect: AppRoutes.homepage,
         navItems: const [
           AppRoutes.homepage,
           AppRoutes.contacts,
         ],
       ),
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          widget.child,
-          const CustomFooter(
-            socials: [
-              Socials.github,
-              Socials.twitter,
-              Socials.linkedin,
-            ],
-            leading: AppVersion(
-              margin: EdgeInsets.only(
-                left: 8.0,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox.shrink(
+              child: widget.child,
+            ),
+            const CustomFooter(
+              socials: [
+                Socials.github,
+                Socials.twitter,
+                Socials.linkedin,
+              ],
+              leading: AppVersion(
+                margin: EdgeInsets.only(
+                  left: 8.0,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -123,7 +126,7 @@ class _HomepageMobileState extends State<_HomepageMobile> {
     return BackdropScaffold(
       key: _backdropKey,
       appBar: CustomAppBar.mobile(
-        title: t.ui_components.app_bar.title,
+        title: t.uiComponents.appBar.title,
         redirect: AppRoutes.homepage,
         isMenuOpen: isRevealed,
         onMenuPressed: _onMenuPressed,
@@ -139,18 +142,21 @@ class _HomepageMobileState extends State<_HomepageMobile> {
           Socials.linkedin,
         ],
       ),
-      frontLayer: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          widget.child,
-          const CustomFooter(
-            leading: AppVersion(
-              margin: EdgeInsets.only(
-                left: 8.0,
+      frontLayer: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox.shrink(
+              child: widget.child,
+            ),
+            const CustomFooter(
+              leading: AppVersion(
+                margin: EdgeInsets.only(
+                  left: 8.0,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       stickyFrontLayer: true,
       revealBackLayerAtStart: isRevealed,

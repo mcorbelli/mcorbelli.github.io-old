@@ -1,6 +1,6 @@
 import 'package:portfolio_web/core/localizations/translations.g.dart';
 
-const _navKey = 'ui_components.app_bar.navigations';
+const _navKey = 'uiComponents.appBar.navigations';
 
 enum AppRoutes {
   homepage(
@@ -16,7 +16,7 @@ enum AppRoutes {
   notFound(
     routeName: 'not-found',
     routePath: '/not-found',
-    titleKey: '$_navKey.not-found',
+    titleKey: '$_navKey.notFound',
   );
 
   const AppRoutes({

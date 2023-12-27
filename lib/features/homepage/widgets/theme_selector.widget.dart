@@ -9,19 +9,19 @@ import 'package:portfolio_web/features/homepage/data/models/theme_action.model.d
 final themes = [
   ThemeAction(
     themeMode: ThemeMode.light,
-    tooltip: t.ui_components.app_bar.theme_selector.light,
+    tooltip: t.uiComponents.appBar.themeSelector.light,
     iconData: EvaIcons.sun,
     color: const Color(0XFFF7BE39),
   ),
   ThemeAction(
     themeMode: ThemeMode.dark,
-    tooltip: t.ui_components.app_bar.theme_selector.dark,
+    tooltip: t.uiComponents.appBar.themeSelector.dark,
     iconData: EvaIcons.moon,
     color: const Color(0XFF3271C2),
   ),
   ThemeAction(
     themeMode: ThemeMode.system,
-    tooltip: t.ui_components.app_bar.theme_selector.system,
+    tooltip: t.uiComponents.appBar.themeSelector.system,
     iconData: EvaIcons.hardDrive,
   ),
 ];
@@ -44,7 +44,7 @@ class _ThemeSelectorState extends State<ThemeSelector> {
         onSelected: (value) {
           _onThemeSelected(value.themeMode);
         },
-        tooltip: t.ui_components.app_bar.theme_selector.tooltip,
+        tooltip: t.uiComponents.appBar.themeSelector.tooltip,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
