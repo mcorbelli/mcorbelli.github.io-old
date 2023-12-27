@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:portfolio_web/core/localizations/translations.g.dart';
 
-const _socialKey = 'homepage.footer.socials';
+const _socialKey = 'ui_components.footer.socials';
 
 enum Socials {
   github(

@@ -1,6 +1,6 @@
 import 'package:portfolio_web/core/localizations/translations.g.dart';
 
-const _navKey = 'homepage.app_bar.navigations';
+const _navKey = 'ui_components.app_bar.navigations';
 
 enum AppRoutes {
   homepage(

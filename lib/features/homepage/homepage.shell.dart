@@ -50,7 +50,7 @@ class _HomepageDesktopState extends State<_HomepageDesktop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: t.homepage.app_bar.title,
+        title: t.ui_components.app_bar.title,
         redirect: AppRoutes.homepage,
         navItems: const [
           AppRoutes.homepage,
@@ -123,7 +123,7 @@ class _HomepageMobileState extends State<_HomepageMobile> {
     return BackdropScaffold(
       key: _backdropKey,
       appBar: CustomAppBar.mobile(
-        title: t.homepage.app_bar.title,
+        title: t.ui_components.app_bar.title,
         redirect: AppRoutes.homepage,
         isMenuOpen: isRevealed,
         onMenuPressed: _onMenuPressed,

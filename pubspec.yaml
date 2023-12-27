@@ -45,6 +45,8 @@ dependencies:
   package_info_plus: ^5.0.1
   slang: ^3.25.0
   slang_flutter: ^3.25.0
+  flutter_form_builder: ^9.1.1
+  form_builder_validators: ^9.1.0
 
   logzilla:
     path: packages/logzilla

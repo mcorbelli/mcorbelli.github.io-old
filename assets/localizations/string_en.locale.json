@@ -2,7 +2,7 @@
     "portfolio": {
         "title": "Corbelli Mattia - Portfolio"
     },
-    "homepage": {
+    "ui-components": {
         "app_bar": {
             "title": "Corbelli Mattia",
             "theme_selector": {
@@ -35,7 +35,13 @@
     },
     "contacts": {
         "title": "CONTACTS",
-        "subtitle": "(portfolio in development)"
+        "contact-form": {
+            "first-name": "First name",
+            "last-name": "Last name",
+            "email-address": "Email address",
+            "body-message": "body message",
+            "send-req-button": "SEND REQUEST"
+        }
     },
     "not-found": {
         "title": "PAGE NOT FOUND"

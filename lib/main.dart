@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:url_strategy/url_strategy.dart' as strategy;
 
@@ -103,7 +104,11 @@ class _PortfolioRouterState extends State<_PortfolioRouter> {
           routeInformationProvider: _routeManager.infoProvider,
           supportedLocales: AppLocaleUtils.supportedLocales,
           locale: TranslationProvider.of(context).flutterLocale,
-          localizationsDelegates: GlobalMaterialLocalizations.delegates,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            FormBuilderLocalizations.delegate,
+          ],
         );
       },
     );

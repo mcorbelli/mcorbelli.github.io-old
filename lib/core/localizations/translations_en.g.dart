@@ -1,8 +1,7 @@
 part of 'translations.g.dart';
 
 // Path: <root>
-class _TranslationsEn extends _TranslationsIt {
-
+class _TranslationsEn extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	_TranslationsEn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
@@ -19,7 +18,7 @@ class _TranslationsEn extends _TranslationsIt {
 	}
 
 	/// Metadata for the translations of <en>.
-	@override final TranslationMetadata<AppLocale, _TranslationsIt> $meta;
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key) ?? super.$meta.getTranslation(key);
@@ -28,7 +27,7 @@ class _TranslationsEn extends _TranslationsIt {
 
 	// Translations
 	@override late final _TranslationsPortfolioEn portfolio = _TranslationsPortfolioEn._(_root);
-	@override late final _TranslationsHomepageEn homepage = _TranslationsHomepageEn._(_root);
+	@override late final _TranslationsUiComponentsEn ui_components = _TranslationsUiComponentsEn._(_root);
 	@override late final _TranslationsIntroductionEn introduction = _TranslationsIntroductionEn._(_root);
 	@override late final _TranslationsContactsEn contacts = _TranslationsContactsEn._(_root);
 	@override late final _TranslationsNotFoundEn not_found = _TranslationsNotFoundEn._(_root);
@@ -44,15 +43,15 @@ class _TranslationsPortfolioEn extends _TranslationsPortfolioIt {
 	@override String get title => 'Corbelli Mattia - Portfolio';
 }
 
-// Path: homepage
-class _TranslationsHomepageEn extends _TranslationsHomepageIt {
-	_TranslationsHomepageEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components
+class _TranslationsUiComponentsEn extends _TranslationsUiComponentsIt {
+	_TranslationsUiComponentsEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomepageAppBarEn app_bar = _TranslationsHomepageAppBarEn._(_root);
-	@override late final _TranslationsHomepageFooterEn footer = _TranslationsHomepageFooterEn._(_root);
+	@override late final _TranslationsUiComponentsAppBarEn app_bar = _TranslationsUiComponentsAppBarEn._(_root);
+	@override late final _TranslationsUiComponentsFooterEn footer = _TranslationsUiComponentsFooterEn._(_root);
 }
 
 // Path: introduction
@@ -74,7 +73,7 @@ class _TranslationsContactsEn extends _TranslationsContactsIt {
 
 	// Translations
 	@override String get title => 'CONTACTS';
-	@override String get subtitle => '(portfolio in development)';
+	@override late final _TranslationsContactsContactFormEn contact_form = _TranslationsContactsContactFormEn._(_root);
 }
 
 // Path: not_found
@@ -87,32 +86,46 @@ class _TranslationsNotFoundEn extends _TranslationsNotFoundIt {
 	@override String get title => 'PAGE NOT FOUND';
 }
 
-// Path: homepage.app_bar
-class _TranslationsHomepageAppBarEn extends _TranslationsHomepageAppBarIt {
-	_TranslationsHomepageAppBarEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components.app_bar
+class _TranslationsUiComponentsAppBarEn extends _TranslationsUiComponentsAppBarIt {
+	_TranslationsUiComponentsAppBarEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'Corbelli Mattia';
-	@override late final _TranslationsHomepageAppBarThemeSelectorEn theme_selector = _TranslationsHomepageAppBarThemeSelectorEn._(_root);
-	@override late final _TranslationsHomepageAppBarNavigationsEn navigations = _TranslationsHomepageAppBarNavigationsEn._(_root);
+	@override late final _TranslationsUiComponentsAppBarThemeSelectorEn theme_selector = _TranslationsUiComponentsAppBarThemeSelectorEn._(_root);
+	@override late final _TranslationsUiComponentsAppBarNavigationsEn navigations = _TranslationsUiComponentsAppBarNavigationsEn._(_root);
 }
 
-// Path: homepage.footer
-class _TranslationsHomepageFooterEn extends _TranslationsHomepageFooterIt {
-	_TranslationsHomepageFooterEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components.footer
+class _TranslationsUiComponentsFooterEn extends _TranslationsUiComponentsFooterIt {
+	_TranslationsUiComponentsFooterEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomepageFooterVersionEn version = _TranslationsHomepageFooterVersionEn._(_root);
-	@override late final _TranslationsHomepageFooterSocialsEn socials = _TranslationsHomepageFooterSocialsEn._(_root);
+	@override late final _TranslationsUiComponentsFooterVersionEn version = _TranslationsUiComponentsFooterVersionEn._(_root);
+	@override late final _TranslationsUiComponentsFooterSocialsEn socials = _TranslationsUiComponentsFooterSocialsEn._(_root);
 }
 
-// Path: homepage.app_bar.theme_selector
-class _TranslationsHomepageAppBarThemeSelectorEn extends _TranslationsHomepageAppBarThemeSelectorIt {
-	_TranslationsHomepageAppBarThemeSelectorEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: contacts.contact_form
+class _TranslationsContactsContactFormEn extends _TranslationsContactsContactFormIt {
+	_TranslationsContactsContactFormEn._(_TranslationsEn root) : this._root = root, super._(root);
+
+	@override final _TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get first_name => 'First name';
+	@override String get last_name => 'Last name';
+	@override String get email_address => 'Email address';
+	@override String get body_message => 'body message';
+	@override String get send_req_button => 'SEND REQUEST';
+}
+
+// Path: ui_components.app_bar.theme_selector
+class _TranslationsUiComponentsAppBarThemeSelectorEn extends _TranslationsUiComponentsAppBarThemeSelectorIt {
+	_TranslationsUiComponentsAppBarThemeSelectorEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
@@ -123,9 +136,9 @@ class _TranslationsHomepageAppBarThemeSelectorEn extends _TranslationsHomepageAp
 	@override String get system => 'System theme';
 }
 
-// Path: homepage.app_bar.navigations
-class _TranslationsHomepageAppBarNavigationsEn extends _TranslationsHomepageAppBarNavigationsIt {
-	_TranslationsHomepageAppBarNavigationsEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components.app_bar.navigations
+class _TranslationsUiComponentsAppBarNavigationsEn extends _TranslationsUiComponentsAppBarNavigationsIt {
+	_TranslationsUiComponentsAppBarNavigationsEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
@@ -135,9 +148,9 @@ class _TranslationsHomepageAppBarNavigationsEn extends _TranslationsHomepageAppB
 	@override String get not_found => 'NOT FOUND';
 }
 
-// Path: homepage.footer.version
-class _TranslationsHomepageFooterVersionEn extends _TranslationsHomepageFooterVersionIt {
-	_TranslationsHomepageFooterVersionEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components.footer.version
+class _TranslationsUiComponentsFooterVersionEn extends _TranslationsUiComponentsFooterVersionIt {
+	_TranslationsUiComponentsFooterVersionEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 
@@ -146,9 +159,9 @@ class _TranslationsHomepageFooterVersionEn extends _TranslationsHomepageFooterVe
 	@override String get error => 'Qualcosa è andato storto :(';
 }
 
-// Path: homepage.footer.socials
-class _TranslationsHomepageFooterSocialsEn extends _TranslationsHomepageFooterSocialsIt {
-	_TranslationsHomepageFooterSocialsEn._(_TranslationsEn root) : this._root = root, super._(root);
+// Path: ui_components.footer.socials
+class _TranslationsUiComponentsFooterSocialsEn extends _TranslationsUiComponentsFooterSocialsIt {
+	_TranslationsUiComponentsFooterSocialsEn._(_TranslationsEn root) : this._root = root, super._(root);
 
 	@override final _TranslationsEn _root; // ignore: unused_field
 

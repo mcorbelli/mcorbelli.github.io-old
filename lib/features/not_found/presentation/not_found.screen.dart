@@ -34,7 +34,7 @@ class _NotFoundDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.desktop(
-        title: t.homepage.app_bar.title,
+        title: t.ui_components.app_bar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
@@ -57,7 +57,7 @@ class _NotFoundMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.mobile(
-        title: t.homepage.app_bar.title,
+        title: t.ui_components.app_bar.title,
         redirect: AppRoutes.homepage,
       ),
       body: Center(
